@@ -1,0 +1,79 @@
+<div class="row">
+					<div class="col-lg-12 text-center">
+						<span class="TitleDo">Reach</span>
+					</div>
+					<div class="col-lg-12 text-center">
+						<span class="title4">next Badge</span>
+					</div>
+				</div>
+				<br />
+				<br />
+
+				<div class="row">
+					<div class="col-xs-3 text-right">
+						<img src="./images/good.png" width="80%" class="img-responsive" style="display:inline-block"/>
+					</div>
+					<div class="col-xs-8 NoPaddingLR">
+						<div class="skillbar clearfix" data-percent="34%" id="Cat1">
+							<div class="skillbar-bar backgroundMain"></div>
+							<div class="skill-bar-percent" id="Cat_percent1">34%</div>
+						</div> <!-- End Skill Bar -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3 text-right">
+						<img src="./images/people.png" width="80%" class="img-responsive" style="display:inline-block"/>
+					</div>
+					<div class="col-xs-8 NoPaddingLR">
+						<div class="skillbar clearfix " data-percent="66%" id="Cat2">
+							<div class="skillbar-bar backgroundMain"></div>
+							<div class="skill-bar-percent" id="Cat_percent2">66%</div>
+						</div> <!-- End Skill Bar -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3 text-right">
+						<img src="./images/heart.png" width="80%" class="img-responsive" style="display:inline-block"/>
+					</div>
+					<div class="col-xs-8 NoPaddingLR">
+						<div class="skillbar clearfix " data-percent="35%" id="Cat3">
+							<div class="skillbar-bar backgroundMain"></div>
+							<div class="skill-bar-percent" id="Cat_percent3">35%</div>
+						</div> <!-- End Skill Bar -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3 text-right">
+						<img src="./images/clock.png" width="80%" class="img-responsive" style="display:inline-block"/>
+					</div>
+					<div class="col-xs-8 NoPaddingLR">
+						<div class="skillbar clearfix " data-percent="78%" id="Cat4">
+							<div class="skillbar-bar backgroundMain"></div>
+							<div class="skill-bar-percent" id="Cat_percent4">78%</div>
+						</div> <!-- End Skill Bar -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3 text-right">
+						<img src="./images/plant.png" width="80%" class="img-responsive" style="display:inline-block"/>
+					</div>
+					<div class="col-xs-8 NoPaddingLR">
+						<div class="skillbar clearfix " data-percent="96%" id="Cat5">
+							<div class="skillbar-bar backgroundMain"></div>
+							<div class="skill-bar-percent" id="Cat_percent5">96%</div>
+						</div> <!-- End Skill Bar -->
+					</div>
+				</div>
+				
+				
+				
+				
+				<script type="text/javascript">
+				jQuery(document).ready(function(){
+					jQuery('.skillbar').each(function(){
+						jQuery(this).find('.skillbar-bar').animate({
+							width:jQuery(this).attr('data-percent')
+						},3000);
+					});
+				});
+				</script>
