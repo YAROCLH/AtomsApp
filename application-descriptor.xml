@@ -3,29 +3,30 @@
 			 5725-I43 (C) Copyright IBM Corp. 2006, 2013, 2015. All Rights Reserved.
 			 US Government Users Restricted Rights - Use, duplication or
              disclosure restricted by GSA ADP Schedule Contract with IBM Corp. --><!-- Attribute "id" must be identical to application folder name --><application xmlns="http://www.worklight.com/application-descriptor" id="AtomsApp" platformVersion="7.1.0.00.20151227-1725">
-    <displayName>AtomsApp</displayName>
-    <description>AtomsApp</description>
-    <author>
-        <name>application's author</name>
-        <email>application author's e-mail</email>
-        <homepage>http://mycompany.com</homepage>
-        <copyright>Copyright My Company</copyright>
+    <displayName>Atoms</displayName>
+    <description>Atoms</description>
+   <author>
+        <name>IBM BTCIO CTG</name>
+        <email>aemiguel@mx1.ibm.com</email>
+        <homepage>http://ibm.com</homepage>
+        <copyright>Copyright IBM</copyright>
     </author>
     <mainFile>index.html</mainFile>
     <features/>
     <targetCategory>UNDEFINED</targetCategory>
     <licenseAppType>APPLICATION</licenseAppType>
     <thumbnailImage>common/images/thumbnail.png</thumbnailImage>
-    <iphone bundleId="com.AtomsApp" version="1.0">
+    <iphone bundleId="com.ibm.cio.be.iphone.mobile.atoms" version="1.0.7">
         <worklightSettings include="false"/>
         <security>
             <encryptWebResources enabled="false"/>
             <testWebResourcesChecksum enabled="false" ignoreFileExtensions="png, jpg, jpeg, gif, mp4, mp3"/>
         </security>
     </iphone>
+
     <userIdentityRealms/>
     <accessTokenExpiration>3600</accessTokenExpiration>
-    <android version="1.0">
+    <android version="1.0.7">
         <worklightSettings include="false"/>
         <security>
             <encryptWebResources enabled="false"/>
