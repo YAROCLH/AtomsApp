@@ -1,0 +1,83 @@
+<!DOCTYPE HTML><html>
+    <head>
+        <meta charset="UTF-8">   
+        <title>Atoms V1.0</title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport">
+    <!-- This part install the css for everything -->
+        <link href="worklight/worklight.css" rel="stylesheet">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+        <script>
+		// Define WL namespace.
+		var WL = WL ? WL : {};
+		/**
+		 * WLClient configuration variables.
+		 * Values are injected by the deployer that packs the gadget.
+		 */
+		 WL.StaticAppProps = {
+   "APP_DISPLAY_NAME": "AtomsApp",
+   "APP_ID": "AtomsApp",
+   "APP_SERVICES_URL": "\/apps\/services\/",
+   "APP_VERSION": "1.0",
+   "ENVIRONMENT": "iphone",
+   "LOGIN_DISPLAY_TYPE": "embedded",
+   "WORKLIGHT_NATIVE_VERSION": "2929140589",
+   "WORKLIGHT_PLATFORM_VERSION": "7.1.0.0",
+   "WORKLIGHT_ROOT_URL": "\/apps\/services\/api\/AtomsApp\/iphone\/"
+};
+</script>
+		<script src="worklight/cordova.js"></script>
+		<script src="worklight/wljq.js"></script>
+		<script src="worklight/worklight.js"></script>
+		<script src="worklight/checksum.js"></script>
+		<script>
+        window.$ = window.jQuery = WLJQ;
+    </script>
+    <script src="lib/JQuery-2.1.4.js"></script>
+    <script src="lib/angular.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/initOptions.js"></script>
+    <script src="js/messages.js"></script>
+    <script src="js/jquery.Jcrop.js"></script>
+    <script src="js/global/init.js"></script>
+    <script src="js/global/GlobalController.js"></script>
+    </head>
+    <body id="MainBody">
+        <div class="" id="MainPanelGeneral">
+            <div id="MenuPanel">
+            <!-- ********************************************************************************************************
+                            First Section for menu 
+            *********************************************************************************************************-->
+            <!-- ********************************************************************************************************
+                            End Section for menu 
+            *********************************************************************************************************-->
+            </div>
+            <div class="" id="NavegacionCatego">
+            </div>
+            <div class="div-align" id="MainPanel">
+            <!-- ********************************************************************************************************
+                            First Section for body
+            *********************************************************************************************************-->
+            <!-- ********************************************************************************************************
+                            End Section for body 
+            *********************************************************************************************************-->
+            </div>
+        </div>
+<!-- Modal -->
+        <div aria-labelledby="myModalLabel" class="modal fade" id="AtomsModal" role="dialog" tabindex="-1">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title AppColor" id="myModalLabel"></h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+              <!--  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button> --> 
+                        <button class="btn btn-primary ActiveRed" data-dismiss="modal" type="button">Accept</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
