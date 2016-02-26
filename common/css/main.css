@@ -86,7 +86,7 @@ body,
 	line-height:normal !important;
 }
 
-@media (max-width: 768px)
+@media (max-width: 767px)
 {
 	.miniPhoto 
 	{
@@ -152,6 +152,7 @@ body,
 .MenuBackgroundG
 { 
 	background-color:#E8E9EA;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .Margin
 {
@@ -160,7 +161,7 @@ body,
 .MainText
 {
 	font-family:"Arial";
-	font-size:4.0vw;
+	font-size:3.9vw;
 	color:#A9A9A9;
 }
 
@@ -174,15 +175,15 @@ body,
 .ColorScore
 {
 	font-family:"Arial";
-	font-size:5.2vw;
+	font-size:4.9vw;
 	color:#F04F38;
 }
 .categoryLavel
 {
 	font-family:"Arial";
-	font-size:9vw;
+	font-size:7vw;
 	color:#F04F38;
-	border: 1px solid #F04F38;
+	
 	padding:2px;
 }
 .LevelOne
@@ -198,9 +199,11 @@ body,
 .LevelOne2
 {
 	font-family:"Arial";
-	font-size:25px;
+	font-size:5vw;
 	margin-top:3px;
+	margin-bottom:3px;
 	padding:3px;
+	padding-bottom:10px;
 	color:#FFFFFF;
 	background-color:#FCB614;
 }

@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row" style="border-bottom:1px solid #E8E9EA">
 	<div class="col-xs-3 text-center categoryLavel CategoryOneClick">
-		<label id="izquierda" class="text-menu-category title5">X</label>
+		<label id="izquierda" class="text-menu-category title5">&nbsp;</label>
 	</div>
 	<div class="col-xs-6 text-center categoryLavel CategoryTwolick">
 		<label class="text-menu-category title5" id="CategoryName">Productivity</label>
@@ -9,6 +9,8 @@
 		<label id="derecha" class="text-menu-category title5">&#62;&#62;</label>
 	</div>
 </div>
+
+
 <script type="text/javascript">
 		$(".CategoryOneClick").on('click',function()
 		{
@@ -20,7 +22,7 @@
 				$("#derecha").html("&#62;&#62;");	
 			}else
 			{
-				$("#izquierda").html("X");
+				$("#izquierda").html("&nbsp;");
 			}
 		});
 		
@@ -34,7 +36,7 @@
 				setCategory(CM_counter);	
 			}else
 			{
-				$("#derecha").html("X");
+				$("#derecha").html("&nbsp;");
 			}
 		});
 </script>
