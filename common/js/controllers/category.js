@@ -24,15 +24,21 @@
 			$('#myModalLabel').text("Done!");
 			$('#AtomsModal').modal('show');
 		});
-		$(document).on('click',".DetailsClickCategory",function(){
+		/*$(document).on('click',".DetailsClickCategory",function(){
 			var ChallengeDetails= $(this).attr('value');
-			$("#myModalLabelOne").text(ChallengeDetails);
-			$("#AtomsModalOne").modal('show');
+			$("#myModalLabel").text(ChallengeDetails);
+			$("#AtomsModal").modal('show');
 		});
 	
 /**
  * Functions
  */
+		function DetailsChallenges(value)
+		{
+			$("#myModalLabel").text(value);
+			$("#AtomsModal").modal('show');
+		}
+		
 		function init_category(id){
 			category_js=true;
 			if(id!=null){	category_CurrentCategory=id;	}
@@ -58,7 +64,7 @@
 				category_buffer=category_buffer+
 							  '<div class="Margin"><span class="MainText2">'+category_data[i].Short+'</span></div>'+
 			    			  '<div style="margin-top:10%;">'+
-							  '<label class="LevelOne2 DetailsClickCategory NoPaddingLR" value="'+category_data[i].Long+'">&nbsp;&nbsp;...&nbsp;&nbsp;</label>'+
+							  '<label onclick="DetailsChallenges(\''+category_data[i].Long+'\');" class="LevelOne2 DetailsClickCategory NoPaddingLR" value="'+category_data[i].Long+'">&nbsp;&nbsp;...&nbsp;&nbsp;</label>'+
 							  '</div></div>'+
 			    			  '<div class="col-xs-4 text-right NoPadding"><div class="text-right;">'+
 					   	      '<span class="LevelOne">+'+category_data[i].Points+'</span>'+

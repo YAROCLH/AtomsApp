@@ -118,9 +118,18 @@
 </div>
 
 <div class="row">
-	<div class="col-lg-12 text-right">
-		<a href="javascript:void(0);" id="status"
-			style="text-decoration: none;" class="title4 footerVersion">Actual
-			Status</a>
+	<div class="col-xs-6 col-lg-6 text-left PaddingLR">
+		<label class="title4 backScore">&#60;&#60;</label>
 	</div>
+	
+	<div class="col-xs-6 col-lg-6 text-right">
+		<a href="javascript:void(0);" id="status" style="text-decoration: none;" class="title4 footerVersion">Actual Status</a>
+	</div>
+	<script type="text/javascript">
+
+				$(".backScore").on("click",function()
+				{
+							setView("yourRank",rank_js);
+				});
+				</script>
 </div>

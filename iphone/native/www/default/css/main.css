@@ -66,9 +66,46 @@ body,
 .MenuBackground
 {
 	width:100%;
-	height:18%;
-	padding-top:11px;
-    padding-bottom:11px;
+}
+.navbar-default .navbar-toggle{
+	border:none;
+}
+.navbar-toggle{
+	padding:0px;
+}
+.navbar-brand{
+	height:60px;
+	padding: 3px 15px;
+}
+.navbar-default .navbar-nav > li > a{
+	color:#FFF;
+}
+.menuOptions{
+	font-size:2vw;
+	text-decoration:none;
+}
+.navbar-nav > li > a{
+	line-height:normal !important;
+}
+
+@media (max-width: 767px)
+{
+	.miniPhoto 
+	{
+		display:none;
+	}
+	.menuOptions{
+	font-size:4vw;
+	}
+}
+.navbar-nav > li:hover{
+	border: 1px solid #b3b3b3;
+	background-color:#86201a;
+	color:#FFF;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+	color:#FFF;
 }
 .PanelLefth
 {
@@ -117,6 +154,7 @@ body,
 .MenuBackgroundG
 { 
 	background-color:#E8E9EA;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .Margin
 {
@@ -125,7 +163,7 @@ body,
 .MainText
 {
 	font-family:"Arial";
-	font-size:4.0vw;
+	font-size:3.9vw;
 	color:#A9A9A9;
 }
 
@@ -139,15 +177,15 @@ body,
 .ColorScore
 {
 	font-family:"Arial";
-	font-size:5.2vw;
+	font-size:4.9vw;
 	color:#F04F38;
 }
 .categoryLavel
 {
 	font-family:"Arial";
-	font-size:12px;
+	font-size:7vw;
 	color:#F04F38;
-	border: 1px solid #F04F38;
+	
 	padding:2px;
 }
 .LevelOne
@@ -163,9 +201,11 @@ body,
 .LevelOne2
 {
 	font-family:"Arial";
-	font-size:25px;
+	font-size:5vw;
 	margin-top:3px;
+	margin-bottom:3px;
 	padding:3px;
+	padding-bottom:10px;
 	color:#FFFFFF;
 	background-color:#FCB614;
 }
@@ -218,7 +258,7 @@ body,
 * Button Yes or No
 ***********************************/
 .onoffswitch {
-    position: relative; width: 89px;
+    position: relative; width: 25vw;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
 .onoffswitch-checkbox {
@@ -226,34 +266,39 @@ body,
 }
 .onoffswitch-label {
     display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #F5EBEB; border-radius: 37px;
+    border: 1px solid transparent; 
+    border-radius: 10px;
 }
 .onoffswitch-inner {
     display: block; width: 200%; margin-left: -100%;
     transition: margin 0.3s ease-in 0s;
 }
-.onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 36px; padding: 0; line-height: 36px;
-    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+.onoffswitch-inner:before, 
+.onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 8.5vw; padding: 0; line-height: 8vw;
+    font-size: 5.5vw; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
     box-sizing: border-box;
 }
 .onoffswitch-inner:before {
-    content: "YES";
-    padding-left: 9px;
-    background-color: #22B04B; color: #FFFFFF;
+    content: "Yes";
+    padding-left: 3.5vw;
+    background-color: #F04F38; color: #FFFFFF;
 }
 .onoffswitch-inner:after {
-    content: "NO";
-    padding-right: 9px;
-    background-color: #EBE2E2; color: #999999;
+    content: "No";
+    padding-right: 3.5vw;
+    background-color: #2DAF50; color: #ffffff;
     text-align: right;
 }
 .onoffswitch-switch {
-    display: block; width: 16px; margin: 10px;
+    display: block; 
+    width: 6vw; 
+    margin: 1.5vw;
     background: #FFFFFF;
     position: absolute; top: 0; bottom: 0;
-    right: 49px;
-    border: 2px solid #F5EBEB; border-radius: 37px;
+    right: 16vw;
+    border: 1px solid transparent; 
+    border-radius: 20px;
     transition: all 0.3s ease-in 0s; 
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
@@ -262,6 +307,10 @@ body,
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
 }
+
+
+
+
 
 html, body {
     max-width: 100%;
@@ -282,6 +331,11 @@ html, body {
 	color:#000000;
 	font-size:8vw;
 }
+.title3
+{
+	color:#000000;
+	font-size:6.5vw;
+}
 .title4
 {
 	color:#808080;
@@ -292,6 +346,7 @@ html, body {
 	color:#808080;
 	font-size:5.2vw;
 }
+
 .scoreNumbersC
 {
 	color:#7d7d7d;
@@ -453,9 +508,29 @@ width:110px;
 }
 .NoActiveModule
 {
-	opacity:0.6;
+	opacity:0.8;
+}
+.footerVersion{
+	font-weight:bold;
+	padding: 15px 15px;
+}
+.Click123
+{
+	
+}
+.Click123:hover
+{
+	
 }
 
+.modal-header{
+	padding:10px;
+	border:none;
+}
+.modal-footer{
+	padding:10px;
+	border:none;
+}
 /* Stylesheet content from css/main.css in folder iphone */
 
 /* this CSS file extends the application CSS file found under common\css */

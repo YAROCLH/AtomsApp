@@ -1,11 +1,43 @@
-<div class="MenuBackground backgroundMain">
-    <div class="row">
-        <div class="col-xs-offset-1 col-xs-4 NoPaddingLR main">
-            <img src="./images/logo.png" width="80%" class="img-responsive" />
-        </div>
-        <div class="col-xs-offset-3 col-xs-3 text-center NoPaddingLR">
 
-            <img id="UserPicture" src="./images/foto.png" width="70%" style="display:inline-block;" class="img-responsive img-circle" />
-        </div>
-    </div>
+<div id="barMenuIphone">
+	<div id="barIphone">
+	</div>
+	<nav id="MenuBarMain" class="MenuBackground backgroundMain navbar navbar-default">
+		<div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <img id="UserPicture" src="./images/foto.png" width="50px" style="display:inline-block;" class="img-responsive img-circle" />
+		      </button>
+		      <img src="./images/logo.png" height="70px" class="navbar-brand img-responsive main" />
+		    </div>
+		
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a class="menuOptions" href="javascript:void(0);"><img id="UserPicture" src="./images/foto.png" width="35px"  class="img-circle miniPhoto" />  Profile</a></li>
+		        <li class="backScore2"><a class="menuOptions backScore2" href="javascript:void(0);">My Score</a></li>
+		        <li class="logout"><a class="menuOptions logout" href="javascript:void(0);">Log Out</a></li>
+		      </ul>
+		    </div>
+	  </div>
+	</nav>
 </div>
+<div id="relleno" style="height:75px;">
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+			if(devicePlatform=="iOS - iPhone" || devicePlatform=="iOS")
+			{
+				$("#barMenuIphone").addClass( "navbar-fixed-top" );
+				$("#barIphone").css("background-color","#FFFFFF");
+				$("#barIphone").css("width","100%");
+				$("#barIphone").css("height","20px");
+				$("#relleno").css("height","75px");
+				
+			}else if(devicePlatform=="Android")
+				{
+					$("#MenuBarMain").addClass( "navbar-fixed-top" );
+					$("#relleno").css("height","65px");
+				}
+		});
+</script>

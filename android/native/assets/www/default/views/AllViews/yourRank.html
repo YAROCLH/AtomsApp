@@ -1,5 +1,5 @@
 <div class="row text-center">
-	<span class="title4">your <strong>rank</strong></span>
+	<label class="title1 AppColor">your <strong>rank</strong></label>
 </div>
 <div class="row text-center">
 	<span class="scoreNumbersC AppColor" id="myRankNumber"></span>
@@ -7,87 +7,27 @@
 <div class="row" style="padding:7%; padding-top:0px;" id="container">
 	<div class="row" id="rank_header">
 		<div class="col-xs-2 text-center">
-			<span class="title4"><strong>Rank</strong> </span>
+			<label class="title3 AppColor"><strong>Rank</strong> </label>
 		</div>
-		<div class="col-xs-7">
-		
-		</div>
-		<div class="col-xs-3 text-center">
-			<span class="title4"><strong>Score</strong></span>
+		<div class="col-xs-offset-7 col-xs-3 text-center">
+			<label class="title4"><strong>Score</strong></label>
 		</div>
 	</div>
-	
-	
-	<!-- ************************************************************************************************ -->
-	<!-- Beginning if div to cicle-->
-	<!--  
-	<div class="row rank">
-		<div class="col-xs-2 text-center NoPaddingLR">
-			<span class="title5"><strong>1</strong></span>
-		</div>
-		<div class="col-xs-7 text-left NoPaddingLR">
-			<span class="title5">Miguel Angel Anguiano Equihua</span>
-		</div>
-		<div class="col-xs-3 text center NoPaddingLR">
-			<span class="title5 AppColor">123</span>
-		</div>
-	</div>  -->
-	<!-- End of div to cicle -->
-	<!-- ************************************************************************************************ -->
-	<!--  
-	<div class="row rank">
-		<div class="col-xs-2 text-center NoPaddingLR">
-			<span class="title5"><strong>2</strong></span>
-		</div>
-		<div class="col-xs-7 text-left NoPaddingLR">
-			<span class="title5">Jose Julian Romero</span>
-		</div>
-		<div class="col-xs-3 text center NoPaddingLR">
-			<span class="title5 AppColor">114</span>
-		</div>
-	</div> -->
-	
-	
-	
-	<!-- ************************************************************************************************ -->
-	<!-- Div for my score-->
-	
-	<div class="row ActiveRed" id="myData">
-		<div class="col-xs-2 text-center NoPaddingLR">
-			<span class="title5 ActiveRed" id="myRank"></span>
-		</div>
-		<div class="col-xs-7 text-left NoPaddingLR">
-			<span class="title5 ActiveRed"id="myName"></span>
-		</div>
-		<div class="col-xs-3 text center NoPaddingLR">
-			<span class="title5 ActiveRed"id="myScore"></span>
+	<div class="row">
+		<div class="col-xs-offset-4 col-xs-4 text-center">
+			<img id="loading" src="./images/loading.gif" width="100%" class="img-responsive" style="display:inline;"/>
 		</div>
 	</div>
-	<!-- End if div myscore-->
-	<!-- ************************************************************************************************ -->
-	
 	
 </div>
 
 <div class="col-lg-12 text-center">
-    <button class="btn btn-primary Click123 ActiveRed"><span class="title5 ActiveRed">My Score</span></button>
+    <button class="btn Click123 ActiveRed"><span class="title5 ActiveRed">My Score</span></button>
 </div>
 <script type="text/javascript">
-$(".Click123").on("click",function(){
+$(".Click123").on("click",function()
+{
 			setView("badges",badges_js,false);
 		});
 
 </script>
-<!--  
-<div class="row" style="padding:7%; padding-top:0px;">
-	<div class="col-xs-5">
-		<img src="./images/badges.png" width="100%" class="img-responsive myBadges"/>
-	</div>
-	<div class="col-xs-2">
-	</div>
-	<div class="col-xs-5">
-		<img src="./images/points.png" width="100%" class="img-responsive getMyPoints"/>
-	</div>
-</div>
- -->
-

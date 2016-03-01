@@ -3759,8 +3759,6 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
       WL.CookieManager.handleResponseHeaders(headers);
     }
 
-    WL.Logger.debug('response [' + this.url + '] success: ' + transport.responseText);
-
     //Check for pendings push notification in case user was not loggedin
     if (WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_PUSH) && WL.Client.Push.__hasPendings()) {
       WL.Client.Push.__dispatchPendings();
@@ -5807,6 +5805,7 @@ WL.WebLogger = (function(jQuery) {
     DEFAULT_MAX_STORAGE_SIZE = 500000,
     BUFFER_TIME_IN_MILLISECONDS = 60000,
     sendLogsTimeBuffer = 0;
+    usePostMethodUpdateServerConfig = false;
 
     if (!window.console) {  // thanks a lot, IE9
       /*jshint -W020 */
@@ -5845,29 +5844,39 @@ WL.WebLogger = (function(jQuery) {
     /*
 	*	INIT - Load state if persisted. Else get default state
     */
-    (function(){
-      if (typeof(Storage) !== 'undefined') {
-
-        var configurationString = null;
-        
-        if(__usingLocalConfiguration()){
-        	configurationString = localStorage.getItem(KEY_LOCAL_STORAGE_CONFIG);
-        }else{
-        	configurationString = localStorage.getItem(KEY_REMOTE_STORAGE_CONFIG);
-        }
-
-        if (configurationString === null){
-          var state = WL.Logger.__state();
-          state.maxFileSize = DEFAULT_MAX_STORAGE_SIZE;
-          WL.Logger.__updateState(state);
-          
-          var stateString = JSON.stringify(state);
-          localStorage.setItem(KEY_LOCAL_STORAGE_CONFIG, stateString);
-        } else {
-          var configuration = JSON.parse(configurationString);
-          WL.Logger.__updateState(configuration);
-        }
-      }
+  	(function(){
+		if (typeof localStorage === 'object') {
+	        try {
+	            localStorage.setItem('localStorage', 1);
+	            localStorage.removeItem('localStorage');
+	            if (typeof(Storage) !== 'undefined') {
+	
+	                var configurationString = null;
+	                
+	                if(__usingLocalConfiguration()){
+	                	configurationString = localStorage.getItem(KEY_LOCAL_STORAGE_CONFIG);
+	                }else{
+	                	configurationString = localStorage.getItem(KEY_REMOTE_STORAGE_CONFIG);
+	                }
+	
+	                if (configurationString === null){
+	                  var state = WL.Logger.__state();
+	                  state.maxFileSize = DEFAULT_MAX_STORAGE_SIZE;
+	                  WL.Logger.__updateState(state);
+	                  
+	                  var stateString = JSON.stringify(state);
+	                  localStorage.setItem(KEY_LOCAL_STORAGE_CONFIG, stateString);
+	                } else {
+	                  var configuration = JSON.parse(configurationString);
+	                  WL.Logger.__updateState(configuration);
+	                }
+	              }
+	        } catch (e) {
+	        	//If browsing in incognito make browsing storage a noop
+	            Storage.prototype._setItem = Storage.prototype.setItem;
+	            Storage.prototype.setItem = function() {};
+	        }
+		}
     })();
     
     
@@ -5968,20 +5977,29 @@ WL.WebLogger = (function(jQuery) {
     	return dfd.promise();
     },
   
-  __ajax = function(data, path) {
-	  var dfd = $.Deferred();
+    __ajax = function(data, path) {
+  	  var dfd = $.Deferred();
+  	  var methodType = 'post';
+  	  if (path == '/configprofile' && !usePostMethodUpdateServerConfig) {
+  		  var methodType = 'get';
+  	  }
 
-	  new WLJSX.Ajax.WLRequest(path, {
-		  method: 'post',
-		  parameters: JSON.stringify(data),
-		  skipQueryParam: true,
-		  onSuccess : function(data) {
-			  dfd.resolve(data);
-		  },
-		  onFailure : function(xhr){
-			  dfd.reject(xhr.responseText);
-		  }
-	  });
+  	  new WLJSX.Ajax.WLRequest(path, {
+  		  method: methodType,
+  		  parameters: JSON.stringify(data),
+  		  skipQueryParam: true,
+  		  onSuccess : function(data) {
+  			  usePostMethodUpdateServerConfig = false;
+  			  dfd.resolve(data);
+  		  },
+  		  onFailure : function(xhr){
+  			  dfd.reject(xhr.responseText);
+  			  usePostMethodUpdateServerConfig = true;
+  			  if(path == '/configprofile' && usePostMethodUpdateServerConfig && xhr.status === 405){
+  				  _updateConfigFromServer();
+  			  }
+  		  }
+  	  });
 
 	  return dfd.promise();
   },
@@ -11868,7 +11886,8 @@ function WLResourceRequest(_url, _method, _timeout) {
         var xhr = window.WLJSX.Ajax.getTransport();
 
         var queryString = buildQueryString();
-        var finalUrl = queryString === null ? serverUrl : serverUrl + '?' + queryString;
+        var querySaparator = serverUrl.indexOf('?') === -1 ? '?' : '&';
+		var finalUrl = queryString === null ? serverUrl : serverUrl + querySaparator + queryString;
 
         xhr.open(method, finalUrl, true);
 

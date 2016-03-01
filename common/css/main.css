@@ -256,7 +256,7 @@ body,
 * Button Yes or No
 ***********************************/
 .onoffswitch {
-    position: relative; width: 89px;
+    position: relative; width: 25vw;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
 .onoffswitch-checkbox {
@@ -264,34 +264,39 @@ body,
 }
 .onoffswitch-label {
     display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #F5EBEB; border-radius: 37px;
+    border: 1px solid transparent; 
+    border-radius: 10px;
 }
 .onoffswitch-inner {
     display: block; width: 200%; margin-left: -100%;
     transition: margin 0.3s ease-in 0s;
 }
-.onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 36px; padding: 0; line-height: 36px;
-    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+.onoffswitch-inner:before, 
+.onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 8.5vw; padding: 0; line-height: 8vw;
+    font-size: 5.5vw; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
     box-sizing: border-box;
 }
 .onoffswitch-inner:before {
-    content: "YES";
-    padding-left: 9px;
-    background-color: #22B04B; color: #FFFFFF;
+    content: "Yes";
+    padding-left: 3.5vw;
+    background-color: #F04F38; color: #FFFFFF;
 }
 .onoffswitch-inner:after {
-    content: "NO";
-    padding-right: 9px;
-    background-color: #EBE2E2; color: #999999;
+    content: "No";
+    padding-right: 3.5vw;
+    background-color: #2DAF50; color: #ffffff;
     text-align: right;
 }
 .onoffswitch-switch {
-    display: block; width: 16px; margin: 10px;
+    display: block; 
+    width: 6vw; 
+    margin: 1.5vw;
     background: #FFFFFF;
     position: absolute; top: 0; bottom: 0;
-    right: 49px;
-    border: 2px solid #F5EBEB; border-radius: 37px;
+    right: 16vw;
+    border: 1px solid transparent; 
+    border-radius: 20px;
     transition: all 0.3s ease-in 0s; 
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
@@ -300,6 +305,10 @@ body,
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
 }
+
+
+
+
 
 html, body {
     max-width: 100%;
@@ -510,4 +519,13 @@ width:110px;
 .Click123:hover
 {
 	
+}
+
+.modal-header{
+	padding:10px;
+	border:none;
+}
+.modal-footer{
+	padding:10px;
+	border:none;
 }

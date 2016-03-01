@@ -1,3 +1,4 @@
+/css/animate.css
 /css/bootstrap-theme.css
 /css/bootstrap-theme.css.map
 /css/bootstrap-theme.min.css
@@ -31,6 +32,8 @@
 /images/good.png
 /images/heart.png
 /images/icon.png
+/images/loading.gif
+/images/logo-color.png
 /images/logo.png
 /images/MCinco.png
 /images/MCuatro.png
@@ -42,6 +45,7 @@
 /images/plant.png
 /images/points.png
 /images/prefoto.jpg
+/images/prefoto.png
 /images/thumbnail.png
 /index.html
 /js/bootstrap.js

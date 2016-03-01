@@ -1,9 +1,9 @@
 <div class="row">
 					<div class="col-lg-12 text-center">
-						<span class="title4 AppColor">Reach</span>
+						<span class="title1 AppColor">Reach</span>
 					</div>
 					<div class="col-lg-12 text-center">
-						<span class="title4">next Badge</span>
+						<span class="title3">next Badge</span>
 					</div>
 				</div>
 				<br />
@@ -14,9 +14,9 @@
 						<img src="./images/good.png" width="80%" class="img-responsive" style="display:inline-block"/>
 					</div>
 					<div class="col-xs-8 NoPaddingLR">
-						<div class="skillbar clearfix" data-percent="34%" id="Cat1">
+						<div class="skillbar clearfix" data-percent="89%" id="Cat1">
 							<div class="skillbar-bar backgroundMain"></div>
-							<div class="skill-bar-percent" id="Cat_percent1">34%</div>
+							<div class="skill-bar-percent" id="Cat_percent1"><label class="title4">89%</label></div>
 						</div> <!-- End Skill Bar -->
 					</div>
 				</div>
@@ -25,9 +25,9 @@
 						<img src="./images/people.png" width="80%" class="img-responsive" style="display:inline-block"/>
 					</div>
 					<div class="col-xs-8 NoPaddingLR">
-						<div class="skillbar clearfix " data-percent="66%" id="Cat2">
+						<div class="skillbar clearfix " data-percent="33%" id="Cat2">
 							<div class="skillbar-bar backgroundMain"></div>
-							<div class="skill-bar-percent" id="Cat_percent2">66%</div>
+							<div class="skill-bar-percent" id="Cat_percent2"><label class="title4">33%</label></div>
 						</div> <!-- End Skill Bar -->
 					</div>
 				</div>
@@ -36,9 +36,9 @@
 						<img src="./images/heart.png" width="80%" class="img-responsive" style="display:inline-block"/>
 					</div>
 					<div class="col-xs-8 NoPaddingLR">
-						<div class="skillbar clearfix " data-percent="35%" id="Cat3">
+						<div class="skillbar clearfix " data-percent="88%" id="Cat3">
 							<div class="skillbar-bar backgroundMain"></div>
-							<div class="skill-bar-percent" id="Cat_percent3">35%</div>
+							<div class="skill-bar-percent" id="Cat_percent3"><label class="title4">88%</label></div>
 						</div> <!-- End Skill Bar -->
 					</div>
 				</div>
@@ -47,9 +47,9 @@
 						<img src="./images/clock.png" width="80%" class="img-responsive" style="display:inline-block"/>
 					</div>
 					<div class="col-xs-8 NoPaddingLR">
-						<div class="skillbar clearfix " data-percent="78%" id="Cat4">
+						<div class="skillbar clearfix " data-percent="21%" id="Cat4">
 							<div class="skillbar-bar backgroundMain"></div>
-							<div class="skill-bar-percent" id="Cat_percent4">78%</div>
+							<div class="skill-bar-percent" id="Cat_percent4"><label class="title4">21%</label></div>
 						</div> <!-- End Skill Bar -->
 					</div>
 				</div>
@@ -58,15 +58,16 @@
 						<img src="./images/plant.png" width="80%" class="img-responsive" style="display:inline-block"/>
 					</div>
 					<div class="col-xs-8 NoPaddingLR">
-						<div class="skillbar clearfix " data-percent="96%" id="Cat5">
+						<div class="skillbar clearfix " data-percent="34%" id="Cat5">
 							<div class="skillbar-bar backgroundMain"></div>
-							<div class="skill-bar-percent" id="Cat_percent5">96%</div>
+							<div class="skill-bar-percent" id="Cat_percent5"><label class="title4">34%</label></div>
 						</div> <!-- End Skill Bar -->
 					</div>
 				</div>
 				
-				
-				
+				<div class="col-lg-12 text-center">
+				    <button class="btn ClickBackBad ActiveRed"><span class="title5 ActiveRed">Go back!</span></button>
+				</div>
 				
 				<script type="text/javascript">
 				jQuery(document).ready(function(){
@@ -76,4 +77,9 @@
 						},3000);
 					});
 				});
+				
+				$(".ClickBackBad").on("click",function()
+				{
+							setView("badges",badges_js,false);
+						});
 				</script>
