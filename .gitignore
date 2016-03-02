@@ -1,9 +1,9 @@
-// archivos temporales
+# archivos temporales
 *~
 *.swp
 *.sw
 
-// directorios repetidos
+# directorios repetidos
 
 iphone/native/www/default/css/
 iphone/native/www/default/js/
@@ -15,8 +15,8 @@ android/native/assets/www/default/js/
 android/native/assets/www/default/filelist
 android/native/assets/www/default/index.html
 
-// ipad
-// iphone
-// android
-// legal
-// certificates
+# ipad
+# iphone
+# android
+# legal
+# certificates
