@@ -17,7 +17,6 @@
  * Functions
  */
 			function init_myPoints(){
-				console.log(currentScore+" | "+selectedScore);	
 				var newScore=parseInt(currentScore)+parseInt(selectedScore);
 				console.log("newScore"+newScore);
 				$(".oldScore").text(currentScore);

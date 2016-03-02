@@ -77,10 +77,8 @@
 		 */
 		function loadJS(newView,status_view){
 			if(!status_view){
-				console.log("load for 1ts time"+newView)
 				$.getScript("js/controllers/"+newView+".js");
 			}else{
-				console.log("init_"+newView+"()")
 				recall = new Function("init_"+newView+"()");
 				recall(); 
 			}
