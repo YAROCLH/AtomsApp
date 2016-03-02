@@ -59,6 +59,7 @@
 /js/controllers/index.js
 /js/controllers/login.js
 /js/controllers/menu.js
+/js/controllers/myPoints.js
 /js/controllers/Sample.js
 /js/controllers/status.js
 /js/controllers/yourRank.js

@@ -41,7 +41,8 @@
 			menu_js=false,
 			status_js=false,
 			crop_js=false,
-			login_js=false;
+			login_js=false,
+			myPoints_js=false;
 		
 		//User Data
 		var global_UserId;
