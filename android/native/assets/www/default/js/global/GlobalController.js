@@ -79,10 +79,8 @@
 		 */
 		function loadJS(newView,status_view){
 			if(!status_view){
-				console.log("load for 1ts time"+newView)
 				$.getScript("js/controllers/"+newView+".js");
 			}else{
-				console.log("init_"+newView+"()")
 				recall = new Function("init_"+newView+"()");
 				recall(); 
 			}
@@ -92,12 +90,16 @@
 		 * @param newView: String, Name of the view to load
 		 */
 		function loadMenu(newView){
+			$("#MainPanel").swipe("disable");
+			
 			switch (newView){
 				case "login":
 				break;
 				case "category":
 					$("#MenuPanel").load("views/Menu/menu.html"); 
 					$("#NavegacionCatego").load("views/Menu/categoryMenu.html"); 
+					
+					$("#MainPanel").swipe("enable");
 					loadJS("categoryMenu",categoryMenu_js);
 				break;
 				case "challenge":

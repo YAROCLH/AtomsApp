@@ -14,29 +14,11 @@
 <script type="text/javascript">
 		$(".CategoryOneClick").on('click',function()
 		{
-			if(CM_counter>1&&CM_counter<=CM_categoryData.length)
-			{
-				CM_counter--;
-				$("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
-				setCategory(CM_counter);
-				$("#derecha").html("&#62;&#62;");	
-			}else
-			{
-				$("#izquierda").html("&nbsp;");
-			}
+			changeCategory("right");
 		});
 		
 		$(".CategoryThreeClick").on('click',function()
 		{
-			if(CM_counter>0 && CM_counter<CM_categoryData.length)
-			{
-				CM_counter++;
-				$("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
-				$("#izquierda").html("&#60;&#60;");
-				setCategory(CM_counter);	
-			}else
-			{
-				$("#derecha").html("&nbsp;");
-			}
+			changeCategory("left");
 		});
 </script>
