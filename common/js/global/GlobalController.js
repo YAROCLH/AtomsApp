@@ -88,12 +88,16 @@
 		 * @param newView: String, Name of the view to load
 		 */
 		function loadMenu(newView){
+			$("#MainPanel").swipe("disable");
+			
 			switch (newView){
 				case "login":
 				break;
 				case "category":
 					$("#MenuPanel").load("views/Menu/menu.html"); 
 					$("#NavegacionCatego").load("views/Menu/categoryMenu.html"); 
+					
+					$("#MainPanel").swipe("enable");
 					loadJS("categoryMenu",categoryMenu_js);
 				break;
 				case "challenge":
