@@ -6,7 +6,8 @@
 		var img_src;
 		var category_status;
 		var category_CurrentCategory=1;
-	
+		var selectedChallenge=0;
+		var category_Data;
 /**
  * Events
  */
@@ -14,13 +15,11 @@
 			init_category(1);
 		});
 		$(document).on('click', ".doitClick",function(){
-			var challengeId= $(this).attr('value');
-			currentChallenge=challengeId;
+			selectedChallenge = $(this).attr('value');
 			setView("challenge",challenge_js);
 		});
 	
 		$(document).on('click', ".doneClick",function(){
-			var challengeId= $(this).attr('value');
 			$('#myModalLabel').text("Done!");
 			$('#AtomsModal').modal('show');
 		});
@@ -33,8 +32,7 @@
 /**
  * Functions
  */
-		function DetailsChallenges(value)
-		{
+		function DetailsChallenges(value){
 			$("#myModalLabel").text(value);
 			$("#AtomsModal").modal('show');
 		}
@@ -49,6 +47,7 @@
 		}
 		
 		function display_categoryData(category_data){
+			category_Data=category_data;
 		    category_buffer="<div id='PaddinMain' class='Margin'>";
 			for(var i=0;i<category_data.length;i++){
 				category_buffer=category_buffer+
@@ -69,7 +68,7 @@
 			    			  '<div class="col-xs-4 text-right NoPadding"><div class="text-right;">'+
 					   	      '<span class="LevelOne">+'+category_data[i].Points+'</span>'+
 			    			  '<div class="text-right Margin">'+
-			    			  '<img src="'+img_src+'"value="'+category_data[i].id+'"class="img-responsive '+category_status+'"/>'+
+			    			  '<img src="'+img_src+'"value="'+i+'"class="img-responsive '+category_status+'"/>'+
 			    			  '</div></div></div></div></div></div>'
 			}
 			category_buffer=category_buffer+"</div>";

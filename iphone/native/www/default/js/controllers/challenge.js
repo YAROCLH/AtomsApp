@@ -9,6 +9,10 @@
 		var camera_success=false;
 		var data_submit;
 		var onSubmit=false;
+		var currentScore;
+		var curentChallenge;
+		var selectedScore;
+		var newScore;
 /**
  * Events
  */
@@ -19,6 +23,7 @@
 			takePicture()	});
 		$(document).on("click",".getMyPoints",function(){
 			if(!onSubmit){
+				
 				onSubmit=true;
 				DoSubmit()	}
 			else{
@@ -33,6 +38,10 @@
 			challenge_js=true;
 			onSubmit=false;
 			camera_success=false;
+			currentScore=0;
+			currentChallenge=category_Data[selectedChallenge].id;
+			selectedScore=category_Data[selectedChallenge].Points;
+			console.log("Challenge:"+currentChallenge+" Score: "+selectedScore);
 		}
 		
 		function takePicture(){
@@ -55,27 +64,31 @@
 		function DoSubmit(){
 			var comment=$("#commentFoto").val();
 			if(camera_success&&comment!=""){
-				data_submit="idUser="+encodeString(global_UserId)+"&idChallenge="+encodeString(currentChallenge)+
-							"&Attach="+encodeString(comment)+"&Photo="+encodeString("NO PHOTO BY NOW");
-			$.when(get_Data(Submit_Json,data_submit)).then(function(challenge_data){
-				if(challenge_data[0].STATUS==1){
-					submitSuccess();
-				}else{
-					submitFail();	}	
-			});
+				var data_myrank="idUser="+encodeString(global_UserId);
+				$.when(get_Data(MyRank_Json,data_myrank)).then(function(myRank){
+					currentScore=myRank[0].Score;
+					data_submit="idUser="+encodeString(global_UserId)+"&idChallenge="+encodeString(currentChallenge)+
+					"&Attach="+encodeString(comment)+"&Photo="+encodeString("NO PHOTO BY NOW");
+					$.when(get_Data(Submit_Json,data_submit)).then(function(challenge_data){
+						if(challenge_data[0].STATUS==1){
+							submitSuccess();
+						}else{
+							submitFail();	
+						}	
+					});
+				});
 			}else{
 				onSubmit=false;
 				$('#myModalLabel').text("Photo and Comment is required");
-				$('#AtomsModal').modal('show');
-				
+				$('#AtomsModal').modal('show');		
 			}
 		}
 		
 		function submitSuccess(){
 			category_CurrentCategory=1;
-			$('#myModalLabel').text("Challenge Completed");
-			$('#AtomsModal').modal('show');
-			setView("category",true,true);
+			//$('#myModalLabel').text("Challenge Completed");
+			//$('#AtomsModal').modal('show');
+			setView("myPoints",myPoints_js);
 		}
 		
 		function submitFail(){
@@ -83,6 +96,8 @@
 			$('#AtomsModal').modal('show');
 			setView("category",true,true);
 		}
+		
+		
 		
 		
 		

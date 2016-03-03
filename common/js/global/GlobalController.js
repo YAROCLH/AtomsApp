@@ -76,10 +76,11 @@
 		 * @param status_view: true if the view was loaded previously
 		 */
 		function loadJS(newView,status_view){
-			
 			if(!status_view){
+				console.log("load for 1ts time"+newView)
 				$.getScript("js/controllers/"+newView+".js");
 			}else{
+				console.log("init_"+newView+"()")
 				recall = new Function("init_"+newView+"()");
 				recall(); 
 			}
@@ -116,7 +117,7 @@
 		}
 		
 		function get_Data(url_json,data){
-			console.log("Data: "+data)
+			//console.log("Data: "+data)
 			var json_data;
 			return $.when( 
 					$.ajax({
@@ -132,7 +133,7 @@
 					})).then(function(){
 				  return json_data;
 			  });
-		}k
+		}
 		
 		
 		function encodeString(toEncode){
