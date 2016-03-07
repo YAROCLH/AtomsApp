@@ -12,54 +12,65 @@
 		$(document).ready(function(){
 			init_categoryMenu();
 		});
-		
+    
 		$(function() 
         {      
             $("#MainPanel").swipe( 
             {
-            	swipe:function(event, direction, distance, duration, fingerCount, fingerData) 
+            	swipeLeft:function(event, direction, distance, duration, fingerCount, fingerData) 
                 {
-                    changeCategory(direction);
+                    previousCategory();
                 },
 
-                threshold:0
+                threshold:50
             });
         });
 
+		$(function() 
+        {      
+            $("#MainPanel").swipe( 
+            {
+            	swipeRight:function(event, direction, distance, duration, fingerCount, fingerData) 
+                {
+                    nextCategory();
+                },
+
+                threshold:50
+            });
+        });
 /**
  * Functions
  */
-		function changeCategory(flow)
-		{
-			if(flow === "right") 
+        function nextCategory()
+        {
+            if(CM_counter > 1 && CM_counter <= CM_categoryData.length)
             {
-                if(CM_counter > 1 && CM_counter <= CM_categoryData.length)
-                {
-                    CM_counter--;
-                    $("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
-                    setCategory(CM_counter);
-                    $("#derecha").html("&#62;&#62;");	
-                }
-                else
-                {
-                    $("#izquierda").html("&nbsp;");
-                }
+                CM_counter--;
+                $("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
+                setCategory(CM_counter);
+                $("#derecha").html("&#62;&#62;");	
             }
-			else if(flow === "left")
+            else
             {
-                if(CM_counter > 0 && CM_counter < CM_categoryData.length)
-                {
-                    CM_counter++;
-                    $("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
-                    $("#izquierda").html("&#60;&#60;");
-                    setCategory(CM_counter);	
-                }
-                else
-                {
-                    $("#derecha").html("&nbsp;");
-                }
+                $("#izquierda").html("&nbsp;");
             }
-		}
+        }
+
+        function previousCategory()
+        {
+            if(CM_counter > 0 && CM_counter < CM_categoryData.length)
+            {
+                CM_counter++;
+                $("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
+                $("#izquierda").html("&#60;&#60;");
+                setCategory(CM_counter);	
+            }
+            else
+            {
+                $("#derecha").html("&nbsp;");
+            }
+        }
+
 		function init_categoryMenu(){
 			categoryMenu_js=true;
 			$.when(get_Data(Categories_Json)).then(function(category_data){
