@@ -1,85 +1,115 @@
 <div class="row">
-					<div class="col-lg-12 text-center">
-						<span class="title1 AppColor">Reach</span>
-					</div>
-					<div class="col-lg-12 text-center">
-						<span class="title3">next Badge</span>
-					</div>
-				</div>
-				<br />
-				<br />
+    <div class="col-lg-12 text-center">
+        <span class="title1 AppColor">Reach</span>
+    </div>
+    <div class="col-lg-12 text-center">
+        <span class="title3">next Badge</span>
+    </div>
+</div>
 
-				<div class="row">
-					<div class="col-xs-3 text-right">
-						<img src="./images/good.png" width="80%" class="img-responsive" style="display:inline-block"/>
-					</div>
-					<div class="col-xs-8 NoPaddingLR">
-						<div class="skillbar clearfix" data-percent="89%" id="Cat1">
-							<div class="skillbar-bar backgroundMain"></div>
-							<div class="skill-bar-percent" id="Cat_percent1"><label class="title4">89%</label></div>
-						</div> <!-- End Skill Bar -->
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-3 text-right">
-						<img src="./images/people.png" width="80%" class="img-responsive" style="display:inline-block"/>
-					</div>
-					<div class="col-xs-8 NoPaddingLR">
-						<div class="skillbar clearfix " data-percent="33%" id="Cat2">
-							<div class="skillbar-bar backgroundMain"></div>
-							<div class="skill-bar-percent" id="Cat_percent2"><label class="title4">33%</label></div>
-						</div> <!-- End Skill Bar -->
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-3 text-right">
-						<img src="./images/heart.png" width="80%" class="img-responsive" style="display:inline-block"/>
-					</div>
-					<div class="col-xs-8 NoPaddingLR">
-						<div class="skillbar clearfix " data-percent="88%" id="Cat3">
-							<div class="skillbar-bar backgroundMain"></div>
-							<div class="skill-bar-percent" id="Cat_percent3"><label class="title4">88%</label></div>
-						</div> <!-- End Skill Bar -->
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-3 text-right">
-						<img src="./images/clock.png" width="80%" class="img-responsive" style="display:inline-block"/>
-					</div>
-					<div class="col-xs-8 NoPaddingLR">
-						<div class="skillbar clearfix " data-percent="21%" id="Cat4">
-							<div class="skillbar-bar backgroundMain"></div>
-							<div class="skill-bar-percent" id="Cat_percent4"><label class="title4">21%</label></div>
-						</div> <!-- End Skill Bar -->
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-3 text-right">
-						<img src="./images/plant.png" width="80%" class="img-responsive" style="display:inline-block"/>
-					</div>
-					<div class="col-xs-8 NoPaddingLR">
-						<div class="skillbar clearfix " data-percent="34%" id="Cat5">
-							<div class="skillbar-bar backgroundMain"></div>
-							<div class="skill-bar-percent" id="Cat_percent5"><label class="title4">34%</label></div>
-						</div> <!-- End Skill Bar -->
-					</div>
-				</div>
-				
-				<div class="col-lg-12 text-center">
-				    <button class="btn ClickBackBad ActiveRed"><span class="title5 ActiveRed">Go back!</span></button>
-				</div>
-				
-				<script type="text/javascript">
-				jQuery(document).ready(function(){
-					jQuery('.skillbar').each(function(){
-						jQuery(this).find('.skillbar-bar').animate({
-							width:jQuery(this).attr('data-percent')
-						},3000);
-					});
-				});
-				
-				$(".ClickBackBad").on("click",function()
-				{
-							setView("badges",badges_js,false);
-						});
-				</script>
+<br />
+<br />
+
+<div class="row">
+    <div class="col-xs-3 text-right">
+        <img src="./images/good.png" width="80%" class="img-responsive" style="display:inline-block"/>
+    </div>
+    <div class="col-xs-8 NoPaddingLR">
+        <div class="skillbar clearfix" data-percent="89%" id="Cat1">
+            <div class="skillbar-bar backgroundMain"></div>
+            <div class="skill-bar-percent" id="Cat_percent1"><label id="percent1" class="title4">89%</label></div>
+        </div> <!-- End Skill Bar -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-3 text-right">
+        <img src="./images/people.png" width="80%" class="img-responsive" style="display:inline-block"/>
+    </div>
+    <div class="col-xs-8 NoPaddingLR">
+        <div class="skillbar clearfix " data-percent="33%" id="Cat2">
+            <div class="skillbar-bar backgroundMain"></div>
+            <div class="skill-bar-percent" id="Cat_percent2"><label id="percent2" class="title4">33%</label></div>
+        </div> <!-- End Skill Bar -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-3 text-right">
+        <img src="./images/heart.png" width="80%" class="img-responsive" style="display:inline-block"/>
+    </div>
+    <div class="col-xs-8 NoPaddingLR">
+        <div class="skillbar clearfix " data-percent="88%" id="Cat3">
+            <div class="skillbar-bar backgroundMain"></div>
+            <div class="skill-bar-percent" id="Cat_percent3"><label id="percent3" class="title4">88%</label></div>
+        </div> <!-- End Skill Bar -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-3 text-right">
+        <img src="./images/clock.png" width="80%" class="img-responsive" style="display:inline-block"/>
+    </div>
+    <div class="col-xs-8 NoPaddingLR">
+        <div class="skillbar clearfix " data-percent="21%" id="Cat4">
+            <div class="skillbar-bar backgroundMain"></div>
+            <div class="skill-bar-percent" id="Cat_percent4"><label id="percent4" class="title4">21%</label></div>
+        </div> <!-- End Skill Bar -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-3 text-right">
+        <img src="./images/plant.png" width="80%" class="img-responsive" style="display:inline-block"/>
+    </div>
+    <div class="col-xs-8 NoPaddingLR">
+        <div class="skillbar clearfix " data-percent="34%" id="Cat5">
+            <div class="skillbar-bar backgroundMain"></div>
+            <div class="skill-bar-percent" id="Cat_percent5"><label id="percent5" class="title4">34%</label></div>
+        </div> <!-- End Skill Bar -->
+    </div>
+</div>
+
+<div class="col-lg-12 text-center">
+    <button class="btn ClickBackBad ActiveRed" onClick="setView('badges',badges_js,false)"><span class="title5 ActiveRed">Go back!</span></button>
+</div>
+    
+<script type="text/javascript">
+    jQuery(document).ready(function()
+    {
+    	
+        var category    = 0;						// contador para acceder al indice de categorias
+        var totals      = [115, 16, 12, 16, 18];	// constantes del total de puntos de las categorias
+        var percents    = ['percent1', 'percent2', 'percent3', 'percent4', 'percent5'];
+        var data_status ="idUser="+encodeString(global_UserId);//se le debe pasar tambien el nombre de los parametros en este caso el id del user
+        var categories  = get_Data(Status_Json,data_status); // la url esta en una variable en initrray();
+
+        alert($.toJSON(categories));
+
+        jQuery('.skillbar').each(function()
+        {
+            // Solo falta la obtencion del json, no saca el valor de scores[category]["Score"]
+            // ya teniendo el valor del arreglo ya obteniendo el valor ya comprobe que todo funciona
+            // el cambio de animacion y el cambio de label
+        	//var newPercent = parseInt(parseInt(scores[category]["Score"])/totals[category]) * 100;         	
+            var newPercent = parseInt(parseInt(totals[category])/totals[category]) * 100;         	
+
+            // document.getElementById(percents[category]).innerHTML =  parseInt(totals[category]/totals[category] * 100).toString() + "%";
+            document.getElementById(percents[category]).innerHTML =  newPercent.toString() + "%";
+
+            // jQuery(this).attr('data-percent', parseInt(totals[category]/totals[category] * 100).toString() + "%");
+            jQuery(this).attr('data-percent', newPercent.toString() + "%");
+
+            jQuery(this).find('.skillbar-bar').animate({
+                width:jQuery(this).attr('data-percent')
+            },3000);
+            
+            category++; 
+        });
+    });
+
+    $(".ClickBackBad").on("click",function()
+    {
+        setView("badges",badges_js,false);
+    });
+</script>

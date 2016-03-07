@@ -19,14 +19,16 @@
 		$(document).ready(function(){
 			init_challenge();
 		});
+
 		$(document).on("click","#CameraPhoto",function(){
-			takePicture()	});
+			takePicture()	
+		});
+
 		$(document).on("click",".getMyPoints",function(){
 			if(!onSubmit){
-				
 				onSubmit=true;
-				DoSubmit()	}
-			else{
+				DoSubmit()	
+			}else{
 				console.log("Already Submitted");
 			}
 		});
@@ -46,15 +48,19 @@
 		
 		function takePicture(){
 			navigator.camera.getPicture(onSucces,onFail,{
-			quality: 25, 
-			sourceType: source,
-			destinationType: destinationType.FILE_URI
+                quality: 25, 
+                sourceType: source,
+                destinationType: destinationType.FILE_URI
 			});
 		}
 		
 		function onSucces(image_uri){
 			camera_success=true;
 			$("#prefoto").attr("src",image_uri);
+			
+			$("#prefoto").each(function(){
+			  $(this).height($(this).height() * 0.99);
+            });
 		}
 		
 		function onFail(message){
@@ -72,12 +78,14 @@
 					$.when(get_Data(Submit_Json,data_submit)).then(function(challenge_data){
 						if(challenge_data[0].STATUS==1){
 							submitSuccess();
-						}else{
+						}
+						else{
 							submitFail();	
 						}	
 					});
 				});
-			}else{
+			}
+			else{
 				onSubmit=false;
 				$('#myModalLabel').text("Photo and Comment is required");
 				$('#AtomsModal').modal('show');		
@@ -85,9 +93,7 @@
 		}
 		
 		function submitSuccess(){
-			category_CurrentCategory=1;
-			//$('#myModalLabel').text("Challenge Completed");
-			//$('#AtomsModal').modal('show');
+			category_Datagory_CurrentCategory=1;
 			setView("myPoints",myPoints_js);
 		}
 		
