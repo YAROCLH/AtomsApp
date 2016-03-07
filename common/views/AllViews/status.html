@@ -78,18 +78,21 @@
     jQuery(document).ready(function()
     {
     	
-        var category    = 0;						// contador para acceder al indice de categorias, ?
+        var category    = 0;						// contador para acceder al indice de categorias
         var totals      = [115, 16, 12, 16, 18];	// constantes del total de puntos de las categorias
         var percents    = ['percent1', 'percent2', 'percent3', 'percent4', 'percent5'];
         var data_status ="idUser="+encodeString(global_UserId);//se le debe pasar tambien el nombre de los parametros en este caso el id del user
         var categories  = get_Data(Status_Json,data_status); // la url esta en una variable en initrray();
+
+        // alert($.toJSON(categories));
 
         jQuery('.skillbar').each(function()
         {
             // Solo falta la obtencion del json, no saca el valor de categories[category].Points
             // ya teniendo el valor del arreglo ya obteniendo el valor ya comprobe que todo funciona
             // el cambio de animacion y el cambio de label
-        	var newPercent = parseInt(categories[category].Total/totals[category]) * 100;         	
+        	//var newPercent = parseInt(parseInt(scores[category])/totals[category]) * 100;         	
+            var newPercent = parseInt(parseInt(totals[category])/totals[category]) * 100;         	
 
             // document.getElementById(percents[category]).innerHTML =  parseInt(totals[category]/totals[category] * 100).toString() + "%";
             document.getElementById(percents[category]).innerHTML =  newPercent.toString() + "%";
