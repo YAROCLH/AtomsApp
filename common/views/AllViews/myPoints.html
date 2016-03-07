@@ -1,20 +1,37 @@
-<div class="row text-center" style="padding-top:5%;">
+<div id="pointsBody" class="row text-center" style="padding-top:5%;">
 	<div class="col-lg-12">
 		<h4 id="CategoryIDMyScore" class="TitleDo"> Category 1</h4>
 		<h1 id="congratulations" class="title1"><strong>Congratulations!</strong></h1>
 		<h5 class="scores">previous score</h5>
 
-		<p class="scoreNumbersC"><span id="scoreAfter" class= "oldScore"></span><br /><span id="lastNewScore" class="AppColor addScore"></span></p>
+		<p class="scoreNumbersC">
+			<span id="scoreAfter" class="oldScore"></span>
+			<br/>
+			<span id="lastNewScore" class="AppColor addScore"></span>
+		</p>
+		
 		<!-- <h4 class="title4"> You need <strong><span id="scoreNumberNeedIt">234</span></strong> points to get the next level.</h4> -->
-		<p class="scoreNumbersC Black" id="TotalActualScore"><span class="newScore"></span></p>
+		
+		<p class="scoreNumbersC Black" id="TotalActualScore">
+			<span id="finalScore" class="newScore"></span>
+		</p>
+		
 		<h5 class="scores">actual score</h5>
 	</div>
+
+	<script type="text/javascript" charset="utf-8">
+            var newScore = parseInt(currentScore) + parseInt(selectedScore);
+            document.getElementById("scoreAfter").innerHTML = currentScore;
+            document.getElementById("lastNewScore").innerHTML = "+" + selectedScore;
+            document.getElementById("finalScore").innerHTML = newScore.toString();
+	</script>
 </div>
+
 <div class="row">
 	<div class="col-xs-4">
 	</div>
 	<div class="col-xs-4">
-		<img id="closeMyPoints" src="./images/closeButton.png" width="100%" class="img-responsive closeButtonScore"/>
+		<img id="closeMyPoints" src="./images/closeButton.png" width="100%" class="img-responsive closeButtonScore" onClick="setView('category', true, true)"/>
 	</div>
 	<div class="col-xs-4">
 	</div>

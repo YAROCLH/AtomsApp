@@ -8,14 +8,12 @@
  */
 	  		$(document).ready(function(){
 	  			myPoints_js=true;
-				init_myPoints();
 			});
-	  		$("#closeMyPoints").on("click",function(){
-	  			setView("category", true, true);
-	  		});
+
 /**
  * Functions
  */
+<<<<<<< HEAD
 			function init_myPoints(){
 				var newScore=parseInt(currentScore)+parseInt(selectedScore);
 				console.log("newScore"+newScore);
@@ -26,3 +24,5 @@
 			}
 			
 			
+=======
+>>>>>>> 13efd5a88cda9d36dc182ba5adeed5d16db97337
