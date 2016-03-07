@@ -80,8 +80,8 @@
     	
         var category  = 0,						// contador para acceder al indice de categorias, ?
             totals    = [115, 16, 12, 16, 18];	// constantes del total de puntos de las categorias
-
-        var categories = get_Data("Status", encodeString(global_UserId)); // funcion en duda
+	var data_status="idUser="+encodeString(global_UserId);//se le debe pasar tambien el nombre de los parametros en este caso el id del user
+        var categories = get_Data(Status_Json,data_status); // la url esta en una variable en init
 
         jQuery('.skillbar').each(function()
         {
