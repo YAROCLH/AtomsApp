@@ -93,7 +93,7 @@
             // el cambio de animacion y el cambio de label
         	//var newPercent = parseInt(parseInt(scores[category]["Score"])/totals[category]) * 100;         	
             var newPercent = parseInt(parseInt(totals[category])/totals[category]) * 100;         	
-
+			console.log(newPercent);
             // document.getElementById(percents[category]).innerHTML =  parseInt(totals[category]/totals[category] * 100).toString() + "%";
             document.getElementById(percents[category]).innerHTML =  newPercent.toString() + "%";
 
