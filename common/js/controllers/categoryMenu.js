@@ -70,6 +70,7 @@
         }
 
 		function init_categoryMenu(){
+			console.log("init catmenu")
 			categoryMenu_js=true;
 			$.when(get_Data(Categories_Json)).then(function(category_data){
 				CM_categoryData=category_data;

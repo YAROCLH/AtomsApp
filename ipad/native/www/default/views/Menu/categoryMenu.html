@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="col-xs-3 text-center categoryLavel CategoryOneClick">
+		<span class="text-menu-category title5">&#60;</span>
+	</div>
+	<div class="col-xs-6 text-center categoryLavel CategoryTwolick">
+		<span class="text-menu-category title5" id="CategoryName">Wellness</span>
+	</div>
+	<div class="col-xs-3 text-center categoryLavel CategoryThreeClick">
+		<span class="text-menu-category title5">&#62;</span>
+	</div>
+</div>
+<script type="text/javascript">
+		$(".CategoryOneClick").on('click',function(){
+			if(CM_counter>1&&CM_counter<=CM_categoryData.length){
+				CM_counter--;
+				$("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
+				setCategory(CM_counter);	}else{}
+		});
+		
+		$(".CategoryThreeClick").on('click',function(){
+			if(CM_counter>0 && CM_counter<CM_categoryData.length){
+				CM_counter++;
+				$("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
+				setCategory(CM_counter);	}else{}
+		});
+
+</script>

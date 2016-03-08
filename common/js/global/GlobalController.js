@@ -76,6 +76,7 @@
 		 * @param status_view: true if the view was loaded previously
 		 */
 		function loadJS(newView,status_view){
+			console.log("load:"+newView+status_view)
 			if(!status_view){
 				$.getScript("js/controllers/"+newView+".js");
 			}else{

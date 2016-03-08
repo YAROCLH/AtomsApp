@@ -25,6 +25,7 @@
 		});
 
 		$(document).on("click",".getMyPoints",function(){
+<<<<<<< HEAD
 			if(!onSubmit)
 			{
 				onSubmit=true;
@@ -32,6 +33,12 @@
 			}
 			else
 			{
+=======
+			if(!onSubmit){
+				onSubmit=true;
+				DoSubmit()	
+			}else{
+>>>>>>> 2420d4410ead493e8325d2cfe73fda873d736474
 				console.log("Already Submitted");
 			}
 		});
@@ -61,8 +68,12 @@
 			camera_success=true;
 			$("#prefoto").attr("src",image_uri);
 			
+<<<<<<< HEAD
 			$("#prefoto").each(function()
 			{
+=======
+			$("#prefoto").each(function(){
+>>>>>>> 2420d4410ead493e8325d2cfe73fda873d736474
 			  $(this).height($(this).height() * 0.99);
             });
 		}
@@ -87,15 +98,23 @@
 						{
 							submitSuccess();
 						}
+<<<<<<< HEAD
 						else
 						{
+=======
+						else{
+>>>>>>> 2420d4410ead493e8325d2cfe73fda873d736474
 							submitFail();	
 						}	
 					});
 				});
 			}
+<<<<<<< HEAD
 			else
 			{
+=======
+			else{
+>>>>>>> 2420d4410ead493e8325d2cfe73fda873d736474
 				onSubmit=false;
 				$('#myModalLabel').text("Photo and Comment is required");
 				$('#AtomsModal').modal('show');		
@@ -104,8 +123,11 @@
 		
 		function submitSuccess(){
 			category_Datagory_CurrentCategory=1;
+<<<<<<< HEAD
 			//$('#myModalLabel').text("Challenge Completed");
 			//$('#AtomsModal').modal('show');
+=======
+>>>>>>> 2420d4410ead493e8325d2cfe73fda873d736474
 			setView("myPoints",myPoints_js);
 		}
 		

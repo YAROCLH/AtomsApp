@@ -23,13 +23,10 @@
 		});
 
 		$(document).on("click",".getMyPoints",function(){
-			if(!onSubmit)
-			{
+			if(!onSubmit){
 				onSubmit=true;
 				DoSubmit()	
-			}
-			else
-			{
+			}else{
 				console.log("Already Submitted");
 			}
 		});
@@ -59,8 +56,7 @@
 			camera_success=true;
 			$("#prefoto").attr("src",image_uri);
 			
-			$("#prefoto").each(function()
-			{
+			$("#prefoto").each(function(){
 			  $(this).height($(this).height() * 0.99);
             });
 		}
@@ -71,29 +67,23 @@
 		
 		function DoSubmit(){
 			var comment=$("#commentFoto").val();
-			if(camera_success&&comment!="")
-			{
+			if(camera_success&&comment!=""){
 				var data_myrank="idUser="+encodeString(global_UserId);
-				$.when(get_Data(MyRank_Json,data_myrank)).then(function(myRank)
-				{
+				$.when(get_Data(MyRank_Json,data_myrank)).then(function(myRank){
 					currentScore=myRank[0].Score;
 					data_submit="idUser="+encodeString(global_UserId)+"&idChallenge="+encodeString(currentChallenge)+
 					"&Attach="+encodeString(comment)+"&Photo="+encodeString("NO PHOTO BY NOW");
-					$.when(get_Data(Submit_Json,data_submit)).then(function(challenge_data)
-					{
-						if(challenge_data[0].STATUS==1)
-						{
+					$.when(get_Data(Submit_Json,data_submit)).then(function(challenge_data){
+						if(challenge_data[0].STATUS==1){
 							submitSuccess();
 						}
-						else
-						{
+						else{
 							submitFail();	
 						}	
 					});
 				});
 			}
-			else
-			{
+			else{
 				onSubmit=false;
 				$('#myModalLabel').text("Photo and Comment is required");
 				$('#AtomsModal').modal('show');		
@@ -102,8 +92,6 @@
 		
 		function submitSuccess(){
 			category_Datagory_CurrentCategory=1;
-			//$('#myModalLabel').text("Challenge Completed");
-			//$('#AtomsModal').modal('show');
 			setView("myPoints",myPoints_js);
 		}
 		
