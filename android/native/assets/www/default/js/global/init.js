@@ -5,8 +5,7 @@
  * Variables Declaration
 */
 
-		
-		var Server="http://127.0.0.1:12031/liberty-HelloWorld/Service/",
+		var Server="http://atomsservice.mybluemix.net/Service/",
 			Login_Json=Server+"Login",
 			myScore_Json=Server+"Score",
 			Uncompleted_Json=Server+"Challenges",
@@ -15,11 +14,7 @@
 			MyRank_Json=Server+"Rank",
 			Categories_Json=Server+"Categories",
 			Submit_Json=Server+"SubmitChallenge";
-		
-		//PassPhrase used for AES Encryption
-		var PassPhrase="BB85B8C1336755EAD02368931499380D"; 
-		var IV="31fbf42ee1d26041";
-		
+				
 		//Device OS
 		var devicePlatform;
 		
