@@ -21,8 +21,7 @@
 					setView("yourRank",rank_js);
 		});
 		$(document).on('click','.logout',function(){
-			$("#MainBody").load("views/AllViews/login.html");
-			isLogin=true;
+			setView("login",true);
 		});
 /**
  * Functions

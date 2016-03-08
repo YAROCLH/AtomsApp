@@ -26,14 +26,16 @@
 		
 		function init_login(){
 			login_js=true;
-			var result=localStorage.getItem("Remember");
-			if(result==null){
-				$("#UserId").val("")
-			}else{
-				var text=result+"";
-				$("#UserId").val(text);	
-			}
-			
+			$.when(localStorage.getItem("Remember")).then(function(result){
+				console.log(result)
+				if(result==null){
+					$("#UserId").val("")
+				}else{
+					$("#UserId").val(result);	
+				}
+				
+			});
+			//var result=localStorage.getItem("Remember");	
 		}
 		
 		function DoLogin(user,pass){
