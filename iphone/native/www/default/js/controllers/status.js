@@ -4,7 +4,7 @@
 /**
  * Variables Declaration
  */
-
+	var Status_BackButton;
 /**
  * Events
  */
@@ -17,14 +17,20 @@
 		function init_status(){
 			status_js=true;
 			var data_status="idUser="+global_UserId;
+			Status_BackButton=$(".ClickBackBad");
+			Animate();
 			
 		}
 		
+		$(Status_BackButton).on("click",function(){
+			  setView("badges",badges_js,false);
+		});
+		
 		function Animate(){
-			 var category    = 0;						// contador para acceder al indice de categorias
-		     var totals      = [115, 16, 12, 16, 18];	// constantes del total de puntos de las categorias
+			 var category    = 0;						
+		     var totals      = [115, 16, 12, 16, 18];	
 		     var percents    = ['percent1', 'percent2', 'percent3', 'percent4', 'percent5'];
-		     var data_status ="idUser="+encodeString(global_UserId);//se le debe pasar tambien el nombre de los parametros en este caso el id del user
+		     var data_status ="idUser="+encodeString(global_UserId);
 		     var categories;var score;var newPercent;
 			 $.when(get_Data(Status_Json,data_status)).then(function(status_data){
 				categories  = status_data;
@@ -32,9 +38,7 @@
 				jQuery('.skillbar').each(function(){
 				if(category>=t){
 					newPercent=0;
-					console.log("entre");
 				}else{
-					console.log(categories[category].Score+"--"+totals[category]);
 					score=parseInt(categories[category].Score);
 					newPercent =score/totals[category] * 100; 
 				}
