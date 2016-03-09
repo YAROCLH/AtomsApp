@@ -27,18 +27,15 @@
 		 * @param status: boolean, true if the view was loaded previously 
 		 * @param back: boolean, true if was called by BackButton event
 		 */		
-		function setView(newView,status_view,back)
-		{
-			if(isValid(newView) && newView=="login")
-			{
+		function setView(newView,status_view,back){
+			if(isValid(newView) && newView=="login"){
 				$("#MainBody").load("views/AllViews/login.html");
+				global_UserId=null;global_UserName=null;
 				isLogin=true;
 			}
-			else if( isValid(newView) )
-			{
+			else if( isValid(newView) ){
 				isLogin=false;
-				if(newView=="category")
-				{
+				if(newView=="category"){
 					category_CurrentCategory=1;
 				}  
 				$("#MainPanel").load("views/AllViews/"+newView+".html");
@@ -56,16 +53,12 @@
 		 * @param currentView: String, Name of the actual view
 		 * @param back: boolean, true if was called by BackButton event
 		 */
-		function pushView(newView,currentView,back)
-		{
-			if(newView=="index")
-			{
+		function pushView(newView,currentView,back){
+			if(newView=="index"){
 				prevView=[];
 			}
-			else
-			{
-				if(currentView != "challenge" || !back)
-				{
+			else{
+				if(currentView != "challenge" || !back){
 					var aux=$.inArray(newView,prevView);
 					if(aux==-1){prevView.push(currentView);}
 				}
@@ -78,9 +71,8 @@
 		 * @param newView: String, Name of the view to load
 		 * @returns {Boolean}
 		 */
-		function isValid(newView)
-		{
-			return (newView==null||newView=="") ? false : true ;
+		function isValid(newView){
+			return (newView==null||newView==""||newView==='undefined') ? false : true ;
 		}
 		
 		
@@ -89,14 +81,11 @@
 		 * @param newView: String, Name of the view to load
 		 * @param status_view: true if the view was loaded previously
 		 */
-		function loadJS(newView,status_view)
-		{
-			if(!status_view)
-			{
+		function loadJS(newView,status_view){
+			if(!status_view){
 				$.getScript("js/controllers/"+newView+".js");
 			}
-			else
-			{
+			else{
 				recall = new Function("init_"+newView+"()");
 				recall(); 
 			}
@@ -105,11 +94,10 @@
 		 * loadMenu: Loads the menu according to the view
 		 * @param newView: String, Name of the view to load
 		 */
-		function loadMenu(newView)
-		{
+		function loadMenu(newView){
 			$("#MainPanel").swipe("disable");
-			switch (newView)
-			{
+			switch (newView){
+			
 				case "login":
 					break;
 				case "category":
@@ -165,8 +153,7 @@
 			return base64;
 		}
 		
-	    function exitApp() 
-	    {
+	    function exitApp() {
 	        navigator.notification.confirm(
 	              'Exit Atoms?'
 	            , function(button) {
