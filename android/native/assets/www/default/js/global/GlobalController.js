@@ -9,14 +9,11 @@
  */
 		document.addEventListener("backbutton", onBackKeyDown, false);
 		
-		function onBackKeyDown() 
-		{
-			if( currentView=="index" || isLogin)
-			{
+		function onBackKeyDown() {
+			if( currentView=="index" || isLogin){
 				exitApp();
 			}
-			else
-			{
+			else{
 				SetLastView();
 			}
 		}
@@ -32,18 +29,14 @@
 		 * @param status: boolean, true if the view was loaded previously 
 		 * @param back: boolean, true if was called by BackButton event
 		 */		
-		function setView(newView,status_view,back)
-		{
-			if(isValid(newView) && newView=="login")
-			{
+		function setView(newView,status_view,back){
+			if(isValid(newView) && newView=="login"){
 				$("#MainBody").load("views/AllViews/login.html");
 				isLogin=true;
 			}
-			else if( isValid(newView) )
-			{
+			else if( isValid(newView) ){
 				isLogin=false;
-				if(newView=="category")
-				{
+				if(newView=="category"){
 					category_CurrentCategory=1;
 				}  
 				$("#MainPanel").load("views/AllViews/"+newView+".html");
@@ -62,13 +55,12 @@
 		 * @param back: boolean, true if was called by BackButton event
 		 */
 		function pushView(newView,currentView,back){
-			if(newView=="index")
-			{
+			
+			if(newView=="index"){
 				prevView=[];
 			}
-			else
-			{
-				if(currentView ="challenge"||back){}
+			else{
+				if(currentView =="challenge"||back){}
 				else{
 					var aux=$.inArray(newView,prevView);
 					if(aux==-1){prevView.push(currentView);}
@@ -94,14 +86,11 @@
 		 * @param newView: String, Name of the view to load
 		 * @param status_view: true if the view was loaded previously
 		 */
-		function loadJS(newView,status_view)
-		{
-			if(!status_view)
-			{
+		function loadJS(newView,status_view){
+			if(!status_view){
 				$.getScript("js/controllers/"+newView+".js");
 			}
-			else
-			{
+			else{
 				recall = new Function("init_"+newView+"()");
 				recall(); 
 			}
@@ -110,10 +99,8 @@
 		 * loadMenu: Loads the menu according to the view
 		 * @param newView: String, Name of the view to load
 		 */
-		function loadMenu(newView)
-		{
+		function loadMenu(newView){
 			$("#MainPanel").swipe("disable");
-			
 			switch (newView){
 				case "login":
 				break;
@@ -140,6 +127,7 @@
 		
 		function SetLastView(){
 			var prev=prevView.pop();
+			console.log("set last:"+prev)
 		    setView(prev,true,true);
 		}
 		

@@ -15,9 +15,9 @@
         <img src="./images/good.png" width="80%" class="img-responsive" style="display:inline-block"/>
     </div>
     <div class="col-xs-8 NoPaddingLR">
-        <div class="skillbar clearfix" data-percent="89%" id="Cat1">
+        <div class="skillbar clearfix" data-percent="0%" id="Cat1">
             <div class="skillbar-bar backgroundMain"></div>
-            <div class="skill-bar-percent" id="Cat_percent1"><label id="percent1" class="title4">89%</label></div>
+            <div class="skill-bar-percent" id="Cat_percent1"><label id="percent1" class="title4"></label></div>
         </div> <!-- End Skill Bar -->
     </div>
 </div>
@@ -27,9 +27,9 @@
         <img src="./images/people.png" width="80%" class="img-responsive" style="display:inline-block"/>
     </div>
     <div class="col-xs-8 NoPaddingLR">
-        <div class="skillbar clearfix " data-percent="33%" id="Cat2">
+        <div class="skillbar clearfix " data-percent="0%" id="Cat2">
             <div class="skillbar-bar backgroundMain"></div>
-            <div class="skill-bar-percent" id="Cat_percent2"><label id="percent2" class="title4">33%</label></div>
+            <div class="skill-bar-percent" id="Cat_percent2"><label id="percent2" class="title4"></label></div>
         </div> <!-- End Skill Bar -->
     </div>
 </div>
@@ -39,9 +39,9 @@
         <img src="./images/heart.png" width="80%" class="img-responsive" style="display:inline-block"/>
     </div>
     <div class="col-xs-8 NoPaddingLR">
-        <div class="skillbar clearfix " data-percent="88%" id="Cat3">
+        <div class="skillbar clearfix " data-percent="0%" id="Cat3">
             <div class="skillbar-bar backgroundMain"></div>
-            <div class="skill-bar-percent" id="Cat_percent3"><label id="percent3" class="title4">88%</label></div>
+            <div class="skill-bar-percent" id="Cat_percent3"><label id="percent3" class="title4"></label></div>
         </div> <!-- End Skill Bar -->
     </div>
 </div>
@@ -51,9 +51,9 @@
         <img src="./images/clock.png" width="80%" class="img-responsive" style="display:inline-block"/>
     </div>
     <div class="col-xs-8 NoPaddingLR">
-        <div class="skillbar clearfix " data-percent="21%" id="Cat4">
+        <div class="skillbar clearfix " data-percent="0%" id="Cat4">
             <div class="skillbar-bar backgroundMain"></div>
-            <div class="skill-bar-percent" id="Cat_percent4"><label id="percent4" class="title4">21%</label></div>
+            <div class="skill-bar-percent" id="Cat_percent4"><label id="percent4" class="title4"></label></div>
         </div> <!-- End Skill Bar -->
     </div>
 </div>
@@ -75,35 +75,3 @@
 </div>
     
 
-<<<<<<< HEAD
-        // alert($.toJSON(categories));
-
-        jQuery('.skillbar').each(function()
-        {
-            // Solo falta la obtencion del json, no saca el valor de scores[category]["Score"]
-            // ya teniendo el valor del arreglo ya obteniendo el valor ya comprobe que todo funciona
-            // el cambio de animacion y el cambio de label
-        	//var newPercent = parseInt(parseInt(scores[category]["Score"])/totals[category]) * 100;         	
-            var newPercent = parseInt(parseInt(totals[category])/totals[category]) * 100;         	
-			console.log(newPercent);
-            // document.getElementById(percents[category]).innerHTML =  parseInt(totals[category]/totals[category] * 100).toString() + "%";
-            document.getElementById(percents[category]).innerHTML =  newPercent.toString() + "%";
-
-            // jQuery(this).attr('data-percent', parseInt(totals[category]/totals[category] * 100).toString() + "%");
-            jQuery(this).attr('data-percent', newPercent.toString() + "%");
-
-            jQuery(this).find('.skillbar-bar').animate({
-                width:jQuery(this).attr('data-percent')
-            },3000);
-            
-            category++; 
-        });
-    });
-
-    $(".ClickBackBad").on("click",function()
-    {
-        setView("badges",badges_js,false);
-    });
-</script>
-=======
->>>>>>> 2420d4410ead493e8325d2cfe73fda873d736474
