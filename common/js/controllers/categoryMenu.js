@@ -11,31 +11,6 @@
 			init_categoryMenu();
 		});
     
-		$(function() 
-        {      
-            $("#MainPanel").swipe( 
-            {
-            	swipeLeft:function(event, direction, distance, duration, fingerCount, fingerData) 
-                {
-                    previousCategory();
-                },
-
-                threshold:50
-            });
-        });
-
-		$(function() 
-        {      
-            $("#MainPanel").swipe( 
-            {
-            	swipeRight:function(event, direction, distance, duration, fingerCount, fingerData) 
-                {
-                    nextCategory();
-                },
-
-                threshold:50
-            });
-        });
 /**
  * Functions
  */
@@ -70,7 +45,6 @@
         }
 
 		function init_categoryMenu(){
-			console.log("init catmenu")
 			categoryMenu_js=true;
 			$.when(get_Data(Categories_Json)).then(function(category_data){
 				CM_categoryData=category_data;

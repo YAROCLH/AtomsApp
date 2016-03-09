@@ -5,22 +5,16 @@
  * Variables Declaration
 */
 
-		//http://atoms.mybluemix.net/Service
-		//http://127.0.0.1:14826/liberty-HelloWorld/Service/
-		var Server="http://atoms.mybluemix.net/Pages/",
-			Login_Json=Server+"Login.jsp",
-			myScore_Json=Server+"UserScore.jsp",
-			Uncompleted_Json=Server+"Challenges.jsp",
-			Status_Json=Server+"Status.jsp",
-			TopRank_Json=Server+"Top10.jsp",
-			MyRank_Json=Server+"UserRank.jsp",
-			Categories_Json=Server+"Categories.jsp",
-			Submit_Json=Server+"SubmitChallenge.jsp";
-		
-		//PassPhrase used for AES Encryption
-		var PassPhrase="BB85B8C1336755EAD02368931499380D"; 
-		var IV="31fbf42ee1d26041";
-		
+		var Server="http://atomsservice.mybluemix.net/Service/",
+			Login_Json=Server+"Login",
+			myScore_Json=Server+"Score",
+			Uncompleted_Json=Server+"Challenges",
+			Status_Json=Server+"Status",
+			TopRank_Json=Server+"Top10",
+			MyRank_Json=Server+"Rank",
+			Categories_Json=Server+"Categories",
+			Submit_Json=Server+"SubmitChallenge";
+				
 		//Device OS
 		var devicePlatform;
 		

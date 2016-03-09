@@ -12,13 +12,45 @@
 
 
 <script type="text/javascript">
-		$(".CategoryOneClick").on('click',function()
-		{
-			nextCategory();
-		});
-		
-		$(".CategoryThreeClick").on('click',function()
-		{
-            previousCategory();
-		});
+	$(function() 
+       {   
+       	console.log("entra Evento activado Izq");
+           $("#MainPanel").swipe( 
+           {
+           	swipeLeft:function(event, direction, distance, duration, fingerCount, fingerData) 
+               {
+           		console.log("Evento activado Izq");
+                   previousCategory();
+               },
+
+               threshold:50
+           });
+       });
+	
+
+	$(function() 
+	{    
+		console.log("entra Evento activado der");
+           $("#MainPanel").swipe( 
+           {
+           	swipeRight:function(event, direction, distance, duration, fingerCount, fingerData) 
+               {
+           		console.log("Evento activado der");
+                   nextCategory();
+               },
+
+               threshold:50
+           });
+       });
+	
+
+	$(".CategoryOneClick").on('click',function()
+	{
+		nextCategory();
+	});
+	
+	$(".CategoryThreeClick").on('click',function()
+	{
+           previousCategory();
+	});
 </script>
