@@ -32,6 +32,7 @@
 		function setView(newView,status_view,back){
 			if(isValid(newView) && newView=="login"){
 				$("#MainBody").load("views/AllViews/login.html");
+				global_UserId=null;global_UserName=null;
 				isLogin=true;
 			}
 			else if( isValid(newView) ){
@@ -55,13 +56,11 @@
 		 * @param back: boolean, true if was called by BackButton event
 		 */
 		function pushView(newView,currentView,back){
-			
 			if(newView=="index"){
 				prevView=[];
 			}
 			else{
-				if(currentView =="challenge"||back){}
-				else{
+				if(currentView != "challenge" || !back){
 					var aux=$.inArray(newView,prevView);
 					if(aux==-1){prevView.push(currentView);}
 				}
@@ -75,9 +74,7 @@
 		 * @returns {Boolean}
 		 */
 		function isValid(newView){
-			if(newView==null||newView==""){
-				  return false;	
-			}else{return true;	}
+			return (newView==null||newView==""||newView==='undefined') ? false : true ;
 		}
 		
 		
@@ -102,8 +99,9 @@
 		function loadMenu(newView){
 			$("#MainPanel").swipe("disable");
 			switch (newView){
+			
 				case "login":
-				break;
+					break;
 				case "category":
 					$("#MenuPanel").load("views/Menu/menu.html"); 
 					$("#NavegacionCatego").load("views/Menu/categoryMenu.html"); 
@@ -111,17 +109,18 @@
 					if ($("#MainPanel").swipe( "enable" )) { console.log("activado"); }
 					
 					loadJS("categoryMenu",categoryMenu_js);
-				break;
+					break;
 				case "challenge":
 					$("#MenuPanel").load("views/Menu/challengeMenu.html"); 
 					$("#NavegacionCatego").empty();
 					loadJS("challengeMenu",challengeMenu_js);
-				break;
+					break;
 				default:
 					$("#MenuPanel").load("views/Menu/menu.html");
 					$("#NavegacionCatego").empty();
 					category_CurrentCategory=1;
 					loadJS("menu",menu_js);
+					break;
 			}	
 		}
 		

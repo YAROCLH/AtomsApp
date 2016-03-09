@@ -70,6 +70,10 @@ body,
 .navbar-default .navbar-toggle{
 	border:none;
 }
+.navbar-toggle:hover
+{
+	backgroung-color:none;
+}
 .navbar-toggle{
 	padding:0px;
 }
