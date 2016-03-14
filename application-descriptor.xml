@@ -5,7 +5,7 @@
              disclosure restricted by GSA ADP Schedule Contract with IBM Corp. --><!-- Attribute "id" must be identical to application folder name --><application xmlns="http://www.worklight.com/application-descriptor" id="AtomsApp" platformVersion="7.1.0.00.20151227-1725">
     <displayName>Atoms</displayName>
     <description>Atoms</description>
-   <author>
+    <author>
         <name>IBM BTCIO CTG</name>
         <email>aemiguel@mx1.ibm.com</email>
         <homepage>http://ibm.com</homepage>
@@ -23,7 +23,6 @@
             <testWebResourcesChecksum enabled="false" ignoreFileExtensions="png, jpg, jpeg, gif, mp4, mp3"/>
         </security>
     </iphone>
-
     <userIdentityRealms/>
     <accessTokenExpiration>3600</accessTokenExpiration>
     <android version="1.0.9">

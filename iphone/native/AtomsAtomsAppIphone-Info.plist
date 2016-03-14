@@ -40,7 +40,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.2</string>
+	<string>1.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -48,10 +48,7 @@
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>atomsservice.mybluemix.net</key>
-			<dict>
-				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
+			<dict/>
 			<key>gabriels-macbook-pro.local</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
