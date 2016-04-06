@@ -8,11 +8,11 @@
  */
 		$(document).ready(function() {
 			init_badges();
-			setBadgePercentage();
+            // setBadgePercentage();
 		});
 		
 		$(document).on('click', "#status",function(){
-				setView("status", status_js);
+		    setView("status", status_js);
 		});
   
 /**
@@ -20,6 +20,7 @@
  */
 		function init_badges(){
 			badges_js=true;
+            setBadgePercentage();
 		}
         
 
