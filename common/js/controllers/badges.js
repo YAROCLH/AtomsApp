@@ -43,7 +43,6 @@
                 
                 $.when(get_Data(Status_Json,data_status)).then(function(status_data)
                 {
-
                      categories           = status_data;
                     var number_categories = categories.length;
                     var category          = 0;
@@ -52,6 +51,7 @@
                     var catID             = ['#Cat1', '#Cat2', '#Cat3', '#Cat4', '#Cat5' ];
                     jQuery('.title5').each(function()
                     {
+                        var id = categories[category].id; 
                         var total = parseInt(categories[category].Total);
                         if( category >= number_categories )
                         {
@@ -89,8 +89,8 @@
                         var badge_total   = 0;
                         var prev_badge    = 0;
                         var last_badge    = false;
-
-                        jQuery(catID[category]).find('.img-responsive').each(function()
+                        
+                        jQuery(catID[id - 1]).find('.img-responsive').each(function()
                         {
                             if( !last_badge)
                             {
