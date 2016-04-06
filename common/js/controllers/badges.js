@@ -50,7 +50,6 @@
                     var catID_counter     = 0;
 
                     var catID             = ['#Cat1', '#Cat2', '#Cat3', '#Cat4', '#Cat5' ];
-
                     jQuery('.title5').each(function()
                     {
                         var total = parseInt(categories[category].Total);
@@ -93,21 +92,21 @@
 
                         jQuery(catID[category]).find('.img-responsive').each(function()
                         {
-                            if( !last_badge )
+                            if( !last_badge)
                             {
                                 prev_badge  += badge_total;
-                                badge_total += parseInt(badges_points[badge_counter]);
-
-
-                                if( score > badge_total )
+                                badge_total = parseInt(badges_points[badge_counter]);
+                                
+                                if( score >= badge_total )
                                 {
                                     jQuery(this).removeClass("img-inactive");
                                 }
                                 else 
                                 {
+                                    console.log("fin");
                                     last_badge = true;
-                                    score -= prev_badge; 
-                                    newPercent = score/badges_points[badge_counter] * 100;
+                                    // score -= prev_badge; 
+                                    // newPercent = score/badges_points[badge_counter] * 100;
                                     // colorear parte
                                 }
                                 badge_counter++;
