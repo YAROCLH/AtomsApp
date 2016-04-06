@@ -42,6 +42,7 @@
 				jQuery('.skillbar').each(function()
 				{
                     var total = parseInt(categories[category].Total);
+                    var id    = parseInt(categories[category].id);
 
                     if( category >= number_categories )
                     {
@@ -54,7 +55,7 @@
                     }
 
                     newPercent = parseInt(newPercent);   	
-                    document.getElementById(percents[category]).innerHTML =  newPercent.toString() + "%";
+                    document.getElementById(percents[id]).innerHTML =  newPercent.toString() + "%";
                     jQuery(this).attr('data-percent', newPercent.toString() + "%");
 
                     jQuery(this).find('.skillbar-bar').animate({
