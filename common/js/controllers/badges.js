@@ -90,6 +90,8 @@
                         var prev_badge    = 0;
                         var last_badge    = false;
                         
+                        console.log("id " + id);
+
                         jQuery(catID[id - 1]).find('.img-responsive').each(function()
                         {
                             if( !last_badge)
