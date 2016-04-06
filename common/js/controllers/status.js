@@ -43,25 +43,28 @@
 				{
                     var total = parseInt(categories[category].Total);
                     var id    = parseInt(categories[category].id);
-
-                    if( category >= number_categories )
+                    if(category + 1 == id)
                     {
-                        newPercent=0;
-                    }
-                    else
-                    {
-                        score=parseInt(categories[category].Score);
-                        newPercent =score/total * 100; 
+                        if( category >= number_categories )
+                        {
+                            newPercent=0;
+                        }
+                        else
+                        {
+                            score=parseInt(categories[category].Score);
+                            newPercent =score/total * 100; 
+                        }
+
+                        newPercent = parseInt(newPercent);   	
+                        document.getElementById(percents[category]).innerHTML =  newPercent.toString() + "%";
+                        jQuery(this).attr('data-percent', newPercent.toString() + "%");
+
+                        jQuery(this).find('.skillbar-bar').animate({
+                            width:jQuery(this).attr('data-percent')
+                        },3000);
+                        
                     }
 
-                    newPercent = parseInt(newPercent);   	
-                    document.getElementById(percents[id]).innerHTML =  newPercent.toString() + "%";
-                    jQuery(this).attr('data-percent', newPercent.toString() + "%");
-
-                    jQuery(this).find('.skillbar-bar').animate({
-                        width:jQuery(this).attr('data-percent')
-                    },3000);
-                    
                     category++; 
 		        });
 		    });
