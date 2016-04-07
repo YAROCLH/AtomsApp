@@ -42,21 +42,28 @@
 
 				jQuery('.skillbar').each(function()
 				{
+				    console.log("N categoria         " + category);
+				    console.log("N de categoria (id) " + id);
+                    
                     if( id >= number_categories || category != categories[id].id - 1)
                     {
                         newPercent = 0;
                     }
                     else
                     {
+                        console.log("id de la category   " + categories[id].id);
                         var total = parseInt(categories[id].Total);
                         score       = parseInt(categories[id].Score);
                         newPercent  = score/total * 100; 
                         id++;
                     }
-
+                    
                     newPercent = parseInt(newPercent);   	
-                    document.getElementById(percents[category]).innerHTML =  newPercent.toString() + "%";
-                    jQuery(this).attr('data-percent', newPercent.toString() + "%");
+                    console.log("newPercent " + newPercent);
+                    console.log("\n");
+
+                    document.getElementById(percents[category]).innerHTML =  newPercent + "%";
+                    jQuery(this).attr('data-percent', newPercent + "%");
 
                     jQuery(this).find('.skillbar-bar').animate({
                         width:jQuery(this).attr('data-percent')
