@@ -38,34 +38,31 @@
             {
 			    categories            = status_data;
 				var number_categories = categories.length;
+                var id                = 0;
 
 				jQuery('.skillbar').each(function()
 				{
-                    var total = parseInt(categories[category].Total);
-                    var id    = parseInt(categories[category].id);
-                    if(category + 1 == id)
+                    if( id >= number_categories || category != categories[id].id - 1)
                     {
-                        if( category >= number_categories )
-                        {
-                            newPercent=0;
-                        }
-                        else
-                        {
-                            score=parseInt(categories[category].Score);
-                            newPercent =score/total * 100; 
-                        }
-
-                        newPercent = parseInt(newPercent);   	
-                        document.getElementById(percents[category]).innerHTML =  newPercent.toString() + "%";
-                        jQuery(this).attr('data-percent', newPercent.toString() + "%");
-
-                        jQuery(this).find('.skillbar-bar').animate({
-                            width:jQuery(this).attr('data-percent')
-                        },3000);
-                        
+                        newPercent = 0;
+                    }
+                    else
+                    {
+                        var total = parseInt(categories[id].Total);
+                        score       = parseInt(categories[id].Score);
+                        newPercent  = score/total * 100; 
+                        id++;
                     }
 
-                    category++; 
+                    newPercent = parseInt(newPercent);   	
+                    document.getElementById(percents[category]).innerHTML =  newPercent.toString() + "%";
+                    jQuery(this).attr('data-percent', newPercent.toString() + "%");
+
+                    jQuery(this).find('.skillbar-bar').animate({
+                        width:jQuery(this).attr('data-percent')
+                    },3000);
+                    
+                    category++;
 		        });
 		    });
 		}

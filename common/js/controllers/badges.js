@@ -44,23 +44,25 @@
                 $.when(get_Data(Status_Json,data_status)).then(function(status_data)
                 {
                      categories           = status_data;
-                    var number_categories = categories.length;
-                    var category          = 0;
-                    var catID_counter     = 0;
-
                     var catID             = ['#Cat1', '#Cat2', '#Cat3', '#Cat4', '#Cat5' ];
+                    var number_categories = categories.length;
+
+                    var category          = 0, 
+                        catID_counter     = 0,
+                        total             = 0,
+                        id                = 0;
+
                     jQuery('.title5').each(function()
                     {
-                        var id = categories[category].id; 
-                        var total = parseInt(categories[category].Total);
-                        if( category >= number_categories )
+                        if( id >= number_categories || category != categories[id].id - 1)
                         {
                             newPercent = 0;
                             score      = 0;
                         }
                         else
                         {
-                            score           = parseInt(categories[category].Score);
+                            total           = parseInt(categories[id].Total);
+                            score           = parseInt(categories[id].Score);
                             var badge_total = 0; 
                             var prev_badge  = 0;
                             
@@ -82,6 +84,7 @@
                                     break;
                                 }
                             }
+                            id++;
                         }
 
                         newPercent        = parseInt(newPercent);   	
@@ -90,13 +93,11 @@
                         var prev_badge    = 0;
                         var last_badge    = false;
                         
-                        console.log("id " + id);
-
-                        jQuery(catID[id - 1]).find('.img-responsive').each(function()
+                        jQuery(catID[category]).find('.img-responsive').each(function()
                         {
                             if( !last_badge)
                             {
-                                prev_badge  += badge_total;
+                                prev_badge += badge_total;
                                 badge_total = parseInt(badges_points[badge_counter]);
                                 
                                 if( score >= badge_total )
@@ -105,7 +106,6 @@
                                 }
                                 else 
                                 {
-                                    console.log("fin");
                                     last_badge = true;
                                     // score -= prev_badge; 
                                     // newPercent = score/badges_points[badge_counter] * 100;
