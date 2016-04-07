@@ -33,11 +33,6 @@
 			$.when(get_Data(Badges_Json)).then(function(badges_data)
             {
                 var badges_points = [badges_data[0].L1, badges_data[0].L2, badges_data[0].L3, badges_data[0].L4];
-                // var badges_points = [];
-                // for (var i in badges_data[0]) {
-                //     badges_points.push(i);
-                // }
-
                 var data_status = "idUser="+encodeString(global_UserId);
                 var categories, score, newPercent;
                 

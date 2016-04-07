@@ -34,38 +34,77 @@
 		    
 		    var categories, score, newPercent;
 
-			$.when(get_Data(Status_Json,data_status)).then(function(status_data)
+			$.when(get_Data(Badges_Json)).then(function(badges_data)
             {
-			    categories            = status_data;
-				var number_categories = categories.length;
-                var id                = 0;
+                var badges_points = [badges_data[0].L1, badges_data[0].L2, badges_data[0].L3, badges_data[0].L4];
 
-				jQuery('.skillbar').each(function()
-				{
-                    if( id >= number_categories || category != categories[id].id - 1)
-                    {
-                        newPercent = 0;
-                    }
-                    else
-                    {
-                        var total = parseInt(categories[id].Total);
-                        score       = parseInt(categories[id].Score);
-                        newPercent  = score/total * 100; 
-                        id++;
-                    }
-                    
-                    newPercent = parseInt(newPercent);   	
-                    
-                     newPercent = (newPercent > 100) ? 100: newPercent;
-                     
-                    document.getElementById(percents[category]).innerHTML =  newPercent + "%";
-                    jQuery(this).attr('data-percent', newPercent + "%");
+                $.when(get_Data(Status_Json,data_status)).then(function(status_data)
+                {
+                    categories            = status_data;
+                    var number_categories = categories.length;
+                    var id                = 0;
 
-                    jQuery(this).find('.skillbar-bar').animate({
-                        width:jQuery(this).attr('data-percent')
-                    },3000);
-                    
-                    category++;
-		        });
-		    });
+                    jQuery('.skillbar').each(function()
+                    {
+                        if( id >= number_categories || category != categories[id].id - 1)
+                        {
+                            newPercent = 0;
+                        }
+                        else
+                        {
+                            var total         = parseInt(categories[id].Total);
+                            score             = parseInt(categories[id].Score);
+
+                            var prev_badge    = 0;
+                            var prev_score    = 0;
+                            var badge_total   = 0;
+
+                            if(score > badges_points[badges_points.length - 1])
+                            {
+                                newPercent = 100;
+                            }
+                            else
+                            {
+                                for(var i = 0; i < badges_points.length; i++)
+                                {
+                                    var badge    = parseInt(badges_points[i]);
+                                    badge_total += badge; 
+                                    
+
+                                    if( i > 0)
+                                    {
+                                        prev_badge += parseInt(badges_points[i - 1]);
+                                    }
+
+                                    if( score < badge )
+                                    {
+                                        // prev_score = score - prev_badge;
+
+                                        //newPercent = prev_score/badge * 100; 
+                                        newPercent = score/badge * 100;
+                                        break;
+                                    }
+                                    else if(score == badge)
+                                    {
+                                        newPercent = 0;
+                                        break;
+                                    }
+                                }
+                            }
+                            id++;
+                        }
+                        
+                        newPercent = (newPercent > 100) ? 100: parseInt(newPercent);
+
+                        document.getElementById(percents[category]).innerHTML =  newPercent + "%";
+                        jQuery(this).attr('data-percent', newPercent + "%");
+
+                        jQuery(this).find('.skillbar-bar').animate({
+                            width:jQuery(this).attr('data-percent')
+                        },3000);
+                        
+                        category++;
+                    });
+                });
+            });
 		}
