@@ -42,16 +42,12 @@
 
 				jQuery('.skillbar').each(function()
 				{
-				    console.log("N categoria         " + category);
-				    console.log("N de categoria (id) " + id);
-                    
                     if( id >= number_categories || category != categories[id].id - 1)
                     {
                         newPercent = 0;
                     }
                     else
                     {
-                        console.log("id de la category   " + categories[id].id);
                         var total = parseInt(categories[id].Total);
                         score       = parseInt(categories[id].Score);
                         newPercent  = score/total * 100; 
@@ -59,9 +55,9 @@
                     }
                     
                     newPercent = parseInt(newPercent);   	
-                    console.log("newPercent " + newPercent);
-                    console.log("\n");
-
+                    
+                     newPercent = (newPercent > 100) ? 100: newPercent;
+                     
                     document.getElementById(percents[category]).innerHTML =  newPercent + "%";
                     jQuery(this).attr('data-percent', newPercent + "%");
 
