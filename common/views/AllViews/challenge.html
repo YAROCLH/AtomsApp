@@ -3,6 +3,9 @@
 	<div class="col-xs-offset-1 col-xs-10 text-center">
 			<img id="prefoto" src="./images/prefoto.png" width="100%" class="img-responsive prefoto"/>
 			<p id="leyend" class="challenge" style=" background-color:#000000; font-size:5vw;color:#FFFFFF; opacity:2; padding:5%;">You can take a photo to complete this challenges!!!</p>
+		<script type="text/javascript">
+			$("#leyend").text(category_Data[selectedChallenge].Short);
+		</script>
 	</div>
 </div>
 
@@ -26,16 +29,15 @@
 	<div class="col-xs-offset-1 col-xs-10">
 		<div>
 			<div class="col-xs-8 NoPaddingLR">
-				<div class="onoffswitch">
+				<!--  <div class="onoffswitch">
 				    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
 				    <label class="onoffswitch-label" for="myonoffswitch">
 				        <span class="onoffswitch-inner"></span>
 				        <span class="onoffswitch-switch"></span>
 				    </label>
-				</div>
+				</div>-->
 				<div>
-					<label class="MainText">share it on</label><br />
-					<label class="MainText">IBM Connections</label>
+					<label class="title5">share it on<br />IBM Connections<br />Coming Soon...</label>
 				</div>
 			</div>
 			<div class="col-xs-4 text-right NoPaddingLR" style="padding-bottom:10px;">
