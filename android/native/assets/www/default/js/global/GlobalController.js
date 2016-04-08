@@ -29,7 +29,7 @@
 		 * @param status: boolean, true if the view was loaded previously 
 		 * @param back: boolean, true if was called by BackButton event
 		 */		
-		function setView(newView,status_view,back){
+		function setView(newView,status_view,backView){
 			if(isValid(newView) && newView=="login"){
 				$("#MainBody").load("views/AllViews/login.html");
 				global_UserId=null;global_UserName=null;
@@ -38,10 +38,10 @@
 			else if( isValid(newView) ){
 				isLogin=false;
 				if(newView=="category"){
-					category_CurrentCategory=1;
+					category_CurrentCategory=1;///!!!!!
 				}  
 				$("#MainPanel").load("views/AllViews/"+newView+".html");
-				pushView(newView,currentView,back); 
+				pushView(newView,currentView,backView); 
 			}
 			loadJS(newView,status_view);
 			loadMenu(newView);
@@ -56,14 +56,21 @@
 		 * @param back: boolean, true if was called by BackButton event
 		 */
 		function pushView(newView,currentView,back){
+			console.log("new: "+newView);
+			console.log("current: "+currentView)
+			console.log(prevView);
+			console.log("back: "+back)
 			if(newView=="index"){
 				prevView=[];
 			}
 			else{
-				if(currentView != "challenge" || !back){
+				if((currentView != "challenge" ||currentView !="myPoints")&&back==false){///aquiiii
 					var aux=$.inArray(newView,prevView);
-					if(aux==-1){prevView.push(currentView);}
-				}
+					if(aux==-1){
+						console.log("pushing "+currentView)
+						prevView.push(currentView);
+					}else{console.log("Already in list")} 
+				}else{console.log("not pushing"+currentView)}
 			}
 		}
 		
@@ -139,7 +146,7 @@
 					dataType: 'json', 
 				    data: data,
 					success:function(json){
-						console.log("get Data Success");
+						//console.log("get Data Success");
 						json_data=$.map(json, function(elements) {return elements});},
 					error:function(jqxhr, textStatus, error ){  
 						var err = textStatus + ", " + error;

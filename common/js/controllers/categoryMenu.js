@@ -16,8 +16,7 @@
  */
         function nextCategory()
         {
-            if(CM_counter > 1 && CM_counter <= CM_categoryData.length)
-            {
+            if(CM_counter > 1 && CM_counter <= CM_categoryData.length){
                 CM_counter--;
                 $("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
                 setCategory(CM_counter);
@@ -31,8 +30,7 @@
 
         function previousCategory()
         {
-            if(CM_counter > 0 && CM_counter < CM_categoryData.length)
-            {
+            if(CM_counter > 0 && CM_counter < CM_categoryData.length){
                 CM_counter++;
                 $("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
                 $("#izquierda").html("&#60;&#60;");
@@ -48,13 +46,14 @@
 			categoryMenu_js=true;
 			$.when(get_Data(Categories_Json)).then(function(category_data){
 				CM_categoryData=category_data;
-				CM_counter=1;
+				CM_counter=category_CurrentCategory;
 				$("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
 			});
 		}
 		
 		function setCategory(idCategory){
 			$("#MainPanel").load("views/AllViews/category.html",function(){
+				category_CurrentCategory=idCategory;
 				init_category(idCategory);
 			});
 		}

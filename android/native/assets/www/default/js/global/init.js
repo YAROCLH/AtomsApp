@@ -14,7 +14,10 @@
 			MyRank_Json=Server+"Rank",
 			Categories_Json=Server+"Categories",
 			Submit_Json=Server+"SubmitChallenge";
-				
+            Badges_Json=Server+"Badges";
+        
+        //http://atomsservice.mybluemix.net/Service/?Mg==
+
 		//Device OS
 		var devicePlatform;
 		
@@ -44,14 +47,3 @@
 		
 		// used to init a controller when the view is set again
 		var recall;
-		
-	
-	
-	
-	
-	
-	
-	
-	
-
-	

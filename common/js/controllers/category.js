@@ -5,7 +5,6 @@
 		var category_buffer;
 		var img_src;
 		var category_status;
-		var category_CurrentCategory=1;
 		var selectedChallenge=0;
 		var category_Data;
 /**
@@ -16,7 +15,7 @@
 		});
 		$(document).on('click', ".doitClick",function(){
 			selectedChallenge = $(this).attr('value');
-			setView("challenge",challenge_js);
+			setView("challenge",challenge_js,false);
 		});
 	
 		$(document).on('click', ".doneClick",function(){

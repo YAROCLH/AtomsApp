@@ -22,4 +22,5 @@
 				$(".newScore").innerHTML(newScore.toString());
 				
 			}
-
+			
+			

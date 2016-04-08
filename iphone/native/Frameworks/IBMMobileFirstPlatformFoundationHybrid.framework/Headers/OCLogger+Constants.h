@@ -45,7 +45,6 @@ extern int const BUFFER_TIME_IN_SECONDS;
 extern int const HTTP_SC_OK;
 extern int const HTTP_SC_NO_CONTENT;
 extern int const HTTP_SC_BAD_REQUEST;
-extern int const HTTP_SC_METHOD_NOT_ALLOWED;
 
 extern NSString* const DEFAULT_LOCALE_ID;
 extern NSString* const DEFAULT_TIME_ZONE;

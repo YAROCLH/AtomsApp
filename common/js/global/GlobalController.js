@@ -27,7 +27,8 @@
 		 * @param status: boolean, true if the view was loaded previously 
 		 * @param back: boolean, true if was called by BackButton event
 		 */		
-		function setView(newView,status_view,back){
+		function setView(newView,status_view,backView){
+			if(newView=="category"){console.log("SETV "+category_CurrentCategory)}
 			if(isValid(newView) && newView=="login"){
 				$("#MainBody").load("views/AllViews/login.html");
 				global_UserId=null;global_UserName=null;
@@ -35,11 +36,8 @@
 			}
 			else if( isValid(newView) ){
 				isLogin=false;
-				if(newView=="category"){
-					category_CurrentCategory=1;
-				}  
 				$("#MainPanel").load("views/AllViews/"+newView+".html");
-				pushView(newView,currentView,back); 
+				pushView(newView,currentView,backView); 
 			}
 			loadJS(newView,status_view);
 			loadMenu(newView);
@@ -58,10 +56,12 @@
 				prevView=[];
 			}
 			else{
-				if(currentView != "challenge" || !back){
+				if((currentView != "challenge" ||currentView !="myPoints")&&(back==false||back==='undefined')){
 					var aux=$.inArray(newView,prevView);
-					if(aux==-1){prevView.push(currentView);}
-				}
+					if(aux==-1){
+						prevView.push(currentView);
+					}else{} 
+				}else{}
 			}
 		}
 		
@@ -86,8 +86,13 @@
 				$.getScript("js/controllers/"+newView+".js");
 			}
 			else{
-				recall = new Function("init_"+newView+"()");
-				recall(); 
+				if(newView=="category"){
+					recall = new Function("init_"+newView+"("+category_CurrentCategory+")");
+					console.log("Recall "+category_CurrentCategory)
+				}else{
+					recall = new Function("init_"+newView+"()");
+				}  
+				recall();
 			}
 		}
 		/**
@@ -116,7 +121,6 @@
 				default:
 					$("#MenuPanel").load("views/Menu/menu.html");
 					$("#NavegacionCatego").empty();
-					category_CurrentCategory=1;
 					loadJS("menu",menu_js);
 					break;
 			}	
@@ -137,7 +141,7 @@
 					dataType: 'json', 
 				    data: data,
 					success:function(json){
-						console.log("get Data Success");
+						//console.log("get Data Success");
 						json_data=$.map(json, function(elements) {return elements});},
 					error:function(jqxhr, textStatus, error ){  
 						var err = textStatus + ", " + error;

@@ -91,8 +91,7 @@
 		}
 		
 		function submitSuccess(){
-			category_Datagory_CurrentCategory=1;
-			setView("myPoints",myPoints_js);
+			setView("myPoints",myPoints_js,true);
 		}
 		
 		function submitFail(){

@@ -44,7 +44,7 @@
 		428BCE081372799200AEB66F /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 428BCE021372799200AEB66F /* Default-Portrait~ipad.png */; };
 		428BCE091372799200AEB66F /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 428BCE031372799200AEB66F /* Default~iphone.png */; };
 		428BCE0A1372799200AEB66F /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 428BCE041372799200AEB66F /* Icon-72.png */; };
-		42B5EAC41250C4AF00DC666F /* Atoms.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B5EAC31250C4AF00DC666F /* Atoms.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -w"; }; };
+		42B5EAC41250C4AF00DC666F /* AtomsApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B5EAC31250C4AF00DC666F /* AtomsApp.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -w"; }; };
 		42D9944B12952AAC00E883AC /* worklight.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42D9944A12952AAC00E883AC /* worklight.plist */; };
 		42DB65D6141F483300EA8B09 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DB65D5141F483300EA8B09 /* CoreMedia.framework */; };
 		470009E616BE4F3700E4EA3D /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 470009E516BE4F3700E4EA3D /* config.xml */; };
@@ -103,7 +103,7 @@
 		188F367F17D5C74F00C50D85 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-120.png"; path = "Resources/Icon-120.png"; sourceTree = "<group>"; };
 		188F368017D5C74F00C50D85 /* Icon-120@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-120@2x.png"; path = "Resources/Icon-120@2x.png"; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D6058910D05DD3D006BFB54 /* Atoms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Atoms.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* AtomsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtomsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2710065016A09DEF0072351B /* Localizations.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Localizations.bundle; path = Resources/Localizations.bundle; sourceTree = "<group>"; };
 		2710067016A09DEF0072351B /* CDVCapture.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CDVCapture.bundle; path = Resources/CDVCapture.bundle; sourceTree = "<group>"; };
@@ -129,8 +129,8 @@
 		428BCE021372799200AEB66F /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "Resources/Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		428BCE031372799200AEB66F /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~iphone.png"; path = "Resources/Default~iphone.png"; sourceTree = "<group>"; };
 		428BCE041372799200AEB66F /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/Icon-72.png"; sourceTree = "<group>"; };
-		42B5EAC21250C4AF00DC666F /* Atoms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Atoms.h; sourceTree = "<group>"; };
-		42B5EAC31250C4AF00DC666F /* Atoms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Atoms.m; sourceTree = "<group>"; };
+		42B5EAC21250C4AF00DC666F /* AtomsApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomsApp.h; sourceTree = "<group>"; };
+		42B5EAC31250C4AF00DC666F /* AtomsApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtomsApp.m; sourceTree = "<group>"; };
 		42D9944A12952AAC00E883AC /* worklight.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = worklight.plist; sourceTree = "<group>"; };
 		42DB65D5141F483300EA8B09 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		470009E516BE4F3700E4EA3D /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
@@ -199,8 +199,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				42B5EAC21250C4AF00DC666F /* Atoms.h */,
-				42B5EAC31250C4AF00DC666F /* Atoms.m */,
+				42B5EAC21250C4AF00DC666F /* AtomsApp.h */,
+				42B5EAC31250C4AF00DC666F /* AtomsApp.m */,
 			);
 			path = Classes;
 			sourceTree = SOURCE_ROOT;
@@ -208,7 +208,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* Atoms.app */,
+				1D6058910D05DD3D006BFB54 /* AtomsApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -347,7 +347,7 @@
 			);
 			name = AtomsAtomsAppIphone;
 			productName = PhoneGapTestClient;
-			productReference = 1D6058910D05DD3D006BFB54 /* Atoms.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* AtomsApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -469,7 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				42B5EAC41250C4AF00DC666F /* Atoms.m in Sources */,
+				42B5EAC41250C4AF00DC666F /* AtomsApp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,7 +526,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
-				PRODUCT_NAME = Atoms;
+				PRODUCT_NAME = AtomsApp;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "i386 armv7 armv7s arm64 i86_64";
@@ -573,7 +573,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
-				PRODUCT_NAME = Atoms;
+				PRODUCT_NAME = AtomsApp;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "i386 armv7 armv7s arm64 i86_64";
@@ -640,7 +640,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
-				PRODUCT_NAME = Atoms;
+				PRODUCT_NAME = AtomsApp;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s i386 arm64 i86_64";
