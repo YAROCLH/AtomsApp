@@ -407,7 +407,12 @@ html, body {
 }
 .img-inactive
 {
-	opacity:0.5;
+	opacity:0.3;
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
 }
 .center-block {
     display: block;

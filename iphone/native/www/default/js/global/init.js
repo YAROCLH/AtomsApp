@@ -47,3 +47,4 @@
 		
 		// used to init a controller when the view is set again
 		var recall;
+		var category_CurrentCategory=1;

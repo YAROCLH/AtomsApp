@@ -14,11 +14,11 @@
 			console.log(devicePlatform)
 		});
 		 $(document).on('click', ".ChallengesClick",function(){
-				setView("category",category_js);		
+				setView("category",category_js,false);		
 		});
 
 		$(document).on('click', ".PositionClick",function(){
-				setView("yourRank",rank_js);
+				setView("yourRank",rank_js,false);
 		});
 
 		$(document).on('click', ".LevelsClick",function(){
