@@ -28,7 +28,6 @@
 		 * @param back: boolean, true if was called by BackButton event
 		 */		
 		function setView(newView,status_view,backView){
-			if(newView=="category"){console.log("SETV "+category_CurrentCategory)}
 			if(isValid(newView) && newView=="login"){
 				$("#MainBody").load("views/AllViews/login.html");
 				global_UserId=null;global_UserName=null;
