@@ -21,6 +21,7 @@
                 $("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
                 setCategory(CM_counter);
                 $("#derecha").html("&#62;&#62;");	
+               
             }
             else
             {
@@ -30,6 +31,7 @@
 
         function previousCategory()
         {
+        	 
             if(CM_counter > 0 && CM_counter < CM_categoryData.length){
                 CM_counter++;
                 $("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
