@@ -87,8 +87,6 @@
 			else{
 				if(newView=="category"){
 					recall = new Function("init_"+newView+"("+category_CurrentCategory+")");
-					console.log("Recall "+category_CurrentCategory);
-					
 				}else{
 					recall = new Function("init_"+newView+"()");
 				}  
@@ -128,7 +126,6 @@
 		
 		function SetLastView(){
 			var prev=prevView.pop();
-			console.log("set last:"+prev)
 		    setView(prev,true,true);
 		}
 		
