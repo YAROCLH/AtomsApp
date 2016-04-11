@@ -30,7 +30,6 @@
 		 * @param back: boolean, true if was called by BackButton event
 		 */		
 		function setView(newView,status_view,backView){
-			if(newView=="category"){console.log("SETV "+category_CurrentCategory)}
 			if(isValid(newView) && newView=="login"){
 				$("#MainBody").load("views/AllViews/login.html");
 				global_UserId=null;global_UserName=null;
@@ -90,7 +89,6 @@
 			else{
 				if(newView=="category"){
 					recall = new Function("init_"+newView+"("+category_CurrentCategory+")");
-					console.log("Recall "+category_CurrentCategory)
 				}else{
 					recall = new Function("init_"+newView+"()");
 				}  
@@ -130,7 +128,6 @@
 		
 		function SetLastView(){
 			var prev=prevView.pop();
-			console.log("set last:"+prev)
 		    setView(prev,true,true);
 		}
 		

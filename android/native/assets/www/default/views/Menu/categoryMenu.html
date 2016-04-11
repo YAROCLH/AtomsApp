@@ -25,6 +25,7 @@
 
                threshold:50
            });
+
        });
 	
 
@@ -42,8 +43,11 @@
                threshold:50
            });
        });
+	if(category_CurrentCategory>1)
+	{
+		$("#izquierda").html("&#60;&#60;");
+	}
 	
-
 	$(".CategoryOneClick").on('click',function()
 	{
 		nextCategory();
