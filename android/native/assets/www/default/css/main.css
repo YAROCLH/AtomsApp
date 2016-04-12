@@ -284,14 +284,14 @@ body,
     box-sizing: border-box;
 }
 .onoffswitch-inner:before {
-    content: "Yes";
+    content: "ON";
     padding-left: 3.5vw;
     background-color: #F04F38; color: #FFFFFF;
 }
 .onoffswitch-inner:after {
-    content: "No";
+    content: "OFF";
     padding-right: 3.5vw;
-    background-color: #2DAF50; color: #ffffff;
+    background-color: #bbbbbb; color: #ffffff;
     text-align: right;
 }
 .onoffswitch-switch {
@@ -349,6 +349,12 @@ html, body {
 {
 	color:#808080;
 	font-size:5.2vw;
+}
+
+.title6
+{
+	color:#808080;
+	font-size:4vw;
 }
 
 .scoreNumbersC

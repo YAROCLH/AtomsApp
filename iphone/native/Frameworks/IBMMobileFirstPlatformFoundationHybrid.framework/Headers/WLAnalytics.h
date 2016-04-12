@@ -45,6 +45,16 @@
 
 /**
  This method logs analytics data
+ Some data is already captured by the framework. To avoid collisions,
+ the following keys will be excluded if logged in the metadata:
+     mfpAppName
+     mfpAppVersion
+     deviceOSversion
+     deviceOS
+     deviceModel
+     deviceID
+     timezone
+     timestamp
  @param String message to be logged
  @param metadata Dictionary containing metadata to append to the log output
  @since Worklight V6.2.0
