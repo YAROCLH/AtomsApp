@@ -5228,7 +5228,7 @@ WL.Logger = (function (jQuery) {
         autoSendLogs : typeof options.autoSendLogs === 'boolean' ? options.autoSendLogs : state.autoSendLogs
       };
     if (__checkNativeEnvironment()) {
-      _setNativeOptions({filters: state.filters, filtersFromServer: state.filtersFromServer, level: state.level, levelFromServer: state.levelFromServer, capture: state.capture, captureFromServer: state.captureFromServer, analyticsCapture: state.analyticsCapture, maxFileSize: state.maxFileSize, autoSendLogs: state.autoSendLogs});
+      _setNativeOptions(options || {});
     } else if (WL.StaticAppProps.ENVIRONMENT !== 'air') {
       WL.WebLogger._setState(state);
     }

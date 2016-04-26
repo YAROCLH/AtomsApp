@@ -154,6 +154,13 @@
           <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
           <true/>
         </dict>
+        <key>r8xz5g9</key>
+        <dict>
+          <key>NSIncludesSubdomains</key>
+          <true/>
+          <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+          <true/>
+        </dict>
       </dict>
     </dict>
   </dict>

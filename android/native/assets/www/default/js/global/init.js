@@ -5,7 +5,8 @@
  * Variables Declaration
 */
 
-		var Server="http://atomsservice.mybluemix.net/Service/",
+		//var Server="http://atomsservice.mybluemix.net/Service/",
+		var Server="http://atoms.w3ibm.mybluemix.net/"
 			Login_Json=Server+"Login",
 			myScore_Json=Server+"Score",
 			Uncompleted_Json=Server+"Challenges",
