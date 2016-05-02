@@ -3,7 +3,8 @@
  * Variables Declaration
 */
 
-		var Server="http://atomsservice.mybluemix.net/Service/",
+			//var Server="http://atomsservice.mybluemix.net/Service/",
+			var Server="http://localhost:9080/liberty-HelloWorld/Service/"
 			Login_Json=Server+"Login",
 			myScore_Json=Server+"Score",
 			Uncompleted_Json=Server+"Challenges",
@@ -13,8 +14,7 @@
 			Categories_Json=Server+"Categories",
 			Submit_Json=Server+"SubmitChallenge";
             Badges_Json=Server+"Badges";
-        
-        //http://atomsservice.mybluemix.net/Service/?Mg==
+            url_UploadImage=Server+"Submit"
 
 		//Device OS
 		var devicePlatform;

@@ -137,6 +137,7 @@
 			return $.when( 
 					$.ajax({
 					url:url_json,
+					type: "POST",
 					dataType: 'json', 
 				    data: data,
 					success:function(json){

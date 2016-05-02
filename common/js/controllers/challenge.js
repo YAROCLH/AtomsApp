@@ -11,6 +11,7 @@
 		var curentChallenge;
 		var selectedScore;
 		var newScore;
+		var photo;
 /**
  * Events
  */
@@ -46,24 +47,29 @@
 		
 		function takePicture(){
 			navigator.camera.getPicture(onSucces,onFail,{
-                quality: 25, 
-                sourceType: source,
-                destinationType: destinationType.FILE_URI
+				quality: 25,
+		        destinationType: destinationType.FILE_URI
 			});
 		}
 		
-		function onSucces(image_uri){
+		function onSucces(imageURI){
+			console.log("cam success")
 			camera_success=true;
-			$("#prefoto").attr("src",image_uri);
-			
+			$("#prefoto").attr("src",imageURI);
 			$("#prefoto").each(function(){
 			  $(this).height($(this).height() * 0.99);
             });
+			photo=imageURI;
+			console.log("PHOTO"+photo)
 		}
 		
 		function onFail(message){
 			 console.log("Camera Failed: "+ message);
 		}
+		
+		
+		
+
 		
 		function DoSubmit(){
 			var comment=$("#commentFoto").val();
@@ -71,16 +77,12 @@
 				var data_myrank="idUser="+encodeString(global_UserId);
 				$.when(get_Data(MyRank_Json,data_myrank)).then(function(myRank){
 					currentScore=myRank[0].Score;
-					data_submit="idUser="+encodeString(global_UserId)+"&idChallenge="+encodeString(currentChallenge)+
-					"&Attach="+encodeString(comment)+"&Photo="+encodeString("NO PHOTO BY NOW");
-					$.when(get_Data(Submit_Json,data_submit)).then(function(challenge_data){
-						if(challenge_data[0].STATUS==1){
-							submitSuccess();
-						}
-						else{
-							submitFail();	
-						}	
-					});
+					data_user=encodeString(global_UserId);
+					data_challenge=encodeString(currentChallenge);
+					data_attach=encodeString(comment);
+					//data_submit="idUser="+encodeString(global_UserId)+"&idChallenge="+encodeString(currentChallenge)+
+					//"&Attach="+encodeString(comment)+"&Photo="+photo;
+				    uploadPhoto(photo, data_user, data_challenge,data_attach);				
 				});
 			}
 			else{
@@ -100,7 +102,32 @@
 			setView("category",true,true);
 		}
 		
+		function uploadPhoto(imageURI,user,challenge,attach){
+			console.log("upload photo");
+			var options = new FileUploadOptions();
+            options.fileKey="file";
+            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            options.mimeType="image/jpeg";
+            var params = {};
+            params.idUser = user;
+            params.idChallenge = challenge;
+            params.Attach=attach;
+            options.params = params;
+            var ft = new FileTransfer();
+            ft.upload(imageURI, encodeURI(url_UploadImage), uploadSuccess, uploadFail, options);
+		}
 		
+		function uploadSuccess(r){
+			var res=r.response.toString();
+			if(res.indexOf('1') === -1){// Por Optimizar
+			  submitFail();
+			}else{
+			  submitSuccess();
+			}	
+		}
+		function uploadFail(e){
+			submitFail();
+		}
 		
 		
 		
