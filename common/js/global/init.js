@@ -43,6 +43,7 @@
 		//User Data
 		var global_UserId;
 		var global_UserName;
+		var global_IntranetID;
 		
 		// used to init a controller when the view is set again
 		var recall;

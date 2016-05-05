@@ -77,9 +77,9 @@
 		}
 		function DoSuccess(userId,user){
 			$(".loginContainer").remove();
-			global_UserId=userId;//IntranetID AQUI***
-			global_UserName=user;
-			console.log(global_UserId);
+			global_UserId=userId;
+			global_IntranetID=user;/// este es el intranet id 
+			global_UserName=user; // aqui debe ir el nombre
 			setView("index",index_js,false);		
 		}
 		function Save(user){
