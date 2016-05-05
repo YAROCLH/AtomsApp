@@ -35,28 +35,18 @@
 				}
 				
 			});
-			//var result=localStorage.getItem("Remember");	
 		}
 		
 		function DoLogin(user,pass){
-			var data_login="UserName="+encodeString(user)+"&UserPass="+encodeString(pass);
-			$.when(get_Data(Login_Json,data_login)).then(function(login_data){
-				if(login_data[0].id==0){	
-					DoFail(0);
-				}else{
-					if(login_data[0].id==-1){
-						DoFail(-1)
-					}else{
-						
-						if($("#RememberCheck").is(':checked')){	
-							Save(user);
-						}else{}
-						$(".loginContainer").remove();
-						$.when(DoSuccess(login_data)).then(function(){
-							setView("index",index_js,false);
-						});		 }
-				}
+			var data_login=encodeString(user+":"+"t9beiqpp");
+			$.ajax({
+				url:"https://lmc2.watsn.ibm.com:15036/atoms",
+				type: "GET",
+				headers: { 'Authorization': 'Basic '+ data_login},
+				success:function(xhr){	ValidateUser(user)},
+				error:	function(xhr){	DoFail(0)	}	       
 			});
+			
 		}
 		
 		function DoFail(ErrCode){
@@ -70,17 +60,32 @@
 			}
 			
 		}
-		
-		function DoSuccess(login_data,user){
-			global_UserId=login_data[0].id;
-			global_UserName=login_data[0].Name;		
+		function ValidateUser(user){
+			var data_login="intranetID="+encodeString(user);
+			$.when(get_Data(Login_Json,data_login)).then(function(login_data){
+				if(login_data===undefined){	
+					DoFail(-1);
+				}else{
+					if(login_data[0].id==-1){
+						DoFail(-1)
+					}else{
+						DoSuccess(login_data[0].id)
+					}
+				}
+			});
+			
+		}
+		function DoSuccess(userId){
+			global_UserId=userId;
+			global_UserName="NO NAME";//AQUI
+			setView("index",index_js,false);		
 		}
 		function Save(user){
 			localStorage.setItem("Remember", user);
 		}
 		
 		
-				 
+		
 		
 		
 		

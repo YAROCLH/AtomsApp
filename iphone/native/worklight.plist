@@ -5,11 +5,7 @@
 	<key>protocol</key> 
 	<string>http</string>
 	<key>host</key>
-<<<<<<< HEAD
 	<string>PBZ75M5</string>
-=======
-	<string>R8XZ5G9</string>
->>>>>>> 5386d080f0fa95a035ebed44b1143cac7191f45a
 	<key>port</key>
 	<string>10080</string>
 	<key>wlServerContext</key>

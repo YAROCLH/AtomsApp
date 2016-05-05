@@ -120,11 +120,15 @@
 		}
 		
 		function uploadSuccess(r){
-			console.log("image ok"+r)
-			submitSuccess();
+			var res=r.response.toString();
+			if(res.indexOf('1') === -1){// Por Optimizar
+			  submitFail();
+			}else{
+			  submitSuccess();
+			}	
 		}
 		function uploadFail(e){
-			console.log("image fail"+e.code)
+			submitFail();
 		}
 		
 		
