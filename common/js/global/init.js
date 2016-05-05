@@ -3,8 +3,8 @@
  * Variables Declaration
 */
 
-		var Server="http://localhost:9080/liberty-HelloWorld/Service/",
-		//var Server="https://lmc2.watson.ibm.com:15036/atoms"
+		//var Server="http://localhost:9080/liberty-HelloWorld/Service/",
+		var Server="https://lmc2.watson.ibm.com:15036/atoms/"
 			Login_Json=Server+"Login",
 			myScore_Json=Server+"Score",
 			Uncompleted_Json=Server+"Challenges",

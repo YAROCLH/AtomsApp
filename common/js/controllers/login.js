@@ -4,6 +4,7 @@
  */
 		var Remember=false;
 		var ToSave;
+		var DATA_LOGIN;
 /**
  * Events
  */		
@@ -36,13 +37,14 @@
 		}
 		
 		function DoLogin(user,pass){
-			var data_login=encodeString(user+":"+pass);
+			DATA_LOGIN=encodeString(user+":"+pass);
 			$.ajax({
 				url:"https://lmc2.watson.ibm.com:15036/atoms",
 				type: "GET",
-				headers: { 'Authorization': 'Basic '+ data_login},
+				headers: { 'Authorization': 'Basic '+ DATA_LOGIN},
 				success:function(xhr){	ValidateUser(user)},
-				error:	function(xhr){	DoFail(0)	}	       
+				error:	function(xhr){	console.log("Login Failed"+xhr.status);
+					DoFail(0)	}	       
 			});
 			
 		}
