@@ -16,7 +16,7 @@
     <targetCategory>UNDEFINED</targetCategory>
     <licenseAppType>APPLICATION</licenseAppType>
     <thumbnailImage>common/images/thumbnail.png</thumbnailImage>
-    <iphone bundleId="com.ibm.cio.be.iphone.mobile.atoms" version="1.0.10">
+    <iphone bundleId="com.ibm.cio.be.iphone.mobile.atoms" version="1.0.13">
         <worklightSettings include="false"/>
         <security>
             <encryptWebResources enabled="false"/>
@@ -25,7 +25,7 @@
     </iphone>
     <userIdentityRealms/>
     <accessTokenExpiration>3600</accessTokenExpiration>
-    <android version="1.0.10">
+    <android version="1.0.13">
         <worklightSettings include="false"/>
         <security>
             <encryptWebResources enabled="false"/>

@@ -20,12 +20,12 @@
                 CM_counter--;
                 $("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
                 setCategory(CM_counter);
-                $("#derecha").html("&#62;&#62;");	
+                $("#derecha").css("display","inline");	
                
             }
             else
             {
-                $("#izquierda").html("&nbsp;");
+                $("#izquierda").css("display",'none');
             }
         }
 
@@ -35,12 +35,12 @@
             if(CM_counter > 0 && CM_counter < CM_categoryData.length){
                 CM_counter++;
                 $("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
-                $("#izquierda").html("&#60;&#60;");
+                $("#izquierda").css("display",'inline');
                 setCategory(CM_counter);	
             }
             else
             {
-                $("#derecha").html("&nbsp;");
+                $("#derecha").css("display",'none');
             }
         }
 
