@@ -37,7 +37,7 @@
 			rank_header=$("#rank_header").clone();
 		    for (var i=0;i<topRank.length;i++){
 	    		rank_ActiveRed=""
-		    	if(topRank[i].Name==global_UserName){
+		    	if(topRank[i].INTRANET==global_IntranetID){
 		    		rank_inTop=true;
 		    		rank_ActiveRed="ActiveRed"
 		    	}
