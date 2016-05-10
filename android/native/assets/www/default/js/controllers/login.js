@@ -6,6 +6,7 @@
  */
 		var Remember=false;
 		var ToSave;
+		var DATA_LOGIN;
 /**
  * Events
  */		
@@ -38,13 +39,14 @@
 		}
 		
 		function DoLogin(user,pass){
-			var data_login=encodeString(user+":"+"t9beiqpp");
+			DATA_LOGIN=encodeString(user+":"+pass);
 			$.ajax({
-				url:"https://lmc2.watsn.ibm.com:15036/atoms",
+				url:"https://lmc2.watson.ibm.com:15036/atoms",
 				type: "GET",
-				headers: { 'Authorization': 'Basic '+ data_login},
+				headers: { 'Authorization': 'Basic '+ DATA_LOGIN},
 				success:function(xhr){	ValidateUser(user)},
-				error:	function(xhr){	DoFail(0)	}	       
+				error:	function(xhr){	console.log("Login Failed"+xhr.status);
+					DoFail(0)	}	       
 			});
 			
 		}
@@ -69,15 +71,17 @@
 					if(login_data[0].id==-1){
 						DoFail(-1)
 					}else{
-						DoSuccess(login_data[0].id)
+						DoSuccess(login_data[0].id,user)
 					}
 				}
 			});
 			
 		}
-		function DoSuccess(userId){
+		function DoSuccess(userId,user){
+			$(".loginContainer").remove();
 			global_UserId=userId;
-			global_UserName="NO NAME";//AQUI
+			global_IntranetID=user;/// este es el intranet id 
+			global_UserName=user; // aqui debe ir el nombre
 			setView("index",index_js,false);		
 		}
 		function Save(user){

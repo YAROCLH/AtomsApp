@@ -137,9 +137,10 @@
 			return $.when( 
 					$.ajax({
 					url:url_json,
-					type: "POST",
-					dataType: 'json', 
+					type: "GET",
+					dataType: 'json',
 				    data: data,
+				    headers: { 'Authorization': 'Basic '+ DATA_LOGIN},
 					success:function(json){
 						//console.log("get Data Success");
 						json_data=$.map(json, function(elements) {return elements});},

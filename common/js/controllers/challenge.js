@@ -103,10 +103,10 @@
 		}
 		
 		function uploadPhoto(imageURI,user,challenge,attach){
-			console.log("upload photo");
 			var options = new FileUploadOptions();
             options.fileKey="file";
             options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            options.headers={ 'Authorization': 'Basic '+ DATA_LOGIN};
             options.mimeType="image/jpeg";
             var params = {};
             params.idUser = user;
@@ -118,6 +118,7 @@
 		}
 		
 		function uploadSuccess(r){
+			console.log("Upload Success");
 			var res=r.response.toString();
 			if(res.indexOf('1') === -1){// Por Optimizar
 			  submitFail();
@@ -126,6 +127,7 @@
 			}	
 		}
 		function uploadFail(e){
+			console.log("Failed to upload Photo");
 			submitFail();
 		}
 		

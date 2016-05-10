@@ -5,8 +5,8 @@
  * Variables Declaration
 */
 
-		//var Server="http://atomsservice.mybluemix.net/Service/",
-		var Server="http://atoms.w3ibm.mybluemix.net/Service"
+		//var Server="http://localhost:9080/liberty-HelloWorld/Service/",
+		var Server="https://lmc2.watson.ibm.com:15036/atoms/"
 			Login_Json=Server+"Login",
 			myScore_Json=Server+"Score",
 			Uncompleted_Json=Server+"Challenges",
@@ -45,6 +45,7 @@
 		//User Data
 		var global_UserId;
 		var global_UserName;
+		var global_IntranetID;
 		
 		// used to init a controller when the view is set again
 		var recall;

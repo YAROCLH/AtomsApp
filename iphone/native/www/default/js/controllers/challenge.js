@@ -109,6 +109,7 @@
 			var options = new FileUploadOptions();
             options.fileKey="file";
             options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            options.headers={ 'Authorization': 'Basic '+ DATA_LOGIN};
             options.mimeType="image/jpeg";
             var params = {};
             params.idUser = user;
