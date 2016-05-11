@@ -32,7 +32,7 @@
 		    var percents    = ['percent1', 'percent2', 'percent3', 'percent4', 'percent5'];
 		    var data_status = "idUser="+encodeString(global_UserId);
 		    
-		    var categories, score, newPercent;
+		    var categories, score, newPercent, total, total_badge;
 
 			$.when(get_Data(Badges_Json)).then(function(badges_data)
             {
@@ -48,12 +48,13 @@
                     {
                         if( id >= number_categories || category != categories[id].id - 1)
                         {
-                            newPercent = 0;
-                            score 	   = 0;
+                            newPercent  = 0;
+                            score 	    = 0;
+                            total_badge = parseInt(badges_points[0]);
                         }
                         else
                         {
-                            var total         = parseInt(categories[id].Total);
+                            total         	  = parseInt(categories[id].Total);
                             score             = parseInt(categories[id].Score);
 
                             var prev_badge    = 0;
@@ -68,6 +69,7 @@
                             {
                                 for(var i = 0; i < badges_points.length; i++)
                                 {
+                                	total_badge  = parseInt(badges_points[i]);
                                     var badge    = parseInt(badges_points[i]);
                                     badge_total += badge; 
                                     
@@ -97,7 +99,7 @@
                         
                         newPercent = (newPercent > 100) ? 100: parseInt(newPercent);
 
-                        document.getElementById(percents[category]).innerHTML =  score + "/" + total;
+                        document.getElementById(percents[category]).innerHTML =  score + "/" + total_badge;
                         jQuery(this).attr('data-percent', newPercent + "%");
 
                         jQuery(this).find('.skillbar-bar').animate({
