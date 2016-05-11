@@ -49,6 +49,7 @@
                         if( id >= number_categories || category != categories[id].id - 1)
                         {
                             newPercent = 0;
+                            score 	   = 0;
                         }
                         else
                         {
