@@ -14,41 +14,48 @@
 /**
  * Functions
  */
-        function nextCategory()
-        {
+        function nextCategory(){
             if(CM_counter > 1 && CM_counter <= CM_categoryData.length){
                 CM_counter--;
                 $("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
                 setCategory(CM_counter);
-                $("#derecha").css("display","inline");	
-               
+                ValidateCM(CM_counter,CM_categoryData.length);               
             }
-            else
-            {
-                $("#izquierda").css("display",'none');
+            else{
+               // $("#izquierda").css("display",'none');
             }
         }
 
-        function previousCategory()
-        {
+        function previousCategory(){
         	 
             if(CM_counter > 0 && CM_counter < CM_categoryData.length){
                 CM_counter++;
                 $("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
-                $("#izquierda").css("display",'inline');
-                setCategory(CM_counter);	
+                setCategory(CM_counter);
+                ValidateCM(CM_counter,CM_categoryData.length);
             }
-            else
-            {
-                $("#derecha").css("display",'none');
+            else{
+               // $("#derecha").css("display",'none');
             }
         }
-
+        function ValidateCM(counter,max){
+        	 if(counter==max){
+             	console.log("last Catego");
+             	$("#derecha").css("display",'none');
+             }else if(counter==1){
+          	   console.log("first Catego");
+          	   $("#izquierda").css("display",'none');	
+          	 }else{
+          		$("#izquierda").css("display",'inline');
+                $("#derecha").css("display",'inline');
+          	 }
+        }
 		function init_categoryMenu(){
 			categoryMenu_js=true;
 			$.when(get_Data(Categories_Json)).then(function(category_data){
 				CM_categoryData=category_data;
 				CM_counter=category_CurrentCategory;
+				ValidateCM(CM_counter,CM_categoryData.length);
 				$("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
 			});
 		}
