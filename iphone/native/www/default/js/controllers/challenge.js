@@ -14,6 +14,7 @@
 		var selectedScore;
 		var newScore;
 		var photo;
+		var canvas,ctx;
 /**
  * Events
  */
@@ -84,7 +85,8 @@
 					data_attach=encodeString(comment);
 					//data_submit="idUser="+encodeString(global_UserId)+"&idChallenge="+encodeString(currentChallenge)+
 					//"&Attach="+encodeString(comment)+"&Photo="+photo;
-				    uploadPhoto(photo, data_user, data_challenge,data_attach);				
+				    uploadPhoto(resizePhoto(photo), data_user, data_challenge,data_attach);	
+				    //resizePhoto(photo);
 				});
 			}
 			else{
@@ -133,6 +135,18 @@
 			submitFail();
 		}
 		
+	/*	function resizePhoto(photo_src){
+			 var temp_src="./images/prefoto.png";
+			  console.log("Resize");
+			  imageObj = new Image();
+			  imageObj.src =temp_src;
+			  var w imageObj.width;
+			  var h=imageObj.height;
+			  canvas = document.createElement('canvas'),
+			  ctx = canvas.getContext('2d');
+			  ctx.drawImage(imageObj, 0, 0, w, h, 0, 0, 800, 600);
+			  var dataurl = canvas.toDataURL("image/png");
+			  console.log(dataurl);
+		}
 		
-		
-		
+		*/

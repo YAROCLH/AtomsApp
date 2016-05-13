@@ -12,6 +12,7 @@
 		var selectedScore;
 		var newScore;
 		var photo;
+		var canvas,ctx;
 /**
  * Events
  */
@@ -80,9 +81,18 @@
 					data_user=encodeString(global_UserId);
 					data_challenge=encodeString(currentChallenge);
 					data_attach=encodeString(comment);
-					//data_submit="idUser="+encodeString(global_UserId)+"&idChallenge="+encodeString(currentChallenge)+
-					//"&Attach="+encodeString(comment)+"&Photo="+photo;
-				    uploadPhoto(photo, data_user, data_challenge,data_attach);				
+					data_submit="idUser="+encodeString(global_UserId)+"&idChallenge="+encodeString(currentChallenge)+
+					"&Attach="+encodeString(comment)+"&Photo="+"PHOTO DISABLED";
+					$.when(get_Data(Submit_Json,data_submit)).then(function(challenge_data){
+						if(challenge_data[0].STATUS!=-1){
+							submitSuccess();
+						}
+						else{
+							submitFail();	
+						}	
+					});
+				    //uploadPhoto(photo, data_user, data_challenge,data_attach);	
+				    //resizePhoto(photo);
 				});
 			}
 			else{
@@ -127,10 +137,8 @@
 			}	
 		}
 		function uploadFail(e){
-			console.log("Failed to upload Photo");
+			console.log("Failed to upload Photo"+e);
 			submitFail();
 		}
 		
-		
-		
-		
+	

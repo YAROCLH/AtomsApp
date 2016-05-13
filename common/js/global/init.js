@@ -4,7 +4,7 @@
 */
 
 		//var Server="http://localhost:9080/liberty-HelloWorld/Service/",
-		var Server="https://lmc2.watson.ibm.com:15036/atoms/"
+		var Server="https://lmc2.watson.ibm.com:15036/atoms/",
 			Login_Json=Server+"Login",
 			myScore_Json=Server+"Score",
 			Uncompleted_Json=Server+"Challenges",
@@ -12,8 +12,8 @@
 			TopRank_Json=Server+"Top10",
 			MyRank_Json=Server+"Rank",
 			Categories_Json=Server+"Categories",
-			Submit_Json=Server+"SubmitChallenge";
-            Badges_Json=Server+"Badges";
+			Submit_Json=Server+"SubmitChallenge",
+            Badges_Json=Server+"Badges",
             url_UploadImage=Server+"Submit",
             url_validate=Server+"Validate";
 

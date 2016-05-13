@@ -60,8 +60,8 @@
 			}
 			
 		}
-		function ValidateUser(user){
-			var data_login="intranetID="+encodeString(user);
+		function ValidateUser(IntranetID){
+			var data_login="intranetID="+encodeString(IntranetID);
 			$.when(get_Data(Login_Json,data_login)).then(function(login_data){
 				if(login_data===undefined){	
 					DoFail(-1);
@@ -69,17 +69,17 @@
 					if(login_data[0].id==-1){
 						DoFail(-1)
 					}else{
-						DoSuccess(login_data[0].id,user)
+						DoSuccess(login_data[0].id,IntranetID);
 					}
 				}
 			});
 			
 		}
-		function DoSuccess(userId,user){
+		function DoSuccess(userId,IntranetID){
 			$(".loginContainer").remove();
 			global_UserId=userId;
-			global_IntranetID=user;/// este es el intranet id 
-			global_UserName=user; // aqui debe ir el nombre
+			global_IntranetID=IntranetID;/// este es el intranet id 
+			global_UserName=IntranetID; // aqui debe ir el nombre
 			setView("index",index_js,false);		
 		}
 		function Save(user){
