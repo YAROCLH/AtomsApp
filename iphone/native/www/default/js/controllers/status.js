@@ -101,7 +101,15 @@
                         
                         newPercent = (newPercent > 100) ? 100: parseInt(newPercent);
 
-                        document.getElementById(percents[category]).innerHTML =  score + "/" + total_badge;
+                        if(score>=136)
+                        	{
+                        			document.getElementById(percents[category]).innerHTML =  "136/136";
+                        	}else 
+                        		{
+                        			document.getElementById(percents[category]).innerHTML =  score + "/" + total_badge;
+                        		}
+                        
+                        
                         jQuery(this).attr('data-percent', newPercent + "%");
 
                         jQuery(this).find('.skillbar-bar').animate({

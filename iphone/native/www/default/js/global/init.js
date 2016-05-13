@@ -14,8 +14,8 @@
 			TopRank_Json=Server+"Top10",
 			MyRank_Json=Server+"Rank",
 			Categories_Json=Server+"Categories",
-			Submit_Json=Server+"SubmitChallenge";
-            Badges_Json=Server+"Badges";
+			Submit_Json=Server+"SubmitChallenge",
+            Badges_Json=Server+"Badges",
             url_UploadImage=Server+"Submit",
             url_validate=Server+"Validate";
 

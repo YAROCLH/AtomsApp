@@ -83,9 +83,17 @@
 					data_user=encodeString(global_UserId);
 					data_challenge=encodeString(currentChallenge);
 					data_attach=encodeString(comment);
-					//data_submit="idUser="+encodeString(global_UserId)+"&idChallenge="+encodeString(currentChallenge)+
-					//"&Attach="+encodeString(comment)+"&Photo="+photo;
-				    uploadPhoto(resizePhoto(photo), data_user, data_challenge,data_attach);	
+					data_submit="idUser="+encodeString(global_UserId)+"&idChallenge="+encodeString(currentChallenge)+
+					"&Attach="+encodeString(comment)+"&Photo="+"PHOTO DISABLED";
+					$.when(get_Data(Submit_Json,data_submit)).then(function(challenge_data){
+						if(challenge_data[0].STATUS!=-1){
+							submitSuccess();
+						}
+						else{
+							submitFail();	
+						}	
+					});
+				    //uploadPhoto(photo, data_user, data_challenge,data_attach);	
 				    //resizePhoto(photo);
 				});
 			}
@@ -131,22 +139,8 @@
 			}	
 		}
 		function uploadFail(e){
-			console.log("Failed to upload Photo");
+			console.log("Failed to upload Photo"+e);
 			submitFail();
 		}
 		
-	/*	function resizePhoto(photo_src){
-			 var temp_src="./images/prefoto.png";
-			  console.log("Resize");
-			  imageObj = new Image();
-			  imageObj.src =temp_src;
-			  var w imageObj.width;
-			  var h=imageObj.height;
-			  canvas = document.createElement('canvas'),
-			  ctx = canvas.getContext('2d');
-			  ctx.drawImage(imageObj, 0, 0, w, h, 0, 0, 800, 600);
-			  var dataurl = canvas.toDataURL("image/png");
-			  console.log(dataurl);
-		}
-		
-		*/
+	
