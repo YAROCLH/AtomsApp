@@ -44,9 +44,11 @@
         	 if(counter==max){
              	console.log("last Catego");
              	$("#derecha").css("display",'none');
+             	$("#izquierda").css("display",'inline');
              }else if(counter==1){
           	   console.log("first Catego");
-          	   $("#izquierda").css("display",'none');	
+          	   $("#izquierda").css("display",'none');
+          	 $("#derecha").css("display",'inline');
           	 }else{
           		$("#izquierda").css("display",'inline');
                 $("#derecha").css("display",'inline');
