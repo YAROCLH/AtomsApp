@@ -106,9 +106,8 @@
 				case "category":
 					$("#MenuPanel").load("views/Menu/menu.html"); 
 					$("#NavegacionCatego").load("views/Menu/categoryMenu.html"); 
-					
-					if ($("#MainPanel").swipe( "enable" )) { console.log("activado"); }
-					
+					if ($("#MainPanel").swipe( "enable" )) { }
+					loadJS("menu", menu_js);
 					loadJS("categoryMenu",categoryMenu_js);
 					break;
 				case "challenge":
@@ -168,6 +167,24 @@
 	            , 'Yes,No'
 	        );  
 	        return false;
+	    }
+	    
+	    function LoadPicture(profile_pic){
+	    	if(ProfilePic==null){
+				var pic_url=url_ProfilePic+"?IntranetID="+encodeString(global_IntranetID);
+				$.ajax({
+	    		  type: "POST",
+	    		  url: pic_url,
+	    		  success: function(data){
+		    			console.log("Loading pic");
+						ProfilePic=data;		
+						profile_pic.attr("src","data:image/png;base64,"+ProfilePic);	 },
+	    		  headers: { 'Authorization': 'Basic '+ DATA_LOGIN}
+	    		});
+			}else{
+				profile_pic.attr("src","data:image/png;base64,"+ProfilePic);
+				console.log("Pic already loaded");
+			}	
 	    }
 
 	    

@@ -3354,9 +3354,6 @@ WL.Response = WLJSX.Class.create({
       if (typeof(transport.responseJSON) !== 'undefined' && transport.responseJSON !== null) {
         this.errorCode = transport.responseJSON.errorCode;
         this.errorMsg = transport.responseJSON.errorMsg;
-      }else{
-        this.errorCode = transport.wlFailureStatus;
-        this.errorMsg = transport.statusText;
       }
 
       if (typeof(transport.getAllResponseHeaders) === 'function') {
@@ -3421,13 +3418,10 @@ WL.FailResponse = WLJSX.Class.create({
     /*jshint strict:false*/
     if (transport !== null && typeof transport.status !== 'undefined') {
       this.status = (transport.status || 200);
-    }
-    if (transport !== null && transport.responseJSON !== null && typeof(transport.responseJSON) !== 'undefined' && typeof(transport.responseJSON) !== 'string') {
-            this.errorCode = transport.responseJSON.errorCode;
-            this.errorMsg = transport.responseJSON.errorMsg;
-    }else{
-            this.errorCode = transport.errorCode;
-            this.errorMsg = transport.errorMsg;
+      if (transport.responseJSON !== null && typeof(transport.responseJSON) !== 'undefined') {
+        this.errorCode = transport.responseJSON.errorCode;
+        this.errorMsg = transport.responseJSON.errorMsg;
+      }
     }
     this.invocationContext = invocationContext;
   }

@@ -25,7 +25,7 @@
 </div>
 
 <script type="text/javascript">
-$(document).ready(function(){
+	$(document).ready(function(){
 			if(devicePlatform=="iOS - iPhone" || devicePlatform=="iOS")
 			{
 				$("#barMenuIphone").addClass( "navbar-fixed-top" );
@@ -39,5 +39,7 @@ $(document).ready(function(){
 					$("#MenuBarMain").addClass( "navbar-fixed-top" );
 					$("#relleno").css("height","65px");
 				}
-		});
+			LoadPicture($("#UserPicture"));
+					
+	});
 </script>

@@ -2,7 +2,7 @@
 /**
  * Variables Declaration
  */
-
+		var menu_Pic;
 /**
  * Events
  */
@@ -10,6 +10,7 @@
 			init_menu();
 			$("#UserName").text(global_UserName);
 			$("#relleno").css("height","75px");
+			menu_Pic=$("#UserPicture");
 		});
 		
 		$(document).on('click','.main',function(){
@@ -26,5 +27,10 @@
  */
 		function init_menu(){
 			menu_js=true;
-			
 		}
+		
+
+
+		
+		
+		

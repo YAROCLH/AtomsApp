@@ -7,11 +7,12 @@
 		var category_status;
 		var selectedChallenge=0;
 		var category_Data;
+		
 /**
  * Events
  */
 		$(document).ready(function(){
-			init_category(1);
+			init_category(1)
 		});
 		$(document).on('click', ".doitClick",function(){
 			selectedChallenge = $(this).attr('value');

@@ -2,13 +2,12 @@
 /**
  * Variables Declaration
  */
-
+	var badges_Pic;
 /**
  * Events
  */
 		$(document).ready(function() {
 			init_badges();
-            // setBadgePercentage();
 		});
 		
 		$(document).on('click', "#status",function(){
@@ -21,6 +20,7 @@
 		function init_badges(){
 			badges_js=true;
             setBadgePercentage();
+          
 		}
         
 
