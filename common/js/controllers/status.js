@@ -63,17 +63,18 @@
 
                             if(score > badges_points[badges_points.length - 1])
                             {
-                                newPercent = 100;
+                                newPercent  = 100;
+                                total_badge = badges_points[badges_points.length - 1];
+                                score       = total_badge;
                             }
                             else
                             {
                                 for(var i = 0; i < badges_points.length; i++)
                                 {
-                                	total_badge  = parseInt(badges_points[i]);
                                     var badge    = parseInt(badges_points[i]);
+                                	total_badge  = badge; 
                                     badge_total += badge; 
                                     
-
                                     if( i > 0)
                                     {
                                         prev_badge += parseInt(badges_points[i - 1]);
@@ -81,9 +82,6 @@
 
                                     if( score < badge )
                                     {
-                                        // prev_score = score - prev_badge;
-
-                                        //newPercent = prev_score/badge * 100; 
                                         newPercent = score/badge * 100;
                                         break;
                                     }
@@ -98,18 +96,9 @@
                         }
                         
                         newPercent = (newPercent > 100) ? 100: parseInt(newPercent);
-
-                        if(score>=136)
-                    	{
-                    		document.getElementById(percents[category]).innerHTML =  "136/136";
-                    	}else 
-                		{
-                			document.getElementById(percents[category]).innerHTML =  score + "/" + total_badge;
-                		}
-                        
+                        document.getElementById(percents[category]).innerHTML =  score + "/" + total_badge;
                         
                         jQuery(this).attr('data-percent', newPercent + "%");
-
                         jQuery(this).find('.skillbar-bar').animate({
                             width:jQuery(this).attr('data-percent')
                         },3000);
