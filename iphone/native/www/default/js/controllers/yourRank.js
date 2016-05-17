@@ -56,7 +56,7 @@
 			$("#container").append(rank_buffer);
 			$("#myRank").text(myRank[0].myPosition);
 			if(!rank_inTop){
-				$("#container").append(rank_myData);
+				//$("#container").append(rank_myData);
 				$("#myRankNumber").text(myRank[0].myPosition);
 				$("#myScore").text(myRank[0].Score);
 				$("#myName").text(global_UserName)

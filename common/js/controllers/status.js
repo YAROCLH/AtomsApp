@@ -46,12 +46,11 @@
 
                     jQuery('.skillbar').each(function()
                     {
-                        total_badge = parseInt(badges_points[0]);
-
                         if( id >= number_categories || category != categories[id].id - 1)
                         {
                             newPercent  = 0;
                             score 	    = 0;
+                            total_badge = parseInt(badges_points[0]);
                         }
                         else
                         {
@@ -65,8 +64,6 @@
                             if(score > badges_points[badges_points.length - 1])
                             {
                                 newPercent = 100;
-                                total_badge = parseInt(badges_points[badges_points.length - 1]);
-                            	score = total_badge;
                             }
                             else
                             {
@@ -101,8 +98,15 @@
                         }
                         
                         newPercent = (newPercent > 100) ? 100: parseInt(newPercent);
+
+                        if(score>=136)
+                    	{
+                    		document.getElementById(percents[category]).innerHTML =  "136/136";
+                    	}else 
+                		{
+                			document.getElementById(percents[category]).innerHTML =  score + "/" + total_badge;
+                		}
                         
-                        document.getElementById(percents[category]).innerHTML =  score + "/" + total_badge;
                         
                         jQuery(this).attr('data-percent', newPercent + "%");
 
