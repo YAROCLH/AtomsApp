@@ -16,8 +16,11 @@
 			Categories_Json=Server+"Categories",
 			Submit_Json=Server+"SubmitChallenge",
             Badges_Json=Server+"Badges",
+            url_ProfilePic=Server+"Profile",
             url_UploadImage=Server+"Submit",
             url_validate=Server+"Validate";
+			
+		
 
 		//Device OS
 		var devicePlatform;
@@ -46,7 +49,8 @@
 		var global_UserId;
 		var global_UserName;
 		var global_IntranetID;
-		
+		var ProfilePic=null;
+
 		// used to init a controller when the view is set again
 		var recall;
 		var category_CurrentCategory=1;

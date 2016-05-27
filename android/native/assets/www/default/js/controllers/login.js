@@ -71,18 +71,19 @@
 					if(login_data[0].id==-1){
 						DoFail(-1)
 					}else{
-						DoSuccess(login_data[0].id,IntranetID);
+						DoSuccess(login_data[0].id,IntranetID,login_data[0].DisplayName);
 					}
 				}
 			});
 			
 		}
-		function DoSuccess(userId,IntranetID){
+		function DoSuccess(userId,IntranetID,name){
 			$(".loginContainer").remove();
 			global_UserId=userId;
 			global_IntranetID=IntranetID;/// este es el intranet id 
-			global_UserName=IntranetID; // aqui debe ir el nombre
-			setView("index",index_js,false);		
+			global_UserName=name; // aqui debe ir el nombre
+			setView("index",index_js,false);	
+				
 		}
 		function Save(user){
 			localStorage.setItem("Remember", user);

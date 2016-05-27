@@ -48,8 +48,10 @@
 		
 		function takePicture(){
 			navigator.camera.getPicture(onSucces,onFail,{
-				quality: 25,
-		        destinationType: destinationType.FILE_URI
+			quality: 25,
+		    destinationType: destinationType.FILE_URI,
+		    targetWidth: 800,
+		    targetHeight: 600
 			});
 		}
 		
@@ -81,7 +83,7 @@
 					data_user=encodeString(global_UserId);
 					data_challenge=encodeString(currentChallenge);
 					data_attach=encodeString(comment);
-					data_submit="idUser="+encodeString(global_UserId)+"&idChallenge="+encodeString(currentChallenge)+
+					/*data_submit="idUser="+encodeString(global_UserId)+"&idChallenge="+encodeString(currentChallenge)+
 					"&Attach="+encodeString(comment)+"&Photo="+"PHOTO DISABLED";
 					$.when(get_Data(Submit_Json,data_submit)).then(function(challenge_data){
 						if(challenge_data[0].STATUS!=-1){
@@ -90,8 +92,8 @@
 						else{
 							submitFail();	
 						}	
-					});
-				    //uploadPhoto(photo, data_user, data_challenge,data_attach);	
+					});*/
+				    uploadPhoto(photo, data_user, data_challenge,data_attach);	
 				    //resizePhoto(photo);
 				});
 			}
