@@ -11,6 +11,7 @@
         var currentScore;
         var curentChallenge;
         var selectedScore;
+        var selectedType;
         var newScore;
         var photo;
         var canvas,ctx;
@@ -35,7 +36,7 @@
         });
 
         $(document).on("click","#btnGaleria",function(){
-            takePicture(Camera.PictureSourceType.PHOTOLIBRARY);	
+            takePicture(Camera.PictureSourceType.SAVEDPHOTOALBUM);	
         });
 
         $(document).on("click",".getMyPoints",function(){
@@ -58,7 +59,8 @@
             currentScore=0;
             currentChallenge=category_Data[selectedChallenge].id;
             selectedScore=category_Data[selectedChallenge].Points;
-            console.log("Challenge:"+currentChallenge+" Score: "+selectedScore);
+            selectedType=category_Data[selectedChallenge].Type;
+            console.log("Challenge:"+currentChallenge+" Score: "+selectedScore+" Type: "+selectedType);
         }
 
         function takePicture(source){

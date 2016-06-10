@@ -9,7 +9,7 @@
 		var category_status;
 		var selectedChallenge=0;
 		var category_Data;
-		
+		var challenge_type;
 /**
  * Events
  */

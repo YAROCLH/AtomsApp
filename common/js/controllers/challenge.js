@@ -34,7 +34,7 @@
         });
 
         $(document).on("click","#btnGaleria",function(){
-            takePicture(Camera.PictureSourceType.PHOTOLIBRARY);	
+            takePicture(Camera.PictureSourceType.SAVEDPHOTOALBUM);	
         });
 
         $(document).on("click",".getMyPoints",function(){
