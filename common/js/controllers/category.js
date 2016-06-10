@@ -7,7 +7,7 @@
 		var category_status;
 		var selectedChallenge=0;
 		var category_Data;
-		
+		var challenge_type;
 /**
  * Events
  */
@@ -39,11 +39,9 @@
             $("#AtomsModal").modal('show');
         }
 
-        function init_category(id)
-        {
+        function init_category(id){
             category_js=true;
-            if(id!=null) 
-            {
+            if(id!=null) {
                 category_CurrentCategory=id;
             }
             data_category="idUser="+encodeString(global_UserId)+"&idCategory="+encodeString(category_CurrentCategory);
@@ -52,26 +50,20 @@
             });
         }
 		
-		function display_categoryData(category_data)
-        {
+		function display_categoryData(category_data){
 			category_Data=category_data;
 		    category_buffer="<div id='PaddinMain' class='Margin'>";
-		    
-		    var elements = 0;
-		    
-			for(var i=0;i<category_data.length;i++)
-			{
+		    var elements = 0; 
+			for(var i=0;i<category_data.length;i++){
 				category_buffer=category_buffer+
 							  '<div class="row  cat" style="padding-top:5%; margin:0px;">'+
 						   	  '<div class="col-lg-4 MenuBackgroundG"><div class="row">'+
 						      '<div class="col-xs-8" style="padding:0px; heigh:100%;">';
-				if(category_data[i].Status=="true")
-				{
+				if(category_data[i].Status=="true"){
 					img_src="./images/done.png";
 					category_status="doneClick"; 
 				}
-				else
-				{
+				else{
 					img_src="./images/do.png";
 					category_status="doitClick"; 
 				}	
@@ -91,25 +83,19 @@
 			category_buffer=category_buffer+"</div>";
 			$(".MainContainer").replaceWith(category_buffer);
 			
-		    if(elements == 0)
-		   	{
+		    if(elements == 0){
 		    	$("#PaddinMain").css('padding', '35%');
 		    	$("#PaddinMain").css('padding-bottom', '100%');
 		    }
-		    else
-		    {
+		    else{
 		    	$("#PaddinMain").css('padding', '5%');
-		    	
-		    	if(elements == 1)
-			   	{
+		    	if(elements == 1){
 			    	$("#PaddinMain").css('padding-bottom', '90%');
 			    }
-			    else if(elements == 2)
-			   	{
+			    else if(elements == 2){
 			    	$("#PaddinMain").css('padding-bottom', '50%');
 			    }
-			    else
-			    {
+			    else{
 			    	$("#PaddinMain").css('padding-bottom', '5%');
 			   	}
 		    }

@@ -9,6 +9,7 @@
         var currentScore;
         var curentChallenge;
         var selectedScore;
+        var selectedType;
         var newScore;
         var photo;
         var canvas,ctx;
@@ -21,13 +22,10 @@
 
         $(document).on("click","#CameraPhoto",function(){
             //$('#myModalLabel').text("Something Went Wrong Please Try Again Later");
-
             $("#btnCamara").css('display', 'block');
             $("#btnCamara").css('width', '100%');
-
             $("#btnGaleria").css('display', 'block');
             $("#btnGaleria").css('width', '100%');
-
             $('#AtomsModalCamera').modal('show');
         });
 
@@ -40,13 +38,11 @@
         });
 
         $(document).on("click",".getMyPoints",function(){
-            if(!onSubmit)
-            {
+            if(!onSubmit){
                 onSubmit=true;
                 DoSubmit()	
             }
-            else
-            {
+            else{
                 console.log("Already Submitted");
             }
         });
@@ -54,19 +50,18 @@
 /**
  * Functions
  */
-        function init_challenge()
-        {
+        function init_challenge(){
             challenge_js=true;
             onSubmit=false;
             camera_success=false;
             currentScore=0;
             currentChallenge=category_Data[selectedChallenge].id;
             selectedScore=category_Data[selectedChallenge].Points;
-            console.log("Challenge:"+currentChallenge+" Score: "+selectedScore);
+            selectedType=category_Data[selectedChallenge].Type;
+            console.log("Challenge:"+currentChallenge+" Score: "+selectedScore+" Type: "+selectedType);
         }
 
-        function takePicture(source)
-        {
+        function takePicture(source){
             navigator.camera.getPicture(onSucces,onFail,{
                 quality: 25,
                 sourceType: source,
@@ -76,72 +71,51 @@
             });
         }
 		
-        function onSucces(imageURI)
-        {
+        function onSucces(imageURI){
             console.log("cam success")
             camera_success=true;
             $("#prefoto").attr("src",imageURI);
-
             $("#prefoto").each(function(){
                 $(this).height($(this).height() * 0.99);
             });
-
             photo=imageURI;
             console.log("PHOTO"+photo)
         }
 
-        function onFail(message)
-        {
+        function onFail(message){
             console.log("Camera Failed: "+ message);
         }
 
-        function DoSubmit()
-        {
+        function DoSubmit(){
             var comment=$("#commentFoto").val();
-            if(camera_success&&comment!="")
-            {
+            if(camera_success&&comment!=""){
                 var data_myrank="idUser="+encodeString(global_UserId);
                 $.when(get_Data(MyRank_Json,data_myrank)).then(function(myRank){
                     currentScore=myRank[0].Score;
                     data_user=encodeString(global_UserId);
                     data_challenge=encodeString(currentChallenge);
                     data_attach=encodeString(comment);
-                    /*data_submit="idUser="+encodeString(global_UserId)+"&idChallenge="+encodeString(currentChallenge)+
-                    "&Attach="+encodeString(comment)+"&Photo="+"PHOTO DISABLED";
-                    $.when(get_Data(Submit_Json,data_submit)).then(function(challenge_data){
-                    if(challenge_data[0].STATUS!=-1){
-                    submitSuccess();
-                    }
-                    else{
-                    submitFail();	
-                    }	
-                    });*/
                     uploadPhoto(photo, data_user, data_challenge,data_attach);	
-                    //resizePhoto(photo);
                 });
             }
-            else
-            {
+            else{
                 onSubmit=false;
                 $('#myModalLabel').text("Photo and Comment is required");
                 $('#AtomsModal').modal('show');		
             }
         }
 		
-        function submitSuccess()
-        {
+        function submitSuccess(){
             setView("myPoints",myPoints_js,true);
         }
 
-        function submitFail()
-        {
+        function submitFail(){
             $('#myModalLabel').text("Something Went Wrong Please Try Again Later");
             $('#AtomsModal').modal('show');
             setView("category",true,true);
         }
 		
-        function uploadPhoto(imageURI,user,challenge,attach)
-        {
+        function uploadPhoto(imageURI,user,challenge,attach){
             var options = new FileUploadOptions();
             options.fileKey="file";
             options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
@@ -159,18 +133,11 @@
         function uploadSuccess(r){
             console.log("Upload Success");
             var res=r.response.toString();
-            if(res.indexOf('1') === -1) // Por Optimizar
-            {
-                submitFail();
-            }
-            else
-            {
-                submitSuccess();
-            }	
+            if(res.indexOf('1') === -1){  submitFail();	}
+            else{  submitSuccess();   }	
         }
 
-        function uploadFail(e)
-        {
+        function uploadFail(e){
             console.log("Failed to upload Photo"+e);
             submitFail();
         }
