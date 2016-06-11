@@ -109,7 +109,7 @@
       </dict>
     </array>
     <key>CFBundleIdentifier</key>
-    <string>com.AtomsApp</string>
+    <string>com.ibm.cio.be.iphone.mobile.atoms</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
@@ -138,7 +138,7 @@
       <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
     <key>CFBundleShortVersionString</key>
-    <string>1.0.13</string>
+    <string>1.0.16</string>
     <key>UIBackgroundModes</key>
     <array>
       <string>remote-notification</string>
@@ -148,13 +148,6 @@
       <key>NSExceptionDomains</key>
       <dict>
         <key>pbd31la</key>
-        <dict>
-          <key>NSIncludesSubdomains</key>
-          <true/>
-          <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-          <true/>
-        </dict>
-        <key>r8xz5g9</key>
         <dict>
           <key>NSIncludesSubdomains</key>
           <true/>

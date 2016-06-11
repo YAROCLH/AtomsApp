@@ -61,6 +61,23 @@
             selectedScore=category_Data[selectedChallenge].Points;
             selectedType=category_Data[selectedChallenge].Type;
             console.log("Challenge:"+currentChallenge+" Score: "+selectedScore+" Type: "+selectedType);
+            
+            if(selectedType==1)
+        	{
+            	console.log('Ambos');
+        	}
+            else if(selectedType==2)
+	    		{
+            		$('#commentFoto').val(' ');
+            		$('#commentFoto').attr('disabled','disabled');
+	    			console.log('Foto');
+	    		}
+            	else if(selectedType==3)
+        			{
+            			$('#CameraPhoto').css('display','none');
+            			camera_success=true;
+        				console.log('Texto');
+        			}
         }
 
         function takePicture(source){
@@ -91,6 +108,7 @@
         function DoSubmit(){
             var comment=$("#commentFoto").val();
             if(camera_success&&comment!=""){
+            	$('#ProgressUp').css('display','inline');
                 var data_myrank="idUser="+encodeString(global_UserId);
                 $.when(get_Data(MyRank_Json,data_myrank)).then(function(myRank){
                     currentScore=myRank[0].Score;
@@ -99,6 +117,7 @@
                     data_attach=encodeString(comment);
                     uploadPhoto(photo, data_user, data_challenge,data_attach);	
                 });
+                
             }
             else{
                 onSubmit=false;
