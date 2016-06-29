@@ -15,6 +15,7 @@
         var newScore;
         var photo;
         var canvas,ctx;
+        var comment;
 /**
  * Events
  */
@@ -106,24 +107,33 @@
         }
 
         function DoSubmit(){
-            var comment=$("#commentFoto").val();
-            if(camera_success&&comment!=""){
-            	$('#ProgressUp').css('display','inline');
-                var data_myrank="idUser="+encodeString(global_UserId);
-                $.when(get_Data(MyRank_Json,data_myrank)).then(function(myRank){
-                    currentScore=myRank[0].Score;
-                    data_user=encodeString(global_UserId);
-                    data_challenge=encodeString(currentChallenge);
-                    data_attach=encodeString(comment);
-                    uploadPhoto(photo, data_user, data_challenge,data_attach);	
-                });
-                
-            }
-            else{
-                onSubmit=false;
-                $('#myModalLabel').text("Photo and Comment is required");
-                $('#AtomsModal').modal('show');		
-            }
+        	comment=$("#commentFoto").val();
+        	if(selectedType==3)
+        	{
+        		otherFuncion(global_UserId, currentChallenge, comment);
+        	}else
+        		{
+	        		 
+	                 console.log(camera_success+" "+comment+" XD");
+	                 if(camera_success&&comment!=""){
+	                 	$('#ProgressUp').css('display','inline');
+	                     var data_myrank="idUser="+encodeString(global_UserId);
+	                     $.when(get_Data(MyRank_Json,data_myrank)).then(function(myRank){
+	                         currentScore=myRank[0].Score;
+	                         data_user=encodeString(global_UserId);
+	                         data_challenge=encodeString(currentChallenge);
+	                         data_attach=encodeString(comment);
+	                         uploadPhoto(photo, data_user, data_challenge,data_attach);	
+	                     });
+                     
+                 }
+                 else{
+                     onSubmit=false;
+                     $('#myModalLabel').text("Photo and Comment is required");
+                     $('#AtomsModal').modal('show');		
+                 }
+        		}
+           
         }
 		
         function submitSuccess(){
@@ -137,20 +147,41 @@
         }
 		
         function uploadPhoto(imageURI,user,challenge,attach){
-            var options = new FileUploadOptions();
-            options.fileKey="file";
-            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-            options.headers={ 'Authorization': 'Basic '+ DATA_LOGIN};
-            options.mimeType="image/jpeg";
-            var params = {};
-            params.idUser = user;
-            params.idChallenge = challenge;
-            params.Attach=attach;
-            options.params = params;
-            var ft = new FileTransfer();
-            ft.upload(imageURI, encodeURI(url_UploadImage), uploadSuccess, uploadFail, options);
+           
+            
+	            		 var options = new FileUploadOptions();
+	                     options.fileKey="file";
+	                     //console.log("Esta es la dirección:"+imageURI.substr(imageURI.lastIndexOf('/')+1));
+	                     //alert('Esto llego: '+imageURI.substr(imageURI.lastIndexOf('/')+1));
+            			 options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            			 options.headers={ 'Authorization': 'Basic '+ DATA_LOGIN};
+        	            options.mimeType="image/jpeg";
+        	            var params = {};
+        	            params.idUser = user;
+        	            params.idChallenge = challenge;
+        	            params.Attach=attach;
+        	            options.params = params;
+        	            var ft = new FileTransfer();
+        	            ft.upload(imageURI, encodeURI(url_UploadImage), uploadSuccess, uploadFail, options);
+            		
+            
+           
         }
-
+        
+        function otherFuncion(user, challenge, attach)
+        {
+        	data_submit="idUser="+encodeString(user)+"&idChallenge="+encodeString(challenge)+
+        						"&Attach="+encodeString(comment)+"&Photo="+"PHOTO NOT REQUIRED";
+			$.when(get_Data(Submit_Json,data_submit)).then(function(challenge_data){
+				if(challenge_data[0].STATUS!=-1){
+					submitSuccess();
+				}
+				else{
+					submitFail();	
+				}	
+			}); 
+        }
+        
         function uploadSuccess(r){
             console.log("Upload Success");
             var res=r.response.toString();

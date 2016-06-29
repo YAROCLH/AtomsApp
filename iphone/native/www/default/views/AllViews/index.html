@@ -1,4 +1,24 @@
 <div id="PanelMain" class="Margin">
+	<div class="row" id="newVersion" style="display:none;">
+             <div class="container col-xs-12">
+             	<div class="alert alert-danger alert-dismissible text-center" role="alert">
+				  	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				  	<strong class="text_alert">Atoms a new version is available</strong>
+				</div>
+             </div>
+    </div>
+    <script>
+    		$.when(get_Data(version)).then(function(data)
+    		{
+    			console.log("Local version: "+VersionApp);
+				console.log("Server version: "+data[0].Version);
+				if(data[0].Version!=VersionApp)
+				{
+				   $("#newVersion").css("display", "block");
+				}
+			});
+	         
+	</script>
     <div class="row">
     
         <div class="col-xs-offset-1 col-xs-4 text-center MenuBackgroundG Margin ChallengesClick NoPaddingTD animated fadeInDown">
@@ -73,6 +93,6 @@
 <br />
 <div class="row">
 	<div  class="col-lg-12 text-center animated fadeInUp">
-		<span class="MainText AppColor footerVersion">2016 &copy; IBM - V1.0.16</span>
+		<span class="MainText AppColor footerVersion">2016 &copy; IBM - V1.0.17.1</span>
 	</div>
 </div>

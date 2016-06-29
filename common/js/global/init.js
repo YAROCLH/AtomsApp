@@ -16,9 +16,10 @@
             Badges_Json=Server+"Badges",
             url_ProfilePic=Server+"Profile",
             url_UploadImage=Server+"Submit",
+            version=Server+"Version",
             url_validate=Server+"Validate";
 			
-		
+		var VersionApp = 17;
 
 		//Device OS
 		var devicePlatform;

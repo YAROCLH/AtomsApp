@@ -37,6 +37,13 @@
 		}
 		
 		function DoLogin(user,pass){
+			console.log('de menos llego aquii: '+user);
+			if($("#RememberCheck").is(':checked'))
+			{
+				console.log('entro aqui: '+user);
+				Save(user);
+			}
+			
 			DATA_LOGIN=encodeString(user+":"+pass);
 			$.ajax({
 				url:"https://lmc2.watson.ibm.com:15036/atoms",
@@ -46,6 +53,8 @@
 				error:	function(xhr){	console.log("Login Failed"+xhr.status);
 					DoFail(0)	}	       
 			});
+			
+			
 			
 		}
 		
@@ -81,6 +90,7 @@
 			global_IntranetID=IntranetID;/// este es el intranet id 
 			global_UserName=name; // aqui debe ir el nombre
 			setView("index",index_js,false);	
+			
 				
 		}
 		function Save(user){

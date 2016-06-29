@@ -13,7 +13,7 @@
 	<key>application id</key>
 	<string>AtomsApp</string>
 	<key>application version</key>
-	<string>1.0.16</string>
+	<string>1.0.17.1</string>
 	<key>environment</key>
 	<string>iphone</string>
 	<key>buildtime</key>
@@ -27,7 +27,7 @@
 	<key>wlMainFile</key>
 	<string>index.html</string>
 	<key>wlUid</key>
-	<string>z5tLcRIkvR90GxgW+fM2nQ==</string>			
+	<string>TOITPkkEzr1zL7b9/3Ez+A==</string>			
 	<key>platformVersion</key>
 	<string>7.1.0.0</string>
 	<key>wlAppFamily</key>
