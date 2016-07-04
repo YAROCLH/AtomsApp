@@ -16,8 +16,11 @@
 		$(document).on('click','.main',function(){
 			setView("index",menu_js);
 		});
+		$(document).on('click','.rulesGo',function(){
+			setView("rules",menu_js);
+		});
 		$(document).on('click','.backScore2',function(){
-					setView("yourRank",rank_js);
+			setView("yourRank",rank_js);
 		});
 		$(document).on('click','.logout',function(){
 			setView("login",true);
