@@ -11,6 +11,9 @@
  * Events
  */		
 		$(document).ready(function(){
+            Test = 0;
+            Server = (Test == 0) ? ProcServer : TestServer; 
+
 			init_login();
 		});
 

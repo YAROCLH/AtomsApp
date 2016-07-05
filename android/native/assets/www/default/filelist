@@ -28,6 +28,7 @@
 /images/asd.png
 /images/badges.png
 /images/clock.png
+/images/clock2.png
 /images/closeButton.png
 /images/do.png
 /images/done.png
@@ -37,7 +38,9 @@
 /images/foto.png
 /images/getPoints.png
 /images/good.png
+/images/good2.png
 /images/heart.png
+/images/heart2.png
 /images/icon.png
 /images/loading.gif
 /images/logo-color.png
@@ -49,8 +52,10 @@
 /images/menu.png
 /images/MUno.png
 /images/people.png
+/images/people2.png
 /images/pic.png
 /images/plant.png
+/images/plant2.png
 /images/points.png
 /images/prefoto.jpg
 /images/prefoto.png
@@ -66,6 +71,7 @@
 /js/controllers/crop.js
 /js/controllers/index.js
 /js/controllers/login.js
+/js/controllers/login.js~
 /js/controllers/menu.js
 /js/controllers/myPoints.js
 /js/controllers/Sample.js
@@ -73,6 +79,7 @@
 /js/controllers/yourRank.js
 /js/global/GlobalController.js
 /js/global/init.js
+/js/global/init.js~
 /js/initOptions.js
 /js/jquery.Jcrop.js
 /js/jquery.touchSwipe.min.js
@@ -82,6 +89,7 @@
 /lib/angular.js
 /lib/JQuery-2.1.4.js
 /views/AllViews/badges.html
+/views/AllViews/beforeCategories.html
 /views/AllViews/category.html
 /views/AllViews/challenge.html
 /views/AllViews/index.html

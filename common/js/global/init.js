@@ -4,7 +4,11 @@
 */
 
 		//var Server="http://localhost:9080/liberty-HelloWorld/Service/",
-		var Server="https://lmc2.watson.ibm.com:15036/atoms/",
+		//var Server="https://lmc2.watson.ibm.com:15036/atoms/",
+		var Server="",
+            ProcServer="https://lmc2.watson.ibm.com:15036/atoms/",
+            TestServer="https://lmc2.watson.ibm.com:15036/atomes/",
+            Test=0,
 			Login_Json=Server+"Login",
 			myScore_Json=Server+"Score",
 			Uncompleted_Json=Server+"Challenges",
