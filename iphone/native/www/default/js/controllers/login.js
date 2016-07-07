@@ -102,10 +102,3 @@
 			localStorage.setItem("Remember", user);
 		}
 		
-		
-		
-		
-		
-		
-		
-		

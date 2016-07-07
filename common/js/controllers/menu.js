@@ -17,7 +17,7 @@
 			setView("index",menu_js);
 		});
 		$(document).on('click','.rulesGo',function(){
-			setView("rules",menu_js);
+			setView("rules",rules_js,true);
 		});
 		$(document).on('click','.backScore2',function(){
 			setView("yourRank",rank_js);
@@ -31,9 +31,4 @@
 		function init_menu(){
 			menu_js=true;
 		}
-		
-
-
-		
-		
 		

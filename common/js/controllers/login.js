@@ -100,10 +100,3 @@
 			localStorage.setItem("Remember", user);
 		}
 		
-		
-		
-		
-		
-		
-		
-		

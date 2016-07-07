@@ -14,7 +14,8 @@
 			console.log(devicePlatform)
 		});
 		 $(document).on('click', ".ChallengesClick",function(){
-				setView("category",category_js,false);		
+			 	setView("beforeCategories",category_js,false);
+				//setView("category",category_js,false);		
 		});
 
 		$(document).on('click', ".PositionClick",function(){
@@ -22,11 +23,11 @@
 		});
 
 		$(document).on('click', ".LevelsClick",function(){
-			
+				setView("levels",levels_js,false);
 		});
 
 		$(document).on('click', ".RulesClick",function(){
-			
+				setView("timeline",rank_js,false);
 		});
 /**
  * Functions

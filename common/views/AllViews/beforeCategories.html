@@ -2,38 +2,38 @@
 	<div class="col-xs-12">
 		<h1 class="title2 greenColor text-center">Categories</h1>
 		<div class="row">
-			<div class="col-xs-2">
+			<div class="col-xs-1">
 			</div>
-			<div class="col-xs-4 text-center">
-				<img id="closeMyPoints" src="./images/good2.png" width="80%" style="display:inline-block;" class="img-responsive closeButtonScore" onClick="setView('index',menu_js)"/>
+			<div class="col-xs-5 text-center">
+				<img src="./images/good2.png" width="100%" style="display:inline-block;" class="img-responsive GenerocityCa"/>
 			</div>
-			<div class="col-xs-4 text-center">
-				<img id="closeMyPoints" src="./images/people2.png" width="80%" style="display:inline-block;" class="img-responsive closeButtonScore" onClick="setView('index',menu_js)"/>
+			<div class="col-xs-5 text-center">
+				<img src="./images/people2.png" width="100%" style="display:inline-block;" class="img-responsive SocialCa"/>
 			</div>
-			<div class="col-xs-2">
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-xs-2">
-			</div>
-			<div class="col-xs-4 text-center">
-				<img id="closeMyPoints" src="./images/heart2.png" width="80%" style="display:inline-block;" class="img-responsive closeButtonScore" onClick="setView('index',menu_js)"/>
-			</div>
-			<div class="col-xs-4 text-center">
-				<img id="closeMyPoints" src="./images/clock2.png" width="80%" style="display:inline-block;" class="img-responsive closeButtonScore" onClick="setView('index',menu_js)"/>
-			</div>
-			<div class="col-xs-2">
+			<div class="col-xs-1">
 			</div>
 		</div>
-		
+		<br />
 		<div class="row">
-			<div class="col-xs-4">
+			<div class="col-xs-1">
 			</div>
-			<div class="col-xs-4 text-center">
-				<img id="closeMyPoints" src="./images/plant2.png" width="80%" style="display:inline-block;" class="img-responsive closeButtonScore" onClick="setView('index',menu_js)"/>
+			<div class="col-xs-5 text-center">
+				<img src="./images/heart2.png" width="100%" style="display:inline-block;" class="img-responsive HealthCa"/>
 			</div>
-			<div class="col-xs-4">
+			<div class="col-xs-5 text-center">
+				<img src="./images/clock2.png" width="100%" style="display:inline-block;" class="img-responsive ProductivityGood"/>
+			</div>
+			<div class="col-xs-1">
+			</div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-xs-3">
+			</div>
+			<div class="col-xs-5 text-center">
+				<img src="./images/plant2.png" width="100%" style="display:inline-block;" class="img-responsive EnvironmentCa"/>
+			</div>
+			<div class="col-xs-3">
 				
 			</div>
 		</div>
@@ -42,8 +42,39 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
-	$(document).ready(function()
-	{
-			
-	});
+		$(document).ready(function()
+		{
+				categoryIntro=0;
+		});
+		$(document).on('click', ".ProductivityGood",function()
+		{
+				
+				setView("category",category_js,false);
+				init_category(1);	
+		});
+		
+		$(document).on('click', ".SocialCa",function()
+		{
+				setView("category",category_js,false);
+				init_category(2);
+					
+		});
+		$(document).on('click', ".EnvironmentCa",function()
+		{
+				setView("category",category_js,false);
+				init_category(3);
+					
+		});
+		$(document).on('click', ".wellnessCa",function()
+		{
+				setView("category",category_js,false);
+				init_category(4);
+					
+		});
+		$(document).on('click', ".GenerocityCa",function()
+		{
+				setView("category",category_js,false);
+				init_category(5);
+					
+		});
 </script>

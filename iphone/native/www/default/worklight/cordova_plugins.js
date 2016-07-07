@@ -485,8 +485,7 @@ module.exports = [
         "file": "plugins/org.apache.cordova.vibration/www/vibration.js",
         "id": "org.apache.cordova.vibration.notification",
         "merges": [
-            "navigator.notification",
-            "navigator"
+            "navigator.notification"
         ]
     }
 ]

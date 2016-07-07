@@ -5,7 +5,7 @@
 
 		//var Server="http://localhost:9080/liberty-HelloWorld/Service/",
 		//var Server="https://lmc2.watson.ibm.com:15036/atoms/",
-		var Server="",
+		var Server="https://lmc2.watson.ibm.com:15036/atomes/Service/",
             ProcServer="https://lmc2.watson.ibm.com:15036/atoms/",
             TestServer="https://lmc2.watson.ibm.com:15036/atomes/",
             Test=0,
@@ -21,6 +21,7 @@
             url_ProfilePic=Server+"Profile",
             url_UploadImage=Server+"Submit",
             version=Server+"Version",
+            timeline=Server+"TimeLine?Limit=",
             url_validate=Server+"Validate";
 			
 		var VersionApp = 17;
@@ -43,6 +44,8 @@
 			categoryMenu_js=false,
 			challengeMenu_js=false,
 			menu_js=false,
+			rules_js=false,
+			levels_js=false,
 			status_js=false,
 			crop_js=false,
 			login_js=false,
@@ -57,3 +60,4 @@
 		// used to init a controller when the view is set again
 		var recall;
 		var category_CurrentCategory=1;
+		var categoryIntro=0;
