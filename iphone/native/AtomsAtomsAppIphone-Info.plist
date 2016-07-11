@@ -138,7 +138,7 @@
       <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
     <key>CFBundleShortVersionString</key>
-    <string>1.0.17.1</string>
+    <string>1.0.17.3</string>
     <key>UIBackgroundModes</key>
     <array>
       <string>remote-notification</string>
@@ -147,20 +147,6 @@
     <dict>
       <key>NSExceptionDomains</key>
       <dict>
-        <key>pbd31la</key>
-        <dict>
-          <key>NSIncludesSubdomains</key>
-          <true/>
-          <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-          <true/>
-        </dict>
-        <key>r8xz5g9</key>
-        <dict>
-          <key>NSIncludesSubdomains</key>
-          <true/>
-          <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-          <true/>
-        </dict>
         <key>gabriels-macbook-pro.local</key>
         <dict>
           <key>NSIncludesSubdomains</key>

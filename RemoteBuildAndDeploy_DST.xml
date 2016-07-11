@@ -569,10 +569,6 @@
                 fw = new FileWriter(file);
                 bw = new BufferedWriter(fw);
             }
-            
-            var file = new File(project.getProperty("be.temp.dir") + "/WQAWeb.html");
-            fw = new FileWriter(file);
-            bw = new BufferedWriter(fw);
             var applicationID = project.getProperty("ApplicationID");
             var html = "&lt;meta http-equiv='refresh' content='0.1;url=https://wqa01.edst.ibm.com/application/"
             + applicationID
@@ -592,7 +588,7 @@
     </target>
     <!-- ##################################### End to WQA On-Premises #####################################-->
     
-    <target name="buildenvoy_all" depends="-welcome, -check_appcenter_status, -config, -config_ios, -config_android, -Xcode64, -Xcode71, -Xcode73, -Xcode" description="build and deploy">
+    <target name="buildenvoy_all" depends="-welcome, -check_appcenter_status, -config, -config_ios, -config_android, -Xcode64, -Xcode72, -Xcode" description="build and deploy">
         <antcall target="buildenvoy_iphone"/>
         <antcall target="buildenvoy_android"/>
         <antcall target="buildenvoy_ipad"/>
@@ -604,35 +600,28 @@
     </target>
     
     <target name="-config_ios" depends="-set_signingSetupiOS">
-        <input message="Please select which Xcode version to compile:" addproperty="XcodeVersion" defaultvalue="Xcode64.app" validargs="Xcode64.app,Xcode71.app,Xcode.app,Xcode73.app"/>
+        <input message="Please select which Xcode version to compile:" addproperty="XcodeVersion" defaultvalue="Xcode64.app" validargs="Xcode64.app,Xcode72.app,Xcode.app"/>
         <echo>${XcodeVersion}</echo>
         <condition property="do.1">
             <equals arg1="Xcode64.app" arg2="${XcodeVersion}"/>
         </condition>
         <condition property="do.2">
-            <equals arg1="Xcode71.app" arg2="${XcodeVersion}"/>
+            <equals arg1="Xcode72.app" arg2="${XcodeVersion}"/>
         </condition>    
         <condition property="do.3">
             <equals arg1="Xcode.app" arg2="${XcodeVersion}"/>
-        </condition>
-        <condition property="do.4">
-            <equals arg1="Xcode73.app" arg2="${XcodeVersion}"/>
         </condition>
     </target>
     <target name="-Xcode64" if="do.1">
         <input message="Please select which iOS SDK to compile: " addproperty="iOSSDK" defaultvalue="iphoneos8.4" validargs="iphoneos6.1,iphoneos7.0,iphoneos7.1,iphoneos8.0,iphoneos8.1,iphoneos8.2,iphoneos8.3,iphoneos8.4"/>
         <echo>${iOSSDK}</echo>
     </target>
-    <target name="-Xcode71" if="do.2">
-        <input message="Please select which iOS SDK to compile: " addproperty="iOSSDK" defaultvalue="iphoneos9.1" validargs="iphoneos6.1,iphoneos7.0,iphoneos7.1,iphoneos8.0,iphoneos8.1,iphoneos8.2,iphoneos8.3,iphoneos8.4,iphoneos9.0,iphoneos9.1"/>
-        <echo>${iOSSDK}</echo>
-    </target>
-    <target name="-Xcode" if="do.3">
+    <target name="-Xcode72" if="do.2">
         <input message="Please select which iOS SDK to compile: " addproperty="iOSSDK" defaultvalue="iphoneos9.2" validargs="iphoneos6.1,iphoneos7.0,iphoneos7.1,iphoneos8.0,iphoneos8.1,iphoneos8.2,iphoneos8.3,iphoneos8.4,iphoneos9.0,iphoneos9.1,iphoneos9.2"/>
         <echo>${iOSSDK}</echo>
     </target>
-    <target name="-Xcode73" if="do.4">
-        <input message="Please select which iOS SDK to compile: " addproperty="iOSSDK" defaultvalue="iphoneos9.3" validargs="iphoneos9.3"/>
+    <target name="-Xcode" if="do.3">
+        <input message="Please select which iOS SDK to compile: " addproperty="iOSSDK" defaultvalue="iphoneos9.3" validargs="iphoneos6.1,iphoneos7.0,iphoneos7.1,iphoneos8.0,iphoneos8.1,iphoneos8.2,iphoneos8.3,iphoneos8.4,iphoneos9.0,iphoneos9.1,iphoneos9.2,iphoneos9.3"/>
         <echo>${iOSSDK}</echo>
     </target>
     <target name="-config_ios_default">
@@ -667,7 +656,7 @@
         <zip destfile="${be.temp.dir}/be_iphone.zip"  basedir="iphone/native"/>
     </target>
     
-    <target name="buildenvoy_iphone" depends="-welcome, -prep_iphone, -check_appcenter_status, -config, -config_ios, -Xcode64, -Xcode71, -Xcode73, -Xcode" description="launch remote iphone build and deploy app">
+    <target name="buildenvoy_iphone" depends="-welcome, -prep_iphone, -check_appcenter_status, -config, -config_ios, -Xcode64, -Xcode72, -Xcode" description="launch remote iphone build and deploy app">
         <exec executable="curl" failonerror="true"  dir="${be.temp.dir}" output="${be.temp.dir}/be.iphone.out"  outputproperty="be.iphone.out" logerror="true">
             <arg value="-i" />
             <arg value="--insecure" />
@@ -987,10 +976,6 @@
                 
                 echo = project.createTask("echo");
                 
-                var file = new File(project.getProperty("be.temp.dir") + "/be_android_status.json");
-                fr = new FileReader(file);
-                br = new BufferedReader(fr);
-                
                 // Read the file.
                 // This assumes the file has no line breaks and is one line.
                 var json = br.readLine();
@@ -1085,7 +1070,7 @@
         <zip destfile="${be.temp.dir}/be_ipad.zip"  basedir="ipad/native"/>
     </target>
     
-    <target name="buildenvoy_ipad" depends="-welcome, -prep_ipad, -check_appcenter_status, -config, -config_ios, -Xcode64, -Xcode71, -Xcode73, -Xcode" description="launch remote ipad build and deploy app">
+    <target name="buildenvoy_ipad" depends="-welcome, -prep_ipad, -check_appcenter_status, -config, -config_ios, -Xcode64, -Xcode72, -Xcode" description="launch remote ipad build and deploy app">
         <exec executable="curl" failonerror="true"  dir="${be.temp.dir}" output="${be.temp.dir}/be.ipad.out"  outputproperty="be.ipad.out" logerror="true">
             <arg value="-i" />
             <arg value="--insecure" />
@@ -1204,10 +1189,6 @@
                 
                 echo = project.createTask("echo");
                 
-                var file = new File(project.getProperty("be.temp.dir") + "/be_ipad_status.json");
-                fr = new FileReader(file);
-                br = new BufferedReader(fr);
-                
                 // Read the file.
                 // This assumes the file has no line breaks and is one line.
                 var json = br.readLine();
@@ -1280,10 +1261,6 @@
                 fr = new FileReader(file);
                 br = new BufferedReader(fr);
             }
-            
-            var file = new File(project.getProperty("be.temp.dir") + "/be_ipad_status.json");
-            fr = new FileReader(file);
-            br = new BufferedReader(fr);
             
             // Read the file. 
             // This assumes the file has no line breaks and is one line.

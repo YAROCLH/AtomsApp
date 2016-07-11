@@ -2,11 +2,12 @@ var timelineCount=0;
 
 $(document).ready(function()
 {
-	$('#Loading3').css("display","none");
+	//$('#Loading3').css("display","none");
 	init_timeline();
 });
 
 $(document).on('click', "#another",function(){
+	$('#ChangingIMG').css("display","inline");
 	timelineCount+=10;
 	init_timeline();
 });
@@ -16,6 +17,7 @@ function init_timeline()
 	
 	$.when(get_Data(timeline+b64EncodeUnicode(timelineCount),"")).then(function(data)
 	{
+		
 		for(var i=0;i<data.length;i++)
 		{
 			var temp = '<li class="timeline-inverted">'+
@@ -44,7 +46,7 @@ function init_timeline()
 			   temp=temp+ '</div>'+
 				          '<div class="timeline-panel">'+
 				            '<div class="timeline-heading">'+
-				              '<h4 class="timeline-title">'+data[i].Uname+'</h4>'+
+				              '<h4 style="font-size:12px;" class="timeline-title">'+data[i].Uname+'</h4>'+
 				            '</div>'+
 				            '<div class="timeline-body">'+
 				              '<p>'+data[i].Cname+'.<br /> '+data[i].Time+' of '+data[i].Date+'.</p>'+
@@ -54,7 +56,12 @@ function init_timeline()
 			   
 			   $('#myList').append(temp);
 		}
+		if(data.length<9)
+		{
+			$('#another').css("display","none");
+		}
         $('#Loading3').css("display","none");
+        $('#ChangingIMG').css("display","none");
     });
   
 }
