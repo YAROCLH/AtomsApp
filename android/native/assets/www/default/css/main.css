@@ -626,15 +626,7 @@ width:110px;
             }
 
             .timeline > li > .timeline-panel:after {
-                position: absolute;
-                top: 27px;
-                right: -14px;
-                display: inline-block;
-                border-top: 14px solid transparent;
-                border-left: 14px solid #fff;
-                border-right: 0 solid #fff;
-                border-bottom: 14px solid transparent;
-                content: " ";
+               
             }
 
         .timeline > li > .timeline-badge {
@@ -657,13 +649,14 @@ width:110px;
         }
 
         .timeline > li.timeline-inverted > .timeline-panel {
-            float: right;
+            float: left;
+            margin-left:40px;
         }
 
             .timeline > li.timeline-inverted > .timeline-panel:before {
                 border-left-width: 0;
                 border-right-width: 15px;
-                left: -15px;
+                left: -45px;
                 right: auto;
             }
 
@@ -710,18 +703,17 @@ width:110px;
 
 @media (max-width: 767px) {
     ul.timeline:before {
-        left: 40px;
+        left: 15px;
     }
 
     ul.timeline > li > .timeline-panel {
-        width: calc(100% - 90px);
-        width: -moz-calc(100% - 90px);
-        width: -webkit-calc(100% - 90px);
+        width: calc(100% - 50px);
+        width: -moz-calc(100% - 50px);
+        width: -webkit-calc(100% - 50px);
     }
 
     ul.timeline > li > .timeline-badge {
         left: 15px;
-        margin-left: 0;
         top: 16px;
     }
 
@@ -742,6 +734,13 @@ width:110px;
             left: -14px;
             right: auto;
         }
+}
+
+.titleLevels
+{
+	padding-top:5%;
+	color:#717073;
+	font-size:11vw;
 }
 /* Stylesheet content from css/main.css in folder android */
 
