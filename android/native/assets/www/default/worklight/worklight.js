@@ -1014,16 +1014,21 @@ WLJSX.Object.extend(Function.prototype, (function() {
     return names.length == 1 && !names[0] ? [] : names;
   }
 
-  function bind(context) {
-    if (arguments.length < 2 && WLJSX.Object.isUndefined(arguments[0])) {
-      return this;
-    }
-    var __method = this,
-      args = slice.call(arguments, 1);
-    return function() {
-      var a = merge(args, arguments);
-      return __method.apply(context, a);
-    };
+  function bind(obj) {
+      var args = Array.prototype.slice.call(arguments, 1),
+          self = this,
+          Nop = function() {
+          },
+          bound = function() {
+              return self.apply(
+                  this instanceof Nop ? this : (obj || {}), args.concat(
+                      Array.prototype.slice.call(arguments)
+                  )
+              );
+          };
+      Nop.prototype = this.prototype || {};
+      bound.prototype = new Nop();
+      return bound;
   }
 
   function bindAsEventListener(context) {
@@ -5228,7 +5233,7 @@ WL.Logger = (function (jQuery) {
         autoSendLogs : typeof options.autoSendLogs === 'boolean' ? options.autoSendLogs : state.autoSendLogs
       };
     if (__checkNativeEnvironment()) {
-      _setNativeOptions({filters: state.filters, filtersFromServer: state.filtersFromServer, level: state.level, levelFromServer: state.levelFromServer, capture: state.capture, captureFromServer: state.captureFromServer, analyticsCapture: state.analyticsCapture, maxFileSize: state.maxFileSize, autoSendLogs: state.autoSendLogs});
+      _setNativeOptions(options || {});
     } else if (WL.StaticAppProps.ENVIRONMENT !== 'air') {
       WL.WebLogger._setState(state);
     }
@@ -17451,6 +17456,7 @@ WL.App.close = function() {
  */
 __WLPush = function() {
     var isTokeUpdatedOnServer = false;
+    var showAll = "true";
     var subscribedEventSources = {};
     var subscribedTags = {};
     var subscribedSMSEventSources = {};
@@ -17578,6 +17584,10 @@ __WLPush = function() {
         }, 'Push', 'subscribe', [gcmSenderId]);
     };
     
+    this.showAllNotifications = function(showAllNotifications) {
+    	showAll = showAllNotifications;
+    };
+    	
     this.subscribeTag = function(tagName, options) {
     	if (!isAbleToSubscribe()) {
             return;
@@ -17927,6 +17937,7 @@ __WLPush = function() {
 
     this.__onmessage = function(props, payload) {
         try {
+        	delete props.callbackId;
         	if(payload.alias) {
                 if (subscribedEventSources[payload.alias] && registeredEventSources[payload.alias] && registeredEventSources[payload.alias].callback) {
                     if(props.key) {
@@ -18059,6 +18070,9 @@ __WLPush = function() {
                     if (WL.Client.Push.__hasPendings()) {
                         WL.Client.Push.__dispatchPendings();
                     }
+                    if(showAll == "true") {
+                		cordova.exec(null, null, 'Push', 'showAllNotifications', [showAll]);
+                	}
                 },
                 onFailure : function() {
                     isTokeUpdatedOnServer = false;
@@ -18081,6 +18095,9 @@ __WLPush = function() {
             if (WL.Client.Push.__hasPendings()) {
                 WL.Client.Push.__dispatchPendings();
             }
+            if(showAll == "true") {
+        		cordova.exec(null, null, 'Push', 'showAllNotifications', [showAll]);
+        	}
         }
     };
 };
@@ -18508,7 +18525,7 @@ window.WLAuthorizationManager = (function() {
    *    function(error) {
    *      // failure flow
    *    }
-   * };
+   * );
    */
   var obtainAuthorizationHeader = function(scope) {
     var dfd = WLJQ.Deferred();

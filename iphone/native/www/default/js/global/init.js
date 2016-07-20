@@ -23,7 +23,8 @@
             url_ProfilePic=Server+"Profile",
             url_UploadImage=Server+"Submit",
             version=Server+"Version",
-            timeline=Server+"TimeLine?Limit=",
+            timeline=Server+"TimeLine?",
+            dates=Server+"Date",
             url_validate=Server+"Validate";
 			
 		var VersionApp = 17;
