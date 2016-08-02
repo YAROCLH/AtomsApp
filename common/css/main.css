@@ -268,39 +268,37 @@ body,
 }
 .onoffswitch-label {
     display: block; overflow: hidden; cursor: pointer;
-    border: 1px solid transparent; 
-    border-radius: 10px;
+    border: 1px solid rgb(204, 204, 204); border-radius: 10px;
 }
 .onoffswitch-inner {
     display: block; width: 200%; margin-left: -100%;
     transition: margin 0.3s ease-in 0s;
 }
-.onoffswitch-inner:before, 
-.onoffswitch-inner:after {
+
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
     display: block; float: left; width: 50%; height: 8.5vw; padding: 0; line-height: 8vw;
     font-size: 5.5vw; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
     box-sizing: border-box;
 }
 .onoffswitch-inner:before {
-    content: "ON";
+    content: "Yes";
     padding-left: 3.5vw;
-    background-color: #F04F38; color: #FFFFFF;
+    background-color: rgb(34, 176,75); color: #FFFFFF;
 }
 .onoffswitch-inner:after {
-    content: "OFF";
+    content: "No";
     padding-right: 3.5vw;
-    background-color: #bbbbbb; color: #ffffff;
+    background-color: #EEEEEE; color: #999999;
     text-align: right;
 }
+
 .onoffswitch-switch {
-    display: block; 
-    width: 6vw; 
-    margin: 1.5vw;
-    background: #FFFFFF;
+    display: block; width: 6vw; margin: 1.5vw;
+    background: #FAFAFA;
     position: absolute; top: 0; bottom: 0;
     right: 16vw;
-    border: 1px solid transparent; 
-    border-radius: 20px;
+    border: 1px solid rgb(204, 204, 204); border-radius: 20px;
     transition: all 0.3s ease-in 0s; 
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
@@ -309,8 +307,6 @@ body,
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
 }
-
-
 
 
 

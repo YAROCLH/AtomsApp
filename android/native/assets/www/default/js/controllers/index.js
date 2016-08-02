@@ -27,7 +27,7 @@
 		});
 
 		$(document).on('click', ".RulesClick",function(){
-				setView("timeline",rank_js,false);
+				setView("timeline",timeline_js,false);
 		});
 /**
  * Functions

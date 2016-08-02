@@ -44,6 +44,7 @@
 			badges_js=false,
 			category_js=false,
 			rank_js=false,
+			timeline_js=false,
 			categoryMenu_js=false,
 			challengeMenu_js=false,
 			menu_js=false,

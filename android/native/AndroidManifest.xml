@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.AtomsApp" android:versionCode="2" android:versionName="1.0.17.3">  
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.AtomsApp" android:versionCode="3" android:versionName="1.0.17.5">  
     <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="21"/>  
     <supports-screens android:smallScreens="false" android:normalScreens="true" android:largeScreens="false"/>  
     <uses-permission android:name="android.permission.INTERNET"/>  

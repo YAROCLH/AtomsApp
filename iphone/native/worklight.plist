@@ -5,7 +5,7 @@
 	<key>protocol</key> 
 	<string>http</string>
 	<key>host</key>
-	<string>PBD31LA</string>
+	<string>gabriels-mbp.gdl.mex.ibm.com</string>
 	<key>port</key>
 	<string>10080</string>
 	<key>wlServerContext</key>
@@ -13,7 +13,7 @@
 	<key>application id</key>
 	<string>AtomsApp</string>
 	<key>application version</key>
-	<string>1.0.17.3</string>
+	<string>1.0.17.5</string>
 	<key>environment</key>
 	<string>iphone</string>
 	<key>buildtime</key>
@@ -27,7 +27,7 @@
 	<key>wlMainFile</key>
 	<string>index.html</string>
 	<key>wlUid</key>
-	<string>zOVbSDg1CgLCkEmt8eXvJg==</string>			
+	<string>RZY+dFD/pi62XKJZK8f6Yg==</string>			
 	<key>platformVersion</key>
 	<string>7.1.0.0</string>
 	<key>wlAppFamily</key>
