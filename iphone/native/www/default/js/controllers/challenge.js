@@ -160,6 +160,7 @@
         	            params.idUser = user;
         	            params.idChallenge = challenge;
         	            params.Attach=attach;
+        	            params.connectionsPost = $("#myonoffswitch").val();
         	            options.params = params;
         	            var ft = new FileTransfer();
         	            ft.upload(imageURI, encodeURI(url_UploadImage), uploadSuccess, uploadFail, options);
