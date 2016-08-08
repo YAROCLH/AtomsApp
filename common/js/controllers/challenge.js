@@ -75,6 +75,7 @@
         			{
             			$('#CameraPhoto').css('display','none');
             			camera_success=true;
+            			$('#buttonCam').css('display','none');
         				console.log('Texto');
         			}
         }
