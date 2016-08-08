@@ -170,7 +170,7 @@
         function otherFuncion(user, challenge, attach)
         {
         	data_submit="idUser="+encodeString(user)+"&idChallenge="+encodeString(challenge)+
-        						"&Attach="+encodeString(comment)+"&Photo="+"PHOTO NOT REQUIRED";
+        						"&Attach="+encodeString(comment)+"&connections="+encodeString($('#myonoffswitch').is(":checked"))+"&Photo="+"PHOTO NOT REQUIRED";
 			$.when(get_Data(Submit_Json,data_submit)).then(function(challenge_data){
 				if(challenge_data[0].STATUS!=-1){
 					submitSuccess();
