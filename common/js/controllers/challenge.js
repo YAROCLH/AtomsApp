@@ -109,7 +109,13 @@
         	comment=$("#commentFoto").val();
         	if(selectedType==3)
         	{
-        		otherFuncion(global_UserId, currentChallenge, comment);
+        		
+        		$.when(get_Data(MyRank_Json,"idUser="+encodeString(global_UserId))).then(function(myRank){
+        			console.log("My current score"+myRank[0].Score);
+                    currentScore=myRank[0].Score;
+                    justText(global_UserId, currentChallenge, comment);
+                });
+        		
         	}else
         		{
 	        		 
@@ -146,37 +152,29 @@
         }
 		
         function uploadPhoto(imageURI,user,challenge,attach){
-           
-            
-	            		 var options = new FileUploadOptions();
-	                     options.fileKey="file";
-	                     //console.log("Esta es la dirección:"+imageURI.substr(imageURI.lastIndexOf('/')+1));
-	                     //alert('Esto llego: '+imageURI.substr(imageURI.lastIndexOf('/')+1));
-            			 options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-            			 options.headers={ 'Authorization': 'Basic '+ DATA_LOGIN};
-        	            options.mimeType="image/jpeg";
-        	            var params = {};
-        	            params.idUser = user;
-        	            params.idChallenge = challenge;
-        	            params.Attach=attach;
-        	            params.connectionsPost = $('#myonoffswitch').is(":checked");
-        	            options.params = params;
-        	            var ft = new FileTransfer();
-        	            ft.upload(imageURI, encodeURI(url_UploadImage), uploadSuccess, uploadFail, options);
-            		
-            
-           
+    		var options = new FileUploadOptions();
+            options.fileKey="file";
+			options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+			options.headers={ 'Authorization': 'Basic '+ DATA_LOGIN};
+            options.mimeType="image/jpeg";
+            var params = {};
+            params.idUser = user;
+            params.idChallenge = challenge;
+            params.Attach=attach;
+            params.connectionsPost = $('#myonoffswitch').is(":checked");
+            options.params = params;
+            var ft = new FileTransfer();
+            ft.upload(imageURI, encodeURI(url_UploadImage), uploadSuccess, uploadFail, options)      
         }
         
-        function otherFuncion(user, challenge, attach)
-        {
-        	data_submit="idUser="+encodeString(user)+"&idChallenge="+encodeString(challenge)+
-        						"&Attach="+encodeString(comment)+"&connections="+encodeString($('#myonoffswitch').is(":checked"))+"&Photo="+"PHOTO NOT REQUIRED";
+        function justText(user, challenge, attach){
+        	data_submit="idUser="+encodeString(user)+"&idChallenge="+encodeString(challenge)
+        			   +"&Attach="+encodeString(comment)+"&connections="+encodeString($('#myonoffswitch').is(":checked"))
+        			   +"&Photo="+"PHOTO NOT REQUIRED";
 			$.when(get_Data(Submit_Json,data_submit)).then(function(challenge_data){
 				if(challenge_data[0].STATUS!=-1){
-					submitSuccess();
-				}
-				else{
+					submitSuccess();	
+				}else{
 					submitFail();	
 				}	
 			}); 

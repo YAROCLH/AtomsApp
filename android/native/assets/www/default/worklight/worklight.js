@@ -1014,21 +1014,16 @@ WLJSX.Object.extend(Function.prototype, (function() {
     return names.length == 1 && !names[0] ? [] : names;
   }
 
-  function bind(obj) {
-      var args = Array.prototype.slice.call(arguments, 1),
-          self = this,
-          Nop = function() {
-          },
-          bound = function() {
-              return self.apply(
-                  this instanceof Nop ? this : (obj || {}), args.concat(
-                      Array.prototype.slice.call(arguments)
-                  )
-              );
-          };
-      Nop.prototype = this.prototype || {};
-      bound.prototype = new Nop();
-      return bound;
+  function bind(context) {
+    if (arguments.length < 2 && WLJSX.Object.isUndefined(arguments[0])) {
+      return this;
+    }
+    var __method = this,
+      args = slice.call(arguments, 1);
+    return function() {
+      var a = merge(args, arguments);
+      return __method.apply(context, a);
+    };
   }
 
   function bindAsEventListener(context) {
@@ -3359,9 +3354,6 @@ WL.Response = WLJSX.Class.create({
       if (typeof(transport.responseJSON) !== 'undefined' && transport.responseJSON !== null) {
         this.errorCode = transport.responseJSON.errorCode;
         this.errorMsg = transport.responseJSON.errorMsg;
-      }else{
-        this.errorCode = transport.wlFailureStatus;
-        this.errorMsg = transport.statusText;
       }
 
       if (typeof(transport.getAllResponseHeaders) === 'function') {
@@ -3426,13 +3418,10 @@ WL.FailResponse = WLJSX.Class.create({
     /*jshint strict:false*/
     if (transport !== null && typeof transport.status !== 'undefined') {
       this.status = (transport.status || 200);
-    }
-    if (transport !== null && transport.responseJSON !== null && typeof(transport.responseJSON) !== 'undefined' && typeof(transport.responseJSON) !== 'string') {
-            this.errorCode = transport.responseJSON.errorCode;
-            this.errorMsg = transport.responseJSON.errorMsg;
-    }else{
-            this.errorCode = transport.errorCode;
-            this.errorMsg = transport.errorMsg;
+      if (transport.responseJSON !== null && typeof(transport.responseJSON) !== 'undefined') {
+        this.errorCode = transport.responseJSON.errorCode;
+        this.errorMsg = transport.responseJSON.errorMsg;
+      }
     }
     this.invocationContext = invocationContext;
   }
@@ -5233,7 +5222,7 @@ WL.Logger = (function (jQuery) {
         autoSendLogs : typeof options.autoSendLogs === 'boolean' ? options.autoSendLogs : state.autoSendLogs
       };
     if (__checkNativeEnvironment()) {
-      _setNativeOptions(options || {});
+      _setNativeOptions({filters: state.filters, filtersFromServer: state.filtersFromServer, level: state.level, levelFromServer: state.levelFromServer, capture: state.capture, captureFromServer: state.captureFromServer, analyticsCapture: state.analyticsCapture, maxFileSize: state.maxFileSize, autoSendLogs: state.autoSendLogs});
     } else if (WL.StaticAppProps.ENVIRONMENT !== 'air') {
       WL.WebLogger._setState(state);
     }
@@ -17456,7 +17445,6 @@ WL.App.close = function() {
  */
 __WLPush = function() {
     var isTokeUpdatedOnServer = false;
-    var showAll = "true";
     var subscribedEventSources = {};
     var subscribedTags = {};
     var subscribedSMSEventSources = {};
@@ -17584,10 +17572,6 @@ __WLPush = function() {
         }, 'Push', 'subscribe', [gcmSenderId]);
     };
     
-    this.showAllNotifications = function(showAllNotifications) {
-    	showAll = showAllNotifications;
-    };
-    	
     this.subscribeTag = function(tagName, options) {
     	if (!isAbleToSubscribe()) {
             return;
@@ -17937,7 +17921,6 @@ __WLPush = function() {
 
     this.__onmessage = function(props, payload) {
         try {
-        	delete props.callbackId;
         	if(payload.alias) {
                 if (subscribedEventSources[payload.alias] && registeredEventSources[payload.alias] && registeredEventSources[payload.alias].callback) {
                     if(props.key) {
@@ -18070,9 +18053,6 @@ __WLPush = function() {
                     if (WL.Client.Push.__hasPendings()) {
                         WL.Client.Push.__dispatchPendings();
                     }
-                    if(showAll == "true") {
-                		cordova.exec(null, null, 'Push', 'showAllNotifications', [showAll]);
-                	}
                 },
                 onFailure : function() {
                     isTokeUpdatedOnServer = false;
@@ -18095,9 +18075,6 @@ __WLPush = function() {
             if (WL.Client.Push.__hasPendings()) {
                 WL.Client.Push.__dispatchPendings();
             }
-            if(showAll == "true") {
-        		cordova.exec(null, null, 'Push', 'showAllNotifications', [showAll]);
-        	}
         }
     };
 };
@@ -18525,7 +18502,7 @@ window.WLAuthorizationManager = (function() {
    *    function(error) {
    *      // failure flow
    *    }
-   * );
+   * };
    */
   var obtainAuthorizationHeader = function(scope) {
     var dfd = WLJQ.Deferred();
@@ -19198,40 +19175,22 @@ window.WLAuthorizationManager = (function() {
     return dfd.promise();
   };
   
-  var signedClientIdCallbacks = [];
-  
   var __getSignedClientId = function() {
     var dfd = WLJQ.Deferred();
     
-    //put all incoming calls to queue
-    signedClientIdCallbacks.push(dfd);
-    
-    if(signedClientIdCallbacks.length > 1){
-      return dfd.promise();
-    }
-    
     cordova.exec(
       function(data) {
-        processSignedClientIdCallbacks(data,true);
+        dfd.resolve(data);
       },
       function(error) {
-        processSignedClientIdCallbacks(error,false);
+        dfd.reject(error);
       },
       AUTHORIZATION_MANAGER_PLUGIN_NAME, 'getWlSignedClientId', []
     );
-
-     return dfd.promise();
+       
+    return dfd.promise();
   };
 
-  function processSignedClientIdCallbacks(response,isSuccess){
-      var objectsToNotify = signedClientIdCallbacks.slice();
-      signedClientIdCallbacks = [];
-
-      for(var i=0; i< objectsToNotify.length ; i++){
-        isSuccess ? objectsToNotify[i].resolve(response) : objectsToNotify[i].reject(response);
-      }
-  }
-  
   var __getWlSessionId = function() {
     var dfd = WLJQ.Deferred();
     if (WLAuthorizationManager.__cachedWlSessionId !== null && typeof(WLAuthorizationManager.__cachedWlSessionId) !== 'undefined') {

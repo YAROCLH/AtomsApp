@@ -53,6 +53,7 @@
 			status_js=false,
 			crop_js=false,
 			login_js=false,
+			before_js=false;
 			myPoints_js=false;
 		
 		//User Data

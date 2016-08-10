@@ -2,7 +2,6 @@ var timelineCount=0;
 
 $(document).ready(function()
 {
-	//$('#Loading3').css("display","none");
 	init_timeline();
 });
 
@@ -199,13 +198,21 @@ function init_timeline()
 		{
 			var str = data[i].Date;
 			var res = str.replace(/\//g, '-');
-			
+			var dateLabel;
+			if(i==0){
+				dateLabel="Today";
+			}else if(i==1){
+				dateLabel="Yesterday";
+			}else{
+				dateLabel=data[i].Date;
+			}
+			var date=data
 			temp+='<li class="timeline-inverted"  data-toggle="collapse" data-target="#'+res+'" >'+
 				       '<div class="timeline-badge warning">'+
 				        	'<img src="./images/clockDefault.png" width="90%" style="display:inline-block;" class="img-responsive">'+
 					    '</div>'+
 					    '<div class="timeline-panel" style="border:none;box-shadow:none;border-bottom:3px solid #eeeeee">'+
-					        '<h4 val="1" style="color:#a6a6a6;" class="title2" date="'+data[i].Date+'" onclick="firstAddChallenges(this);">Challenges from '+data[i].Date+'</h4>'+
+					        '<h4 val="1" style="color:#a6a6a6;" class="title2" date="'+data[i].Date+'" onclick="firstAddChallenges(this);">Challenges from '+dateLabel+'</h4>'+
 					    '</div>'+
 			     '</li>'+
 			     '<div id="'+res+'" class="collapse" >'+

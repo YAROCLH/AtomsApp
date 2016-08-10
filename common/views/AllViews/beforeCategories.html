@@ -37,39 +37,33 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
-		$(document).ready(function()
-		{
-				categoryIntro=0;
-		});
-		$(document).on('click', ".ProductivityGood",function()
-		{
+		$(document).ready(function(){
 				
-				setView("category",category_js,false);
-				init_category(1);	
 		});
+	$(".ProductivityGood").on('click',function(){
+		setView("category",category_js, false);
+		init_category(1);
+	});
+	
+	$(".SocialCa").on('click',function(){
+		setView("category",category_js, false);
+		init_category(2);	
+	});
+	$(".EnvironmentCa").on('click',function(){
+		setView("category",category_js, false);
+		init_category(3);
+	});
+	$(".HealthCa").on('click',function(){
+		setView("category",category_js, false);
+		init_category(4);
+	});
+	$(".GenerocityCa").on('click',function(){
+		setView("category",category_js, false);
+		init_category(5);
+	});
+	
+	
+	
+	
 		
-		$(document).on('click', ".SocialCa",function()
-		{
-				setView("category",category_js,false);
-				init_category(2);
-					
-		});
-		$(document).on('click', ".EnvironmentCa",function()
-		{
-				setView("category",category_js,false);
-				init_category(3);
-					
-		});
-		$(document).on('click', ".HealthCa",function()
-		{
-				setView("category",category_js,false);
-				init_category(4);
-					
-		});
-		$(document).on('click', ".GenerocityCa",function()
-		{
-				setView("category",category_js,false);
-				init_category(5);
-					
-		});
 </script>

@@ -5,13 +5,13 @@
 	<key>protocol</key> 
 	<string>http</string>
 	<key>host</key>
-	<string>gabriels-mbp.gdl.mex.ibm.com</string>
+	<string>PBZ75M5</string>
 	<key>port</key>
 	<string>10080</string>
 	<key>wlServerContext</key>
-	<string>/Atoms/</string>
+	<string>/Atoms1/</string>
 	<key>application id</key>
-	<string>AtomsApp</string>
+	<string>Atoms</string>
 	<key>application version</key>
 	<string>1.0.17.5</string>
 	<key>environment</key>
@@ -27,7 +27,7 @@
 	<key>wlMainFile</key>
 	<string>index.html</string>
 	<key>wlUid</key>
-	<string>RZY+dFD/pi62XKJZK8f6Yg==</string>			
+	<string>9Ywi0pupDoWK2x6GQU1+UQ==</string>			
 	<key>platformVersion</key>
 	<string>7.1.0.0</string>
 	<key>wlAppFamily</key>

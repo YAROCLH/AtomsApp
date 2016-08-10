@@ -12,7 +12,7 @@
 			console.log(devicePlatform)
 		});
 		 $(document).on('click', ".ChallengesClick",function(){
-			 	setView("beforeCategories",category_js,false);
+			 	setView("beforeCategories",before_js,false);
 				//setView("category",category_js,false);		
 		});
 

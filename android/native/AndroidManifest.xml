@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.AtomsApp" android:versionCode="3" android:versionName="1.0.17.5">  
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.Atoms" android:versionCode="1" android:versionName="1.0.17.5">  
     <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="21"/>  
     <supports-screens android:smallScreens="false" android:normalScreens="true" android:largeScreens="false"/>  
     <uses-permission android:name="android.permission.INTERNET"/>  
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>  
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>  
     <!-- Push permissions -->  
-    <permission android:name="com.AtomsApp.permission.C2D_MESSAGE" android:protectionLevel="signature"/>  
-    <uses-permission android:name="com.AtomsApp.permission.C2D_MESSAGE"/>  
+    <permission android:name="com.Atoms.permission.C2D_MESSAGE" android:protectionLevel="signature"/>  
+    <uses-permission android:name="com.Atoms.permission.C2D_MESSAGE"/>  
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>  
     <uses-permission android:name="android.permission.WAKE_LOCK"/>  
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>  
     <uses-permission android:name="android.permission.USE_CREDENTIALS"/>  
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>  
     <application android:label="@string/app_name" android:icon="@drawable/icon"> 
-        <activity android:name=".AtomsApp" android:label="@string/app_name" android:configChanges="orientation|keyboardHidden|screenSize" android:launchMode="singleTask" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:screenOrientation="sensor"> 
+        <activity android:name=".Atoms" android:label="@string/app_name" android:configChanges="orientation|keyboardHidden|screenSize" android:launchMode="singleTask" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:screenOrientation="sensor"> 
             <intent-filter> 
                 <action android:name="android.intent.action.MAIN"/>  
                 <category android:name="android.intent.category.LAUNCHER"/> 
             </intent-filter>  
             <intent-filter> 
-                <action android:name="com.AtomsApp.AtomsApp.NOTIFICATION"/>  
+                <action android:name="com.Atoms.Atoms.NOTIFICATION"/>  
                 <category android:name="android.intent.category.DEFAULT"/> 
             </intent-filter> 
         </activity>  
         <!-- Preference Activity  -->  
-        <activity android:name="com.worklight.common.WLSettingActivity" android:label="Worklight Settings"/>  
+        <activity android:name="com.worklight.common.WLSettingActivity" android:label="Worklight Settings"></activity>  
         <!-- UI Activity for displaying native dialogs  -->  
         <activity android:name="com.worklight.wlclient.ui.UIActivity"/>  
         <!-- Push service  -->  
@@ -39,12 +39,12 @@
             <!-- Receive the actual message -->  
             <intent-filter> 
                 <action android:name="com.google.android.c2dm.intent.RECEIVE"/>  
-                <category android:name="com.AtomsApp"/> 
+                <category android:name="com.Atoms"/> 
             </intent-filter>  
             <!-- Receive the registration id -->  
             <intent-filter> 
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>  
-                <category android:name="com.AtomsApp"/> 
+                <category android:name="com.Atoms"/> 
             </intent-filter> 
         </receiver> 
     </application> 

@@ -14,7 +14,7 @@
  * Events
  */
         $(document).ready(function(){
-            init_category(1)
+        	category_js=true;
         });
 
         $(document).on('click', ".doitClick",function(){
@@ -42,10 +42,8 @@
         }
 
         function init_category(id){
-            category_js=true;
-            if(id!=null) {
-                category_CurrentCategory=id;
-            }
+        	if(id!=null||id!=""){category_CurrentCategory=id;}
+        	console.log("Category "+id);
             data_category="idUser="+encodeString(global_UserId)+"&idCategory="+encodeString(category_CurrentCategory);
             $.when(get_Data(Uncompleted_Json,data_category)).then(function(challenge_data){
                 display_categoryData(challenge_data)	
