@@ -39,9 +39,13 @@
             $("#AtomsModal").modal('show');
         }
 
-        function init_category(id){
+        function init_category(){
+        	console.log("Inicializando Category");
+        }
+        
+        function DisplayCategory(id){
         	if(id!=null||id!=""){category_CurrentCategory=id;}
-        	console.log("Category "+id);
+        	console.log("Display Category: "+id)
             data_category="idUser="+encodeString(global_UserId)+"&idCategory="+encodeString(category_CurrentCategory);
             $.when(get_Data(Uncompleted_Json,data_category)).then(function(challenge_data){
                 display_categoryData(challenge_data)	

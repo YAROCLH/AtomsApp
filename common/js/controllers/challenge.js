@@ -14,6 +14,7 @@
         var photo;
         var canvas,ctx;
         var comment;
+        var toPost;
 /**
  * Events
  */
@@ -22,12 +23,16 @@
         });
 
         $(document).on("click","#CameraPhoto",function(){
-            //$('#myModalLabel').text("Something Went Wrong Please Try Again Later");
+        	if(selectedType==3){
+        		$('#myModalLabel').text("Photo Not required");
+                $('#AtomsModal').modal('show');		
+        	}else{
             $("#btnCamara").css('display', 'block');
             $("#btnCamara").css('width', '100%');
             $("#btnGaleria").css('display', 'block');
             $("#btnGaleria").css('width', '100%');
             $('#AtomsModalCamera').modal('show');
+        	}
         });
 
         $(document).on("click","#btnCamara",function(){
@@ -60,38 +65,30 @@
             selectedScore=category_Data[selectedChallenge].Points;
             selectedType=category_Data[selectedChallenge].Type;
             console.log("Challenge:"+currentChallenge+" Score: "+selectedScore+" Type: "+selectedType);
-            
-            if(selectedType==1)
-        	{
+            if(selectedType==1)	{
             	console.log('Ambos');
+        	}else if(selectedType==2){
+            	$('#commentFoto').val(' ');
+            	$('#commentFoto').attr('disabled','disabled');
+	    		console.log('Foto');
+	    	}else if(selectedType==3){
+            		camera_success=true;
+            		$('.Camera').hide();
+        			console.log('Texto');
         	}
-            else if(selectedType==2)
-	    		{
-            		$('#commentFoto').val(' ');
-            		$('#commentFoto').attr('disabled','disabled');
-	    			console.log('Foto');
-	    		}
-            	else if(selectedType==3)
-        			{
-            			$('#CameraPhoto').css('display','none');
-            			camera_success=true;
-            			$('#buttonCam').css('display','none');
-        				console.log('Texto');
-        			}
         }
 
         function takePicture(source){
-            navigator.camera.getPicture(onSucces,onFail,{
-                quality: 25,
-                sourceType: source,
-                destinationType: destinationType.FILE_URI,
-                targetWidth: 800,
-                targetHeight: 600
-            });
+        	navigator.camera.getPicture(onSucces,onFail,{
+	            quality: 25,
+	            sourceType: source,
+	            destinationType: destinationType.FILE_URI,
+	            targetWidth: 800,
+	            targetHeight: 600
+            });      
         }
 		
         function onSucces(imageURI){
-            console.log("cam success")
             camera_success=true;
             $("#prefoto").attr("src",imageURI);
             $("#prefoto").each(function(){
@@ -106,12 +103,12 @@
         }
 
         function DoSubmit(){
+        	toPost=$('#myonoffswitch').is(":checked");
         	comment=$("#commentFoto").val();
         	if(selectedType==3)
         	{
         		
         		$.when(get_Data(MyRank_Json,"idUser="+encodeString(global_UserId))).then(function(myRank){
-        			console.log("My current score"+myRank[0].Score);
                     currentScore=myRank[0].Score;
                     justText(global_UserId, currentChallenge, comment);
                 });
@@ -152,6 +149,7 @@
         }
 		
         function uploadPhoto(imageURI,user,challenge,attach){
+        	console.log("To Post" +toPost);
     		var options = new FileUploadOptions();
             options.fileKey="file";
 			options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
@@ -161,7 +159,7 @@
             params.idUser = user;
             params.idChallenge = challenge;
             params.Attach=attach;
-            params.connectionsPost = $('#myonoffswitch').is(":checked");
+            params.connectionsPost = toPost
             options.params = params;
             var ft = new FileTransfer();
             ft.upload(imageURI, encodeURI(url_UploadImage), uploadSuccess, uploadFail, options)      
@@ -169,7 +167,7 @@
         
         function justText(user, challenge, attach){
         	data_submit="idUser="+encodeString(user)+"&idChallenge="+encodeString(challenge)
-        			   +"&Attach="+encodeString(comment)+"&connections="+encodeString($('#myonoffswitch').is(":checked"))
+        			   +"&Attach="+encodeString(comment)+"&connections="+encodeString(toPost)
         			   +"&Photo="+"PHOTO NOT REQUIRED";
 			$.when(get_Data(Submit_Json,data_submit)).then(function(challenge_data){
 				if(challenge_data[0].STATUS!=-1){
@@ -181,7 +179,6 @@
         }
         
         function uploadSuccess(r){
-            console.log("Upload Success");
             var res=r.response.toString();
             if(res.indexOf('1') === -1){  submitFail();	}
             else{  submitSuccess();   }	

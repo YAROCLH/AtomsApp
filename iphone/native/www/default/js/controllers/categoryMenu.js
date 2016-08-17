@@ -81,7 +81,7 @@
         function setCategory(idCategory){
             $("#MainPanel").load("views/AllViews/category.html",function(){
                 category_CurrentCategory=idCategory;
-                init_category(idCategory);
+               DisplayCategory(idCategory);
             });
         }
 		

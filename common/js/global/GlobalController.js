@@ -86,11 +86,12 @@
 			}
 			else{
 				if(newView=="category"){
-					recall = new Function("init_"+newView+"("+category_CurrentCategory+")");
+					//recall = new Function("init_"+newView+"()");
 				}else{
 					recall = new Function("init_"+newView+"()");
+					recall();
 				}  
-				recall();
+				
 			}
 		}
 		/**
