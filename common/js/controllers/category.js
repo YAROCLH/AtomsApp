@@ -39,13 +39,19 @@
             $("#AtomsModal").modal('show');
         }
 
-        function init_category(){
-        	console.log("Inicializando Category");
+        function init_category(id){
+        	if(id>0){
+        		DisplayCategory(id);
+        		console.log("Inicializando Categor"+id);
+        	}else{
+        		console.log("Inicializada por before categories");
+        	}
+        		
         }
         
         function DisplayCategory(id){
-        	if(id!=null||id!=""){category_CurrentCategory=id;}
-        	console.log("Display Category: "+id)
+        	category_CurrentCategory=id;
+        	console.log("Display Category: "+id);
             data_category="idUser="+encodeString(global_UserId)+"&idCategory="+encodeString(category_CurrentCategory);
             $.when(get_Data(Uncompleted_Json,data_category)).then(function(challenge_data){
                 display_categoryData(challenge_data)	

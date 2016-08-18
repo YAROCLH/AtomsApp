@@ -72,9 +72,9 @@
             	$('#commentFoto').attr('disabled','disabled');
 	    		console.log('Foto');
 	    	}else if(selectedType==3){
-            		camera_success=true;
-            		$('.Camera').hide();
-        			console.log('Texto');
+	    		//********** 	Desactiva el boton de la camara***********//
+            	camera_success=true;
+        		console.log('Texto');
         	}
         }
 
@@ -105,29 +105,24 @@
         function DoSubmit(){
         	toPost=$('#myonoffswitch').is(":checked");
         	comment=$("#commentFoto").val();
-        	if(selectedType==3)
-        	{
-        		
+        	if(selectedType==3){
         		$.when(get_Data(MyRank_Json,"idUser="+encodeString(global_UserId))).then(function(myRank){
                     currentScore=myRank[0].Score;
                     justText(global_UserId, currentChallenge, comment);
                 });
         		
-        	}else
-        		{
-	        		 
-	                 console.log(camera_success+" "+comment+" XD");
-	                 if(camera_success&&comment!=""){
-	                 	$('#ProgressUp').css('display','inline');
-	                     var data_myrank="idUser="+encodeString(global_UserId);
-	                     $.when(get_Data(MyRank_Json,data_myrank)).then(function(myRank){
-	                         currentScore=myRank[0].Score;
-	                         data_user=encodeString(global_UserId);
-	                         data_challenge=encodeString(currentChallenge);
-	                         data_attach=encodeString(comment);
-	                         uploadPhoto(photo, data_user, data_challenge,data_attach);	
-	                     });
-                     
+        	}else{
+	            console.log(camera_success+" "+comment+" XD");
+	            if(camera_success&&comment!=""){
+		            $('#ProgressUp').css('display','inline');
+		            var data_myrank="idUser="+encodeString(global_UserId);
+		            $.when(get_Data(MyRank_Json,data_myrank)).then(function(myRank){
+		            	currentScore=myRank[0].Score;
+		                data_user=encodeString(global_UserId);
+		                data_challenge=encodeString(currentChallenge);
+		                data_attach=encodeString(comment);
+		                uploadPhoto(photo, data_user, data_challenge,data_attach);	
+		             });       
                  }
                  else{
                      onSubmit=false;
@@ -159,7 +154,8 @@
             params.idUser = user;
             params.idChallenge = challenge;
             params.Attach=attach;
-            params.connectionsPost = toPost
+            params.connectionsPost = toPost;
+            options.params = params;
             options.params = params;
             var ft = new FileTransfer();
             ft.upload(imageURI, encodeURI(url_UploadImage), uploadSuccess, uploadFail, options)      

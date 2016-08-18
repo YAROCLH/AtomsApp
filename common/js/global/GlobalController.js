@@ -38,7 +38,7 @@
 				$("#MainPanel").load("views/AllViews/"+newView+".html");
 				pushView(newView,currentView,backView); 
 			}
-			loadJS(newView,status_view);
+			loadJS(newView,status_view,backView);
 			loadMenu(newView);
 			currentView=newView;
 		}
@@ -80,18 +80,19 @@
 		 * @param newView: String, Name of the view to load
 		 * @param status_view: true if the view was loaded previously
 		 */
-		function loadJS(newView,status_view){
+		function loadJS(newView,status_view,back){
 			if(!status_view){
 				$.getScript("js/controllers/"+newView+".js");
 			}
 			else{
-				if(newView=="category"){
-					//recall = new Function("init_"+newView+"()");
+				if(newView=="category"&&back){
+					recall= new Function("init_"+newView+"("+category_CurrentCategory+")");
+					console.log("Category & back");
 				}else{
 					recall = new Function("init_"+newView+"()");
-					recall();
+
 				}  
-				
+				recall();
 			}
 		}
 		/**
