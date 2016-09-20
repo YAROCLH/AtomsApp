@@ -65,18 +65,19 @@
             selectedScore=category_Data[selectedChallenge].Points;
             selectedType=category_Data[selectedChallenge].Type;
             console.log("Challenge:"+currentChallenge+" Score: "+selectedScore+" Type: "+selectedType);
-            if(selectedType==1)	{
+        /*    if(selectedType==1)	{
             	console.log('Ambos');
         	}else if(selectedType==2){
             	$('#commentFoto').val(' ');
             	$('#commentFoto').attr('disabled','disabled');
 	    		console.log('Foto');
 	    	}else if(selectedType==3){
-	    		//********** 	Desactiva el boton de la camara***********//
             	camera_success=true;
         		console.log('Texto');
-        	}
+        	}*/
         }
+        
+        
 
         function takePicture(source){
         	navigator.camera.getPicture(onSucces,onFail,{

@@ -8,6 +8,7 @@
 		document.addEventListener("backbutton", onBackKeyDown, false);
 		
 		function onBackKeyDown() {
+			$('#AtomsModal').modal('hide');
 			if( currentView=="index" || isLogin){
 				exitApp();
 			}
