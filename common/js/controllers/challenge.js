@@ -64,8 +64,7 @@
             currentChallenge=category_Data[selectedChallenge].id;
             selectedScore=category_Data[selectedChallenge].Points;
             selectedType=category_Data[selectedChallenge].Type;
-            console.log("Challenge:"+currentChallenge+" Score: "+selectedScore+" Type: "+selectedType);
-        
+            console.log("Challenge:"+currentChallenge+" Score: "+selectedScore+" Type: "+selectedType);        
         }
         
         

@@ -53,9 +53,11 @@
         	category_CurrentCategory=id;
         	console.log("Display Category: "+id);
             data_category="idUser="+encodeString(global_UserId)+"&idCategory="+encodeString(category_CurrentCategory);
+            console.log("URL: "+data_category);
             $.when(get_Data(Uncompleted_Json,data_category)).then(function(challenge_data){
-                display_categoryData(challenge_data)	;
+                display_categoryData(challenge_data);
             });
+            console.log("No logo");
         }
 		
 		function display_categoryData(category_data){

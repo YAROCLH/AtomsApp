@@ -39,7 +39,7 @@
                 $.when(get_Data(Status_Json,data_status)).then(function(status_data)
                 {
                     categories            = status_data;
-                    var catID             = ['#Cat1', '#Cat2', '#Cat3', '#Cat4', '#Cat5' ];
+                    var catID             = ['#Cat1', '#Cat2', '#Cat3', '#Cat4', '#Cat5','#Cat6' ];
                     var number_categories = categories.length;
 
                     var category          = 0, 
