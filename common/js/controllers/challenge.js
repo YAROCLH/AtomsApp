@@ -65,16 +65,7 @@
             selectedScore=category_Data[selectedChallenge].Points;
             selectedType=category_Data[selectedChallenge].Type;
             console.log("Challenge:"+currentChallenge+" Score: "+selectedScore+" Type: "+selectedType);
-        /*    if(selectedType==1)	{
-            	console.log('Ambos');
-        	}else if(selectedType==2){
-            	$('#commentFoto').val(' ');
-            	$('#commentFoto').attr('disabled','disabled');
-	    		console.log('Foto');
-	    	}else if(selectedType==3){
-            	camera_success=true;
-        		console.log('Texto');
-        	}*/
+        
         }
         
         
@@ -96,7 +87,6 @@
                 $(this).height($(this).height() * 0.99);
             });
             photo=imageURI;
-            console.log("PHOTO"+photo)
         }
 
         function onFail(message){
@@ -113,7 +103,7 @@
                 });
         		
         	}else{
-	            console.log(camera_success+" "+comment+" XD");
+	           // console.log(camera_success+" "+comment+" XD");
 	            if(camera_success&&comment!=""){
 		            $('#ProgressUp').css('display','inline');
 		            var data_myrank="idUser="+encodeString(global_UserId);
@@ -145,7 +135,6 @@
         }
 		
         function uploadPhoto(imageURI,user,challenge,attach){
-        	console.log("To Post" +toPost);
     		var options = new FileUploadOptions();
             options.fileKey="file";
 			options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);

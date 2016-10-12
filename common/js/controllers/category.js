@@ -42,9 +42,9 @@
         function init_category(id){
         	if(id>0){
         		DisplayCategory(id);
-        		console.log("Inicializando Categor"+id);
+        		//console.log("Inicializando Categor"+id);
         	}else{
-        		console.log("Inicializada por before categories");
+        		//console.log("Inicializada por before categories");
         	}
         		
         }
@@ -54,7 +54,7 @@
         	console.log("Display Category: "+id);
             data_category="idUser="+encodeString(global_UserId)+"&idCategory="+encodeString(category_CurrentCategory);
             $.when(get_Data(Uncompleted_Json,data_category)).then(function(challenge_data){
-                display_categoryData(challenge_data)	
+                display_categoryData(challenge_data)	;
             });
         }
 		

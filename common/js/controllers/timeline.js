@@ -61,6 +61,11 @@ function firstAddChallenges(o)
     					temp = temp + '<img src="./images/good3.png" width="90%" style="display:inline-block;" class="img-responsive"/>';
     					color="FCB614";
     				}
+    				else if(data[i].Category=="6")
+    				{
+    					temp = temp + '<img src="./images/agile3.png" width="80%" style="display:inline-block;" class="img-responsive"/>';
+    					color="8CC640";
+    				}
     					          
     				   temp=temp+ '</div>'+
     					          '<div class="timeline-panel">'+
@@ -152,6 +157,11 @@ function make(something)
     	    				{
     	    					temp = temp + '<img src="./images/good3.png" width="90%" style="display:inline-block;" class="img-responsive"/>';
     	    					color="FCB614";
+    	    				}
+    	    				else if(data[i].Category=="6")
+    	    				{
+    	    					temp = temp + '<img src="./images/agile3.png" width="80%" style="display:inline-block;" class="img-responsive"/>';
+    	    					color="8CC640";
     	    				}
     	    					          
     	    				   temp=temp+ '</div>'+

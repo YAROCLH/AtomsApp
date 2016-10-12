@@ -29,7 +29,7 @@
 		function Animate()
         {
 			var category    = 0;						
-		    var percents    = ['percent1', 'percent2', 'percent3', 'percent4', 'percent5'];
+		    var percents    = ['percent1', 'percent2', 'percent3', 'percent4', 'percent5','percent6'];
 		    var data_status = "idUser="+encodeString(global_UserId);
 		    
 		    var categories, score, newPercent, total, total_badge;
