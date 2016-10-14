@@ -119,6 +119,7 @@ extern NSString* const WL_SPLASH_PACKAGE;
 extern NSString* const WL_CLIENT_PACKAGE;
 extern NSString* const WL_AFHTTPRequestOperationManagerWrapper_PACKAGE;
 extern NSString* const WL_REQUEST_PACKAGE;
+extern NSString* const WL_RESOURCE_REQUEST_PACKAGE;
 extern NSString* const WL_INIT_PACKAGE;
 extern NSString* const WL_ACTION_PACKAGE;
 extern NSString* const WL_AUTH_PACKAGE;

@@ -66,25 +66,12 @@
             currentChallenge=category_Data[selectedChallenge].id;
             selectedScore=category_Data[selectedChallenge].Points;
             selectedType=category_Data[selectedChallenge].Type;
-            console.log("Challenge:"+currentChallenge+" Score: "+selectedScore+" Type: "+selectedType);
-            if(selectedType==1)	{
-            	console.log('Ambos');
-        	}
-            else if(selectedType==2){
-            		$('#commentFoto').val(' ');
-            		$('#commentFoto').attr('disabled','disabled');
-	    			console.log('Foto');
-	    		}
-            	else if(selectedType==3){
-            			//$(".CameraPhoto").hide();
-            			camera_success=true;
-            			$('.Camera').hide();
-        				console.log('Texto');
-        			}
+            console.log("Challenge:"+currentChallenge+" Score: "+selectedScore+" Type: "+selectedType);        
         }
+        
+        
 
         function takePicture(source){
-        	
         	navigator.camera.getPicture(onSucces,onFail,{
 	            quality: 25,
 	            sourceType: source,
@@ -95,14 +82,12 @@
         }
 		
         function onSucces(imageURI){
-            console.log("cam success")
             camera_success=true;
             $("#prefoto").attr("src",imageURI);
             $("#prefoto").each(function(){
                 $(this).height($(this).height() * 0.99);
             });
             photo=imageURI;
-            console.log("PHOTO"+photo)
         }
 
         function onFail(message){
@@ -112,30 +97,24 @@
         function DoSubmit(){
         	toPost=$('#myonoffswitch').is(":checked");
         	comment=$("#commentFoto").val();
-        	if(selectedType==3)
-        	{
-        		
+        	if(selectedType==3){
         		$.when(get_Data(MyRank_Json,"idUser="+encodeString(global_UserId))).then(function(myRank){
-        			console.log("My current score"+myRank[0].Score);
                     currentScore=myRank[0].Score;
                     justText(global_UserId, currentChallenge, comment);
                 });
         		
-        	}else
-        		{
-	        		 
-	                 console.log(camera_success+" "+comment+" XD");
-	                 if(camera_success&&comment!=""){
-	                 	$('#ProgressUp').css('display','inline');
-	                     var data_myrank="idUser="+encodeString(global_UserId);
-	                     $.when(get_Data(MyRank_Json,data_myrank)).then(function(myRank){
-	                         currentScore=myRank[0].Score;
-	                         data_user=encodeString(global_UserId);
-	                         data_challenge=encodeString(currentChallenge);
-	                         data_attach=encodeString(comment);
-	                         uploadPhoto(photo, data_user, data_challenge,data_attach);	
-	                     });
-                     
+        	}else{
+	           // console.log(camera_success+" "+comment+" XD");
+	            if(camera_success&&comment!=""){
+		            $('#ProgressUp').css('display','inline');
+		            var data_myrank="idUser="+encodeString(global_UserId);
+		            $.when(get_Data(MyRank_Json,data_myrank)).then(function(myRank){
+		            	currentScore=myRank[0].Score;
+		                data_user=encodeString(global_UserId);
+		                data_challenge=encodeString(currentChallenge);
+		                data_attach=encodeString(comment);
+		                uploadPhoto(photo, data_user, data_challenge,data_attach);	
+		             });       
                  }
                  else{
                      onSubmit=false;
@@ -157,7 +136,6 @@
         }
 		
         function uploadPhoto(imageURI,user,challenge,attach){
-        	console.log("To Post" +toPost);
     		var options = new FileUploadOptions();
             options.fileKey="file";
 			options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
@@ -167,7 +145,8 @@
             params.idUser = user;
             params.idChallenge = challenge;
             params.Attach=attach;
-            params.connectionsPost = toPost
+            params.connectionsPost = toPost;
+            options.params = params;
             options.params = params;
             var ft = new FileTransfer();
             ft.upload(imageURI, encodeURI(url_UploadImage), uploadSuccess, uploadFail, options)      
@@ -187,7 +166,6 @@
         }
         
         function uploadSuccess(r){
-            console.log("Upload Success");
             var res=r.response.toString();
             if(res.indexOf('1') === -1){  submitFail();	}
             else{  submitSuccess();   }	

@@ -6,8 +6,8 @@
 */
 
 		//var Server="http://localhost:9080/liberty-HelloWorld/Service/",
-		//var Server="https://lmc2.watson.ibm.com:15036/atoms/",
-		var Server="https://lmc2.watson.ibm.com:15036/atomes/Service/",
+			var Server="https://lmc2.watson.ibm.com:15036/atoms/",
+		//var Server="https://lmc2.watson.ibm.com:15036/atomes/Service/",
             ProcServer="https://lmc2.watson.ibm.com:15036/atoms/",
             TestServer="https://lmc2.watson.ibm.com:15036/atomes/",
             Test=0,
@@ -27,7 +27,7 @@
             dates=Server+"Date",
             url_validate=Server+"Validate";
 			
-		var VersionApp = 17;
+		var VersionApp = 21;
 
 		//Device OS
 		var devicePlatform;

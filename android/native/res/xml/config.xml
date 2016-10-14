@@ -18,16 +18,16 @@
  under the License.
 -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
-        id        = "Atoms"
-        version   = "1.0.17.5.0.0">
-    <name>Atoms</name>
+        id        = "AtomsApp"
+        version   = "1.0.0.0">
+    <name>AtomsApp</name>
 
     <description>
-        Atoms
+        AtomsApp
     </description>
 
-    <author href="http://ibm.com" email="yariblh@mx1.ibm.com">
-        IBM BTCIO CTG
+    <author href="http://mycompany.com" email="application author's e-mail">
+        application's author
     </author>
 
     <access origin="*"/>

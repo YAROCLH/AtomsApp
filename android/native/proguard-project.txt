@@ -52,7 +52,7 @@
 -keepattributes SourceFile,LineNumberTable
 
 # Enable proguard with Cordova
--keep class org.apache.cordova.** { *; }
+-keep public class org.apache.cordova.** { *; }
 -keep public class * extends org.apache.cordova.CordovaPlugin
 
 -keep class com.worklight.androidgap.push.** { *; }
@@ -80,6 +80,8 @@
     public static ** valueOf(java.lang.String);
 }
 
+
+
 # These classes contain references to external jars which are not included in the default MobileFirst project.
 -dontwarn com.worklight.common.internal.WLTrusteerInternal*
 -dontwarn com.worklight.jsonstore.**
@@ -94,4 +96,14 @@
 -dontwarn com.worklight.wlclient.push.common.*
 -dontwarn com.worklight.wlclient.api.WLPush
 -dontwarn com.worklight.wlclient.api.SecurityUtils
+
+-dontwarn android.support.v4.**
+-dontwarn android.net.SSLCertificateSocketFactory
+-dontwarn android.net.http.*
+
+-dontwarn android.app.**
+-dontwarn org.apache.cordova.**
+-keep class android.app.** { *; }
+-keep class org.apache.cordova.** { *; }
+
 ######################################################################################################

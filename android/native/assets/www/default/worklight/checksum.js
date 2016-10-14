@@ -1,2 +1,2 @@
-var WL_CHECKSUM = {"date":1471442580702,"machine":"PBZ75M5.gdl.mex.ibm.com","checksum":1850205938};
-/* Date: Wed Aug 17 09:03:00 CDT 2016 */
+var WL_CHECKSUM = {"checksum":3642625183,"date":1476466191023,"machine":"miguels-mbp.gdl.mex.ibm.com"};
+/* Date: Fri Oct 14 12:29:51 CDT 2016 */

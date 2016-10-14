@@ -16,32 +16,24 @@
 /**
  * Functions
  */
-        function nextCategory()
-        {
-            if(CM_counter > 1 && CM_counter <= CM_categoryData.length)
-            {
+        function nextCategory(){
+            if(CM_counter > 1 && CM_counter <= CM_categoryData.length){
                 CM_counter--;
                 $("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
                 setCategory(CM_counter);
                 ValidateCM(CM_counter,CM_categoryData.length);               
-            }
-            else
-            {
+            }else{
                 // $("#izquierda").css("display",'none');
             }
         }
 
-        function previousCategory()
-        {
-            if(CM_counter > 0 && CM_counter < CM_categoryData.length)
-            {
+        function previousCategory(){
+            if(CM_counter > 0 && CM_counter < CM_categoryData.length){
                 CM_counter++;
                 $("#CategoryName").html(CM_categoryData[CM_counter-1].Name);
                 setCategory(CM_counter);
                 ValidateCM(CM_counter,CM_categoryData.length);
-            }
-            else
-            {
+            }else{
                 // $("#derecha").css("display",'none');
             }
         }
@@ -67,8 +59,7 @@
             }
         }
         
-        function init_categoryMenu()
-        {	
+        function init_categoryMenu(){	
             categoryMenu_js=true;
             $.when(get_Data(Categories_Json)).then(function(category_data){
                 CM_categoryData=category_data;

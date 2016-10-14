@@ -10,7 +10,8 @@
       <root url="jar://$PROJECT_DIR$/libs/bcprov.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/android-async-http.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/sqlcipher.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/uicandroid.jar!/" />      
+      <root url="jar://$PROJECT_DIR$/libs/uicandroid.jar!/" />    
+      <root url="jar://$PROJECT_DIR$/libs/jsonstore.jar!/"/>  
     </CLASSES>
     <JAVADOC />
     <SOURCES />
